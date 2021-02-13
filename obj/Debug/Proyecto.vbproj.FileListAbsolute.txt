@@ -1,0 +1,14 @@
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\bin\Debug\Proyecto.exe.config
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\bin\Debug\Proyecto.exe
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\bin\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\bin\Debug\Proyecto.xml
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.vbprojAssemblyReference.cache
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.Login.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.Menu.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.Resources.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.vbproj.GenerateResource.cache
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.vbproj.CoreCompileInputs.cache
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.exe
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.xml
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.frmhora.resources
