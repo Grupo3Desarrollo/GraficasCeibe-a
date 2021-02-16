@@ -12,3 +12,17 @@ C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.e
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.xml
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.pdb
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Proyecto\obj\Debug\Proyecto.frmhora.resources
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\bin\Debug\Proyecto.exe.config
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\bin\Debug\Proyecto.exe
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\bin\Debug\Proyecto.pdb
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\bin\Debug\Proyecto.xml
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.vbprojAssemblyReference.cache
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.frmhora.resources
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.Login.resources
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.Menuu.resources
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.Resources.resources
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.vbproj.GenerateResource.cache
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.vbproj.CoreCompileInputs.cache
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.exe
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.xml
+C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.pdb

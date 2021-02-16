@@ -80,7 +80,7 @@ Partial Class Login
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSalir.Location = New System.Drawing.Point(346, 322)
+        Me.btnSalir.Location = New System.Drawing.Point(55, 326)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(250, 68)
         Me.btnSalir.TabIndex = 31
@@ -223,7 +223,7 @@ Partial Class Login
         Me.btnlogin.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnlogin.Image = CType(resources.GetObject("btnlogin.Image"), System.Drawing.Image)
         Me.btnlogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnlogin.Location = New System.Drawing.Point(52, 322)
+        Me.btnlogin.Location = New System.Drawing.Point(323, 326)
         Me.btnlogin.Name = "btnlogin"
         Me.btnlogin.Size = New System.Drawing.Size(250, 68)
         Me.btnlogin.TabIndex = 20

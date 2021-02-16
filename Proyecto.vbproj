@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexiones\Conexion.vb" />
     <Compile Include="Login\frmhora.Designer.vb">
       <DependentUpon>frmhora.vb</DependentUpon>
     </Compile>
@@ -86,10 +87,10 @@
       <DependentUpon>Login.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Menu.Designer.vb">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <Compile Include="Login\Menuu.Designer.vb">
+      <DependentUpon>Menuu.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login\Menu.vb">
+    <Compile Include="Login\Menuu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -116,8 +117,8 @@
     <EmbeddedResource Include="Login\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Menu.resx">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <EmbeddedResource Include="Login\Menuu.resx">
+      <DependentUpon>Menuu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -15,4 +15,11 @@
         DateTimePicker1.Visible = False
     End Sub
 
+    Private Sub labelfecha_Click(sender As Object, e As EventArgs) Handles labelfecha.Click
+
+    End Sub
+
+    Private Sub labelhora1_Click(sender As Object, e As EventArgs) Handles labelhora1.Click
+
+    End Sub
 End Class
