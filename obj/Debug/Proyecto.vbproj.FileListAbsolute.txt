@@ -42,3 +42,4 @@ C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Deb
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.pdb
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmEmpleados.resources
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmCategoria.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmProducto.resources

@@ -86,6 +86,12 @@
     <Compile Include="Formularios\frmEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmProducto.Designer.vb">
+      <DependentUpon>frmProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\frmhora.Designer.vb">
       <DependentUpon>frmhora.vb</DependentUpon>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmProducto.resx">
+      <DependentUpon>frmProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmhora.resx">
       <DependentUpon>frmhora.vb</DependentUpon>
