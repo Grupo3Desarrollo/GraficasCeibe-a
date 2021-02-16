@@ -26,3 +26,19 @@ C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Pro
 C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.exe
 C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.xml
 C:\Users\josti\Downloads\GraficasCeibena-main\GraficasCeibena-main\obj\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\bin\Debug\Proyecto.exe.config
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\bin\Debug\Proyecto.exe
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\bin\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\bin\Debug\Proyecto.xml
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.vbprojAssemblyReference.cache
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmhora.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.Login.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.Menuu.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.Resources.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.vbproj.GenerateResource.cache
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.vbproj.CoreCompileInputs.cache
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.exe
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.xml
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmEmpleados.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmCategoria.resources

@@ -74,6 +74,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexiones\Conexion.vb" />
+    <Compile Include="Formularios\frmCategoria.Designer.vb">
+      <DependentUpon>frmCategoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmEmpleados.Designer.vb">
+      <DependentUpon>frmEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmEmpleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login\frmhora.Designer.vb">
       <DependentUpon>frmhora.vb</DependentUpon>
     </Compile>
@@ -111,6 +123,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\frmCategoria.resx">
+      <DependentUpon>frmCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmEmpleados.resx">
+      <DependentUpon>frmEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login\frmhora.resx">
       <DependentUpon>frmhora.vb</DependentUpon>
     </EmbeddedResource>

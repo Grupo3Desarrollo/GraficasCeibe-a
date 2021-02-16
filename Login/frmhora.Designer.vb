@@ -30,7 +30,7 @@ Partial Class frmhora
         Me.labelfecha = New System.Windows.Forms.Label()
         Me.timerhora = New System.Windows.Forms.Timer(Me.components)
         Me.timerfecha = New System.Windows.Forms.Timer(Me.components)
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker12 = New System.Windows.Forms.DateTimePicker()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -82,12 +82,12 @@ Partial Class frmhora
         'timerfecha
         '
         '
-        'DateTimePicker1
+        'DateTimePicker12
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(110, 466)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 6
+        Me.DateTimePicker12.Location = New System.Drawing.Point(110, 466)
+        Me.DateTimePicker12.Name = "DateTimePicker12"
+        Me.DateTimePicker12.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker12.TabIndex = 6
         '
         'frmhora
         '
@@ -95,7 +95,7 @@ Partial Class frmhora
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(820, 576)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.DateTimePicker12)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -114,6 +114,6 @@ Partial Class frmhora
     Friend WithEvents labelfecha As Label
     Friend WithEvents timerhora As Timer
     Friend WithEvents timerfecha As Timer
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePicker12 As DateTimePicker
     Friend WithEvents labelhora1 As Label
 End Class

@@ -64,5 +64,11 @@ Public Class Menuu
         SendMessage(Me.Handle, &H112&, &HF012&, 0)
     End Sub
 
+    Private Sub btnempleados_Click(sender As Object, e As EventArgs) Handles btnempleados.Click
+        abrirFormulario(frmEmpleados)
+    End Sub
 
+    Private Sub btncategoria_Click(sender As Object, e As EventArgs) Handles btncategoria.Click
+        abrirFormulario(frmCategoria)
+    End Sub
 End Class
