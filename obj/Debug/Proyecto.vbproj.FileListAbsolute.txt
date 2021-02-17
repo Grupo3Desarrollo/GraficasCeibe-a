@@ -43,3 +43,21 @@ C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Deb
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmEmpleados.resources
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmCategoria.resources
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmProducto.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\bin\Debug\Proyecto.exe.config
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\bin\Debug\Proyecto.exe
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\bin\Debug\Proyecto.pdb
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\bin\Debug\Proyecto.xml
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.vbprojAssemblyReference.cache
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmCategoria.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmEmpleados.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmProducto.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.Resource1.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmhora.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.Login.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.Menuu.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.Resources.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.vbproj.GenerateResource.cache
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.vbproj.CoreCompileInputs.cache
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.exe
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.xml
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.pdb
