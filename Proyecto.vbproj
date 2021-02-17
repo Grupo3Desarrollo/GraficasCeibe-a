@@ -175,7 +175,9 @@
     </None>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\transparente.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="IMG\transparente.png">
       <CustomToolNamespace>My.Resources</CustomToolNamespace>

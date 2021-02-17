@@ -100,7 +100,7 @@ Public Class frmProducto
 
         Try
             If conexion.insertarProducto(idcategoria, nombre, descripcion, stock, precio_compra, precio_venta, fecha_vencimiento, imagenD) Then
-
+                MessageBox.Show("Producto almacenado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

@@ -51,7 +51,6 @@ C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Pro
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmCategoria.resources
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmEmpleados.resources
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmProducto.resources
-C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.Resource1.resources
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.frmhora.resources
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.Login.resources
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.Menuu.resources
@@ -61,3 +60,4 @@ C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Pro
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.exe
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.xml
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.pdb
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.mostrarCategoria.resources
