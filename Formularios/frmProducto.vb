@@ -210,8 +210,8 @@ Public Class frmProducto
     End Sub
 
     Private Sub btnbuscarcategoria_Click(sender As Object, e As EventArgs) Handles btnbuscarcategoria.Click
-        'MostrarCategoria.txtflag.Text = "1"
-        'MostrarCategoria.ShowDialog()
+        mostrarCategoria.txtflag.Text = "1"
+        mostrarCategoria.ShowDialog()
     End Sub
 
     Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs) Handles txtbuscar.TextChanged
