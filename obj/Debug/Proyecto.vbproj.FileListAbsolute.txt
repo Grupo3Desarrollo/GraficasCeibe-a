@@ -61,3 +61,21 @@ C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Pro
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.xml
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.pdb
 C:\Users\Sandra\Desktop\2021\desarollo de software\avance Proyecto\obj\Debug\Proyecto.mostrarCategoria.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\bin\Debug\Proyecto.exe.config
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\bin\Debug\Proyecto.exe
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\bin\Debug\Proyecto.pdb
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\bin\Debug\Proyecto.xml
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.vbprojAssemblyReference.cache
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.frmCategoria.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.frmEmpleados.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.frmProducto.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.mostrarCategoria.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.frmhora.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.Login.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.Menuu.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.Resources.resources
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.vbproj.GenerateResource.cache
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.vbproj.CoreCompileInputs.cache
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.exe
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.xml
+C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.pdb
