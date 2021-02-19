@@ -185,7 +185,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BASE DE DATOS\TextFile1.txt" />
+    <Content Include="BASE DE DATOS\GRAFICAS_CEIBA.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

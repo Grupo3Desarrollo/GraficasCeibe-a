@@ -133,3 +133,85 @@ as
 select pro.idproducto as 'Codigo producto', pro.idcategoria as 'Codigo categoria', cat.nombre_categoria as 'Categoria', pro.nombre as 'Producto',pro.descripcion as 'Descripcion',pro.stock as 'Stock',pro.precio_compra as 'Precio de compra',pro.precio_venta as 'Precio de venta',pro.fecha_vencimiento as 'Fecha de vencimiento',pro.imagen as 'Imagen'
 from producto as pro inner join categoria as cat on pro.idcategoria = cat.idcategoria
 where pro.nombre like '%' +@nombre+ '%'
+
+
+
+-- //////////////////////////// EMPLEADO ///////////////////////////////////////////////////////////////
+-- Validar el empleado
+create procedure validarUsuario
+@userName nvarchar(13),
+@psw varchar(15),
+@rol varchar(30)
+as begin
+if exists(select Estado from Empleados where DNIEmpleado = @userName and contrasenia = @psw and rol = @rol and Estado = 'Activo')
+          select * from empleados;
+		else
+        raiserror('El usuario no existe',16,1)
+end
+
+
+
+
+-- Insertar Empleado
+create procedure insertar_Empleado
+    --@idEmpleado as INT ,
+	@Nombres as varchar(30),
+	@Apellidos as varchar(30),
+	@FechaNacimiento as date,
+	@Tel as varchar(9),
+	@Sexo as char(1), 
+	@Estado as varchar(20),
+	@contrasenia as nvarchar(30),
+	@DNIEmpleado Nvarchar(13),
+	@rol as varchar(30)
+	as begin
+	     if exists (select DNIEmpleado, Tel from Empleados where DNIEmpleado=@DNIEmpleado and Tel=@Tel and Estado='activo')
+		raiserror ('Ya existe un registro con estos datos, porfavor ingrese uno nuevo',16,1)
+		else
+		insert into Empleados values( @Nombres, @Apellidos, @FechaNacimiento, @Tel, @Sexo, @Estado, @contrasenia, @DNIEmpleado, @rol ) 
+end
+ 
+--Editar Empleado
+CREATE procedure editar_Empleado
+    @idEmpleado as INT,
+	@Nombres as varchar(30),
+	@Apellidos as varchar(30),
+	@FechaNacimiento as date,
+	@Tel as varchar(9),
+	@Sexo as char(1), 
+	@Estado as varchar(20),
+	@contrasenia as nvarchar(30),
+	@DNIEmpleado Nvarchar(13),
+	@rol as varchar(30)      
+	as 
+	   update Empleados set  Nombres=@Nombres, Apellidos=@Apellidos, FechaNacimiento=@FechaNacimiento, tel=@Tel, Sexo=@Sexo, estado=@Estado,  contrasenia=@contrasenia,  DNIEmpleado=@DNIEmpleado ,rol=@rol 
+	   where  @idEmpleado= @idEmpleado
+
+
+
+-- BUSQUEDA
+create procedure buscarEmpleado
+@UserName varchar(25)
+as
+select idempleado as 'Codigo', DNIEmpleado as 'Identidad', Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo', rol as 'Rol', estado as 'Estado', contrasenia as 'Contrasena'
+	   From Empleados 
+where CONCAT(Nombres, '',Apellidos) like '%' +@UserName+ '%'
+
+
+
+-- Mostrar Empleado
+CREATE procedure Mostrar_Empleado
+as
+select idempleado as 'Codigo', DNIEmpleado as 'Identidad', Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo', rol as 'Rol', estado as 'Estado', contrasenia as 'Contrasena'
+	   From Empleados 
+	   order by  idEmpleado desc
+go
+
+
+-- Mostrar Empleados activos
+create procedure Mostrar_EmpleadoActivo
+as
+select Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo',estado as 'Estado', contrasenia as 'Contraseña',DNIEmpleado as 'Identidad del Empleado', rol as 'Rol'
+	   From Empleados 
+	   where Estado = 'Activo'
+go
