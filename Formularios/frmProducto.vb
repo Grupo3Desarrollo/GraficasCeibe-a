@@ -243,5 +243,7 @@ Public Class frmProducto
         btneditar.Visible = True
     End Sub
 
+    Private Sub datalistado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellContentClick
 
+    End Sub
 End Class

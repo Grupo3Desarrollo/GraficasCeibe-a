@@ -73,9 +73,8 @@ Public Class frmEmpleados
         Dim Tel, estado, contrasena, rol As String
         Dim sexo As Char
         Dim fechanacimiento As Date
-
         Dim mayus, mayus1 As String
-
+        Dim codigo As Integer
         idEmpleado = txtidempleado.Text
         mayus = txtnombre.Text
         Dim nombres As String = StrConv(mayus, VbStrConv.ProperCase)
@@ -89,10 +88,11 @@ Public Class frmEmpleados
         rol = "Auxiliar"
         estado = "Activo"
         contrasena = txtcontra.Text
+        codigo = txtCodigo.Text
 
         Try
-            If conexion.editarEmpleado(idEmpleado, nombres, apellidos, fechanacimiento, Tel, sexo, rol, estado, contrasena) Then
-                MessageBox.Show("Empleado modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If conexion.editarEmpleado(codigo, nombres, apellidos, fechanacimiento, Tel, sexo, estado, contrasena, idEmpleado, rol) Then
+                MessageBox.Show("Cliente modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al modificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -178,21 +178,7 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub datalistado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellContentClick
-        Dim FilaActual As Integer
-        FilaActual = datalistado.CurrentRow.Index
-        txtidempleado.Text = datalistado.Rows(FilaActual).Cells(8).Value
-        txtnombre.Text = datalistado.Rows(FilaActual).Cells(1).Value
-        txtapellidos.Text = datalistado.Rows(FilaActual).Cells(2).Value
-        txtfechaN.Text = datalistado.Rows(FilaActual).Cells(3).Value
-        txttelefono.Text = datalistado.Rows(FilaActual).Cells(4).Value
-        cmbSexo.Text = datalistado.Rows(FilaActual).Cells(5).Value
 
-        txtcontra.Text = datalistado.Rows(FilaActual).Cells(7).Value
-
-
-        btnguardar.Visible = False
-        btneditar.Visible = True
-        btndespedir.Enabled = True
     End Sub
 
     Private Sub eliminarEmpleado()
@@ -201,7 +187,7 @@ Public Class frmEmpleados
         DNIEmpleado = txtidempleado.Text
         rol = "Auxiliar"
         Try
-            If (conexion.eliminarUsuario(DNIEmpleado, rol)) Then
+            If (conexion.eliminarEmpleado(DNIEmpleado, rol)) Then
                 MsgBox("Empleado dado de baja")
                 'conexion.conexion.Close()
             Else
@@ -225,4 +211,23 @@ Public Class frmEmpleados
             limpiar()
         End If
     End Sub
+
+    Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
+        Dim FilaActual As Integer
+        FilaActual = datalistado.CurrentRow.Index
+        txtCodigo.Text = datalistado.Rows(FilaActual).Cells(1).Value
+        txtidempleado.Text = datalistado.Rows(FilaActual).Cells(2).Value
+        txtnombre.Text = datalistado.Rows(FilaActual).Cells(3).Value
+        txtapellidos.Text = datalistado.Rows(FilaActual).Cells(4).Value
+        txtfechaN.Text = datalistado.Rows(FilaActual).Cells(5).Value
+        txttelefono.Text = datalistado.Rows(FilaActual).Cells(6).Value
+        cmbSexo.Text = datalistado.Rows(FilaActual).Cells(7).Value
+        txtcontra.Text = datalistado.Rows(FilaActual).Cells(10).Value
+
+        btneditar.Visible = True
+        btnguardar.Visible = False
+        btndespedir.Enabled = True
+    End Sub
+
+
 End Class

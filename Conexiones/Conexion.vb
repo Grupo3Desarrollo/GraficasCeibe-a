@@ -4,7 +4,8 @@ Imports System.Text
 
 Public Class Conexion
     'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-6LV81RN;Initial Catalog=GraficasC; user id = sa; password = Aleman16848760")
-    Public conexion As SqlConnection = New SqlConnection("Data Source=DESKTOP-7SS7938;Initial Catalog=BaseDiseño; Integrated Security=True")
+    'Public conexion As SqlConnection = New SqlConnection("Data Source=DESKTOP-7SS7938;Initial Catalog=BaseDiseño; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source=DESKTOP-I773KQU;Initial Catalog=BasepruebaEmp; Integrated Security=True")
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
     Public cmb As SqlCommand
@@ -266,6 +267,8 @@ Public Class Conexion
         End Try
     End Function
 
+    ' ************************************************ EMPLEADOS ****************************************************
+    '                                                    CRUD
     Public Function insertar_Empleado(nombre_Cliente As String, Apellido As String, FechaNacimiento As Date, Telefono As String, Sexo As Char, estado As String, contrasenia As String, DNIEmpleado As String, rol As String)
         Try
             conexion.Open()
@@ -293,11 +296,12 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function editarEmpleado(Nombres As String, Apellidos As String, FechaNacimiento As Date, Tel As String, Sexo As Char, Estado As String, contrasena As String, DNIEmpleado As String, rol As String)
+    Public Function editarEmpleado(codigo As Integer, Nombres As String, Apellidos As String, FechaNacimiento As Date, Tel As String, Sexo As Char, Estado As String, contrasena As String, DNIEmpleado As String, rol As String)
         Try
             conexion.Open()
             cmb = New SqlCommand("editar_Empleado", conexion)
             cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idEmpleado", codigo)
             cmb.Parameters.AddWithValue("@Nombres", Nombres)
             cmb.Parameters.AddWithValue("@Apellidos", Apellidos)
             cmb.Parameters.AddWithValue("@FechaNacimiento", FechaNacimiento)
@@ -321,12 +325,12 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function buscarEmpleado(UserName As String) As DataTable
+    Public Function buscarEmpleado(DNI As String) As DataTable
         Try
             conexion.Open()
-            Dim cmb As New SqlCommand("buscarEmpleado", conexion)
+            Dim cmb As New SqlCommand("BusquedaEmpleados", conexion)
             cmb.CommandType = CommandType.StoredProcedure
-            cmb.Parameters.AddWithValue("@UserName", UserName)
+            cmb.Parameters.AddWithValue("@identidad", DNI)
             If cmb.ExecuteNonQuery <> 0 Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmb)
@@ -391,7 +395,7 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function eliminarUsuario(DNIEmpleado As String, rol As String)
+    Public Function eliminarEmpleado(DNIEmpleado As String, rol As String)
         Try
             conexion.Open()
             cmb = New SqlCommand("eliminar_Empleado", conexion)

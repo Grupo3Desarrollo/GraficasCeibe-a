@@ -79,3 +79,21 @@ C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyect
 C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.exe
 C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.xml
 C:\Users\Daniela\Source\Repos\Grupo3Desarrollo\GraficasCeibena\obj\Debug\Proyecto.pdb
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\bin\Debug\Proyecto.exe.config
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\bin\Debug\Proyecto.exe
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\bin\Debug\Proyecto.pdb
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\bin\Debug\Proyecto.xml
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.vbprojAssemblyReference.cache
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.frmCategoria.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.frmEmpleados.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.frmProducto.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.mostrarCategoria.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.frmhora.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.Login.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.Menuu.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.Resources.resources
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.vbproj.GenerateResource.cache
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.vbproj.CoreCompileInputs.cache
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.exe
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.xml
+C:\Users\Sandra\Desktop\2021\desarollo de software\avance Daniela\obj\Debug\Proyecto.pdb
