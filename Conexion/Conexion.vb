@@ -4,12 +4,13 @@ Imports System.Text
 
 Public Class Conexion
     'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-6LV81RN;Initial Catalog=GraficasC; user id = sa; password = Aleman16848760")
-    'Public conexion As SqlConnection = New SqlConnection("Data Source=DESKTOP-7SS7938;Initial Catalog=BaseDiseño; Integrated Security=True")
-    Public conexion As SqlConnection = New SqlConnection("Data Source=DESKTOP-I773KQU;Initial Catalog=BasepruebaEmp; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source=localhost\SQLEXPRESS;Initial Catalog=GraficaLCB; Integrated Security=True")
+    Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
     Public cmb As SqlCommand
     Public dr As SqlDataReader
+    Private dv As New DataView
     Public datos As DataSet
     Dim des As New TripleDESCryptoServiceProvider
     Dim MD5 As New MD5CryptoServiceProvider
@@ -25,7 +26,6 @@ Public Class Conexion
         Return Convert.ToBase64String(des.CreateEncryptor().TransformFinalBlock(buffer, 0, buffer.Length))
     End Function
 
-
     Public Sub conectar()
         Try
             conexion.Open()
@@ -39,10 +39,10 @@ Public Class Conexion
 
     Public Sub llenarRol()
         conexion.Open()
-        da = New SqlDataAdapter("SELECT * FROM Rol", conexion)
+        da = New SqlDataAdapter("SELECT * FROM Roles", conexion)
         datos = New DataSet
-        datos.Tables.Add("Rol")
-        da.Fill(datos.Tables("Rol"))
+        datos.Tables.Add("Roles")
+        da.Fill(datos.Tables("Roles"))
         conexion.Close()
     End Sub
 
@@ -66,8 +66,154 @@ Public Class Conexion
             conexion.Close()
         End Try
     End Function
+
+    ' ************************************************ EMPLEADOS ****************************************************
+    Public Function insertar_Empleado(Nombres As String, Apellidos As String, FechaNacimiento As Date, Telefono As String, Sexo As Char, estado As String, contrasena As String, DNIEmpleado As String, rol As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_Empleado", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@Nombres", Nombres)
+            cmb.Parameters.AddWithValue("@Apellidos", Apellidos)
+            cmb.Parameters.AddWithValue("@FechaNacimiento", FechaNacimiento)
+            cmb.Parameters.AddWithValue("@Tel", Telefono)
+            cmb.Parameters.AddWithValue("@Sexo", Sexo)
+            cmb.Parameters.AddWithValue("@Estado", estado)
+            cmb.Parameters.AddWithValue("@contrasena", Encrypt(contrasena, "abc"))
+            cmb.Parameters.AddWithValue("@DNI", DNIEmpleado)
+            cmb.Parameters.AddWithValue("@Rol", rol)
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function editarEmpleado(Nombres As String, Apellidos As String, FechaNacimiento As Date, Telefono As String, Sexo As Char, estado As String, contrasena As String, DNIEmpleado As String, rol As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("editar_Empleado", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@Nombres", Nombres)
+            cmb.Parameters.AddWithValue("@Apellidos", Apellidos)
+            cmb.Parameters.AddWithValue("@FechaNacimiento", FechaNacimiento)
+            cmb.Parameters.AddWithValue("@Tel", Telefono)
+            cmb.Parameters.AddWithValue("@Sexo", Sexo)
+            cmb.Parameters.AddWithValue("@Estado", estado)
+            cmb.Parameters.AddWithValue("@contrasena", Encrypt(contrasena, "abc"))
+            cmb.Parameters.AddWithValue("@DNI", DNIEmpleado)
+            cmb.Parameters.AddWithValue("@Rol", rol)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function eliminarEmpleado(DNIEmpleado As String, rol As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("eliminar_Empleado", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@DNI", DNIEmpleado)
+            cmb.Parameters.AddWithValue("@Rol", rol)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function buscarEmpleado(UserName As String) As DataTable
+        Try
+            conexion.Open()
+            Dim cmb As New SqlCommand("buscarEmpleado", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@UserName", UserName)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function mostrarEmpleados() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("Mostrar_Empleado", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function mostrarEmpleadosActivos() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("Mostrar_EmpleadoActivo", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
     ' *************************************** Categoria ********************************************
-    ' MOSTRAR CATEGORIA
     Public Function mostrar_categoria() As DataTable
         Try
             conexion.Open()
@@ -92,7 +238,6 @@ Public Class Conexion
         End Try
     End Function
 
-    'INSERTAR CATEGORIA
     Public Function insertarCategoria(nombre_categoria As String)
         Try
             conexion.Open()
@@ -135,7 +280,7 @@ Public Class Conexion
 
     End Function
 
-    'bUSCAR CATEGORIA
+    'BUSCAR CATEGORIA
     Public Function buscarCategoria(nombre_categoria As String) As DataTable
         Try
             conexion.Open()
@@ -160,8 +305,7 @@ Public Class Conexion
 
 
     ' *************************************** PRODUCTOS *********************************************
-    '                                           C R U D 
-    ' FUNCION MOSTRAR PRODUCTOS
+    ' FUNCION MOSTRAR PRODUCTO
     Public Function mostrarProducto() As DataTable
         Try
             conexion.Open()
@@ -244,7 +388,7 @@ Public Class Conexion
         End Try
     End Function
 
-    ' bUSCAR PRODUCTO
+    ' BUSCAR PRODUCTO
     Public Function buscarProducto(nombre As String) As DataTable
         Try
             conexion.Open()
@@ -267,155 +411,4 @@ Public Class Conexion
         End Try
     End Function
 
-    ' ************************************************ EMPLEADOS ****************************************************
-    '                                                    CRUD
-    Public Function insertar_Empleado(nombre_Cliente As String, Apellido As String, FechaNacimiento As Date, Telefono As String, Sexo As Char, estado As String, contrasenia As String, DNIEmpleado As String, rol As String)
-        Try
-            conexion.Open()
-            cmb = New SqlCommand("insertar_Empleado", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-            cmb.Parameters.AddWithValue("@Nombres", nombre_Cliente)
-            cmb.Parameters.AddWithValue("@Apellidos", Apellido)
-            cmb.Parameters.AddWithValue("@FechaNacimiento", FechaNacimiento)
-            cmb.Parameters.AddWithValue("@Tel", Telefono)
-            cmb.Parameters.AddWithValue("@Sexo", Sexo)
-            cmb.Parameters.AddWithValue("@Estado", estado)
-            cmb.Parameters.AddWithValue("@contrasenia", contrasenia)
-            cmb.Parameters.AddWithValue("@DNIEmpleado", DNIEmpleado)
-            cmb.Parameters.AddWithValue("@rol", rol)
-            If cmb.ExecuteNonQuery Then
-                Return True
-            Else
-                Return False
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
-    Public Function editarEmpleado(codigo As Integer, Nombres As String, Apellidos As String, FechaNacimiento As Date, Tel As String, Sexo As Char, Estado As String, contrasena As String, DNIEmpleado As String, rol As String)
-        Try
-            conexion.Open()
-            cmb = New SqlCommand("editar_Empleado", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-            cmb.Parameters.AddWithValue("@idEmpleado", codigo)
-            cmb.Parameters.AddWithValue("@Nombres", Nombres)
-            cmb.Parameters.AddWithValue("@Apellidos", Apellidos)
-            cmb.Parameters.AddWithValue("@FechaNacimiento", FechaNacimiento)
-            cmb.Parameters.AddWithValue("@Tel", Tel)
-            cmb.Parameters.AddWithValue("@Sexo", Sexo)
-            cmb.Parameters.AddWithValue("@Estado", Estado)
-            cmb.Parameters.AddWithValue("@contrasenia", Encrypt(contrasena, "abc"))
-            cmb.Parameters.AddWithValue("@DNIEmpleado", DNIEmpleado)
-            cmb.Parameters.AddWithValue("@rol", rol)
-
-            If cmb.ExecuteNonQuery Then
-                Return True
-            Else
-                Return False
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
-    Public Function buscarEmpleado(DNI As String) As DataTable
-        Try
-            conexion.Open()
-            Dim cmb As New SqlCommand("BusquedaEmpleados", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-            cmb.Parameters.AddWithValue("@identidad", DNI)
-            If cmb.ExecuteNonQuery <> 0 Then
-                Dim dt As New DataTable
-                Dim da As New SqlDataAdapter(cmb)
-                da.Fill(dt)
-                Return dt
-            Else
-                Return Nothing
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
-    Public Function mostrarEmpleados() As DataTable
-        Try
-            conexion.Open()
-            cmb = New SqlCommand("Mostrar_Empleado", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-
-            cmb.Connection = conexion
-
-            If cmb.ExecuteNonQuery Then
-                Dim dt As New DataTable
-                Dim da As New SqlDataAdapter(cmb)
-                da.Fill(dt)
-                Return dt
-            Else
-                Return Nothing
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
-    Public Function mostrarEmpleadosActivos() As DataTable
-        Try
-            conexion.Open()
-            cmb = New SqlCommand("Mostrar_EmpleadoActivo", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-
-            cmb.Connection = conexion
-
-            If cmb.ExecuteNonQuery Then
-                Dim dt As New DataTable
-                Dim da As New SqlDataAdapter(cmb)
-                da.Fill(dt)
-                Return dt
-            Else
-                Return Nothing
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
-    Public Function eliminarEmpleado(DNIEmpleado As String, rol As String)
-        Try
-            conexion.Open()
-            cmb = New SqlCommand("eliminar_Empleado", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-            cmb.Parameters.AddWithValue("@DNIEmpleado", DNIEmpleado)
-            cmb.Parameters.AddWithValue("@rol", rol)
-            If cmb.ExecuteNonQuery <> 0 Then
-                Return True
-            Else
-                Return False
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return False
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
-
-
 End Class
-

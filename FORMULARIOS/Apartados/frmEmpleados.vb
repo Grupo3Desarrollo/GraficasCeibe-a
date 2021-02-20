@@ -1,8 +1,17 @@
 ﻿Imports System.ComponentModel
 Public Class frmEmpleados
-
     Dim conexion As New Conexion()
     Dim dt As New DataTable()
+
+    Private Sub frmEmpleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        mostrar()
+        btndespedir.Enabled = False
+    End Sub
+
+    Private Sub ocultar_columnas()
+        datalistado.Columns(1).Visible = False
+    End Sub
+
     Public Sub limpiar()
         btnguardar.Visible = True
         btneditar.Visible = False
@@ -38,7 +47,7 @@ Public Class frmEmpleados
         fechanacimiento = txtfechaN.Text
         Tel = txttelefono.Text
         sexo = cmbSexo.Text
-        rol = "Auxiliar"
+        rol = "Dependiente"
         estado = "Activo"
         contrasena = txtcontra.Text
 
@@ -74,7 +83,6 @@ Public Class frmEmpleados
         Dim sexo As Char
         Dim fechanacimiento As Date
         Dim mayus, mayus1 As String
-        Dim codigo As Integer
         idEmpleado = txtidempleado.Text
         mayus = txtnombre.Text
         Dim nombres As String = StrConv(mayus, VbStrConv.ProperCase)
@@ -85,14 +93,13 @@ Public Class frmEmpleados
         fechanacimiento = txtfechaN.Text
         Tel = txttelefono.Text
         sexo = cmbSexo.Text
-        rol = "Auxiliar"
+        rol = "Dependiente"
         estado = "Activo"
         contrasena = txtcontra.Text
-        codigo = txtCodigo.Text
 
         Try
-            If conexion.editarEmpleado(codigo, nombres, apellidos, fechanacimiento, Tel, sexo, estado, contrasena, idEmpleado, rol) Then
-                MessageBox.Show("Cliente modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If conexion.editarEmpleado(nombres, apellidos, fechanacimiento, Tel, sexo, estado, contrasena, idEmpleado, rol) Then
+                MessageBox.Show("Empleado modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al modificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -100,13 +107,6 @@ Public Class frmEmpleados
             MsgBox(ex.Message)
         End Try
     End Sub
-
-
-    Private Sub frmEmpleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        mostrar()
-        btndespedir.Enabled = False
-    End Sub
-
 
     Public Sub mostrar()
         Try
@@ -134,7 +134,6 @@ Public Class frmEmpleados
 
     End Sub
 
-
     Private Sub buscar()
         Try
             Dim UserName As String
@@ -144,10 +143,6 @@ Public Class frmEmpleados
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Private Sub ocultar_columnas()
-        datalistado.Columns(1).Visible = False
     End Sub
 
     Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs) Handles txtbuscar.TextChanged
@@ -177,22 +172,17 @@ Public Class frmEmpleados
         End If
     End Sub
 
-    Private Sub datalistado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellContentClick
-
-    End Sub
 
     Private Sub eliminarEmpleado()
         Dim DNIEmpleado As String
         Dim rol As String
         DNIEmpleado = txtidempleado.Text
-        rol = "Auxiliar"
+        rol = "Dependiente"
         Try
             If (conexion.eliminarEmpleado(DNIEmpleado, rol)) Then
                 MsgBox("Empleado dado de baja")
-                'conexion.conexion.Close()
             Else
                 MsgBox("Error al dar de baja al Empleado")
-                'conexion.conexion.Close()
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -215,19 +205,18 @@ Public Class frmEmpleados
     Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
         Dim FilaActual As Integer
         FilaActual = datalistado.CurrentRow.Index
-        txtCodigo.Text = datalistado.Rows(FilaActual).Cells(1).Value
-        txtidempleado.Text = datalistado.Rows(FilaActual).Cells(2).Value
-        txtnombre.Text = datalistado.Rows(FilaActual).Cells(3).Value
-        txtapellidos.Text = datalistado.Rows(FilaActual).Cells(4).Value
-        txtfechaN.Text = datalistado.Rows(FilaActual).Cells(5).Value
-        txttelefono.Text = datalistado.Rows(FilaActual).Cells(6).Value
-        cmbSexo.Text = datalistado.Rows(FilaActual).Cells(7).Value
-        txtcontra.Text = datalistado.Rows(FilaActual).Cells(10).Value
-
+        txtnombre.Text = datalistado.Rows(FilaActual).Cells(2).Value
+        txtapellidos.Text = datalistado.Rows(FilaActual).Cells(3).Value
+        txtfechaN.Text = datalistado.Rows(FilaActual).Cells(4).Value
+        txttelefono.Text = datalistado.Rows(FilaActual).Cells(5).Value
+        cmbSexo.Text = datalistado.Rows(FilaActual).Cells(6).Value
+        txtidempleado.Text = datalistado.Rows(FilaActual).Cells(1).Value
         btneditar.Visible = True
         btnguardar.Visible = False
         btndespedir.Enabled = True
     End Sub
 
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
 
+    End Sub
 End Class

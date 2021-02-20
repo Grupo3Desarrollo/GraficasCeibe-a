@@ -73,48 +73,48 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conexiones\Conexion.vb" />
-    <Compile Include="Formularios\frmCategoria.Designer.vb">
+    <Compile Include="Conexion\Conexion.vb" />
+    <Compile Include="FORMULARIOS\Apartados\frmCategoria.Designer.vb">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmCategoria.vb">
+    <Compile Include="FORMULARIOS\Apartados\frmCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmEmpleados.Designer.vb">
+    <Compile Include="FORMULARIOS\Apartados\frmEmpleados.Designer.vb">
       <DependentUpon>frmEmpleados.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmEmpleados.vb">
+    <Compile Include="FORMULARIOS\Apartados\frmEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formularios\frmProducto.Designer.vb">
+    <Compile Include="FORMULARIOS\Apartados\frmProducto.Designer.vb">
       <DependentUpon>frmProducto.vb</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frmProducto.vb">
+    <Compile Include="FORMULARIOS\Apartados\frmProducto.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="form_Busqueda\mostrarCategoria.Designer.vb">
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.Designer.vb">
       <DependentUpon>mostrarCategoria.vb</DependentUpon>
     </Compile>
-    <Compile Include="form_Busqueda\mostrarCategoria.vb">
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\frmhora.Designer.vb">
+    <Compile Include="FORMULARIOS\Login y menu\frmhora.Designer.vb">
       <DependentUpon>frmhora.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login\frmhora.vb">
+    <Compile Include="FORMULARIOS\Login y menu\frmhora.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Login.vb">
+    <Compile Include="FORMULARIOS\Login y menu\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Login.Designer.vb">
+    <Compile Include="FORMULARIOS\Login y menu\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Menuu.Designer.vb">
+    <Compile Include="FORMULARIOS\Login y menu\Menuu.Designer.vb">
       <DependentUpon>Menuu.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login\Menuu.vb">
+    <Compile Include="FORMULARIOS\Login y menu\Menuu.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -135,25 +135,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Formularios\frmCategoria.resx">
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmCategoria.resx">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmEmpleados.resx">
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frmProducto.resx">
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmProducto.resx">
       <DependentUpon>frmProducto.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="form_Busqueda\mostrarCategoria.resx">
+    <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.resx">
       <DependentUpon>mostrarCategoria.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\frmhora.resx">
+    <EmbeddedResource Include="FORMULARIOS\Login y menu\frmhora.resx">
       <DependentUpon>frmhora.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Login.resx">
+    <EmbeddedResource Include="FORMULARIOS\Login y menu\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Menuu.resx">
+    <EmbeddedResource Include="FORMULARIOS\Login y menu\Menuu.resx">
       <DependentUpon>Menuu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -185,7 +185,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BASE DE DATOS\GRAFICAS_CEIBA.txt" />
+    <Folder Include="BASE DE DATOS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

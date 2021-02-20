@@ -49,8 +49,8 @@ Public Class frmProducto
         txtprecio_venta.Text = "0"
         txtidproducto.Text = ""
 
-        'imagen.Image = My.Resources.transparente
-        'imagen.BackgroundImage = My.Resources.transparente
+        imagen.Image = My.Resources.transparente
+        imagen.BackgroundImage = My.Resources.transparente
         imagen.SizeMode = PictureBoxSizeMode.StretchImage
     End Sub
 
@@ -148,7 +148,6 @@ Public Class frmProducto
     End Sub
 
     Private Sub btncargar_Click(sender As Object, e As EventArgs) Handles btncargar.Click
-
         If DLG.ShowDialog = DialogResult.OK Then
             imagen.BackgroundImage = Nothing
             imagen.Image = New Bitmap(DLG.FileName)
@@ -158,7 +157,7 @@ Public Class frmProducto
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles eliminarImg.Click
-        'imagen.Image = My.Resources.transparente
+        imagen.Image = My.Resources.transparente
         btnguardar.Enabled = False
     End Sub
 
@@ -238,6 +237,7 @@ Public Class frmProducto
         Dim ms As New IO.MemoryStream(b)
         imagen.Image = Image.FromStream(ms)
         imagen.SizeMode = PictureBoxSizeMode.StretchImage
+
         eliminarImg.Visible = False
         btnguardar.Visible = False
         btneditar.Visible = True

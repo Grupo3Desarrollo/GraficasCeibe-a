@@ -39,13 +39,15 @@
         txtflag.Visible = False
     End Sub
 
-
-
     Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
         If txtflag.Text = "1" Then
             frmProducto.txtidcategoria.Text = datalistado.SelectedCells.Item(1).Value
             frmProducto.txtnom_categoria.Text = datalistado.SelectedCells.Item(2).Value
             Me.Close()
         End If
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
     End Sub
 End Class

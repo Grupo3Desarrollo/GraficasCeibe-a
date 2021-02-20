@@ -55,9 +55,11 @@ Partial Class frmCategoria
         Me.GroupBox1.Controls.Add(Me.txtidcategoria)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Window
-        Me.GroupBox1.Location = New System.Drawing.Point(237, 245)
+        Me.GroupBox1.Location = New System.Drawing.Point(158, 159)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(428, 398)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(285, 259)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "INFORMACION CATEGORIA"
@@ -65,10 +67,12 @@ Partial Class frmCategoria
         'btnguardar
         '
         Me.btnguardar.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
-        Me.btnguardar.Location = New System.Drawing.Point(273, 229)
+        Me.btnguardar.Location = New System.Drawing.Point(182, 149)
+        Me.btnguardar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(132, 95)
+        Me.btnguardar.Size = New System.Drawing.Size(88, 62)
         Me.btnguardar.TabIndex = 16
         Me.btnguardar.Text = "Guardar"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -78,10 +82,12 @@ Partial Class frmCategoria
         '
         Me.btneditar.BackColor = System.Drawing.Color.SteelBlue
         Me.btneditar.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.btneditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btneditar.Image = CType(resources.GetObject("btneditar.Image"), System.Drawing.Image)
-        Me.btneditar.Location = New System.Drawing.Point(273, 229)
+        Me.btneditar.Location = New System.Drawing.Point(182, 149)
+        Me.btneditar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btneditar.Name = "btneditar"
-        Me.btneditar.Size = New System.Drawing.Size(132, 95)
+        Me.btneditar.Size = New System.Drawing.Size(88, 62)
         Me.btneditar.TabIndex = 13
         Me.btneditar.Text = "Editar"
         Me.btneditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -90,10 +96,12 @@ Partial Class frmCategoria
         'btnnuevo
         '
         Me.btnnuevo.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
-        Me.btnnuevo.Location = New System.Drawing.Point(44, 229)
+        Me.btnnuevo.Location = New System.Drawing.Point(29, 149)
+        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(142, 95)
+        Me.btnnuevo.Size = New System.Drawing.Size(95, 62)
         Me.btnnuevo.TabIndex = 12
         Me.btnnuevo.Text = "Nuevo"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -102,34 +110,38 @@ Partial Class frmCategoria
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 111)
+        Me.Label2.Location = New System.Drawing.Point(7, 72)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(125, 29)
+        Me.Label2.Size = New System.Drawing.Size(85, 20)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "NOMBRE"
         '
         'txtnombre
         '
-        Me.txtnombre.Location = New System.Drawing.Point(141, 108)
+        Me.txtnombre.Location = New System.Drawing.Point(94, 70)
+        Me.txtnombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtnombre.Name = "txtnombre"
-        Me.txtnombre.Size = New System.Drawing.Size(264, 35)
+        Me.txtnombre.Size = New System.Drawing.Size(177, 26)
         Me.txtnombre.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(58, 55)
+        Me.Label1.Location = New System.Drawing.Point(39, 36)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(38, 29)
+        Me.Label1.Size = New System.Drawing.Size(28, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "ID"
         '
         'txtidcategoria
         '
-        Me.txtidcategoria.Location = New System.Drawing.Point(141, 49)
+        Me.txtidcategoria.Location = New System.Drawing.Point(94, 32)
+        Me.txtidcategoria.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtidcategoria.Name = "txtidcategoria"
         Me.txtidcategoria.ReadOnly = True
-        Me.txtidcategoria.Size = New System.Drawing.Size(264, 35)
+        Me.txtidcategoria.Size = New System.Drawing.Size(177, 26)
         Me.txtidcategoria.TabIndex = 0
         '
         'GroupBox2
@@ -140,9 +152,11 @@ Partial Class frmCategoria
         Me.GroupBox2.Controls.Add(Me.txtbuscar)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.Window
-        Me.GroupBox2.Location = New System.Drawing.Point(885, 245)
+        Me.GroupBox2.Location = New System.Drawing.Point(590, 159)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(508, 398)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(339, 259)
         Me.GroupBox2.TabIndex = 21
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "LISTA CATEGORIA"
@@ -150,9 +164,10 @@ Partial Class frmCategoria
         'inexistente
         '
         Me.inexistente.AutoSize = True
-        Me.inexistente.Location = New System.Drawing.Point(152, 206)
+        Me.inexistente.Location = New System.Drawing.Point(101, 134)
+        Me.inexistente.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.inexistente.Name = "inexistente"
-        Me.inexistente.Size = New System.Drawing.Size(226, 29)
+        Me.inexistente.Size = New System.Drawing.Size(160, 20)
         Me.inexistente.TabIndex = 22
         Me.inexistente.TabStop = True
         Me.inexistente.Text = "Datos Inexistentes"
@@ -186,14 +201,15 @@ Partial Class frmCategoria
         Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
-        Me.datalistado.Location = New System.Drawing.Point(130, 108)
+        Me.datalistado.Location = New System.Drawing.Point(87, 70)
+        Me.datalistado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.datalistado.Name = "datalistado"
         Me.datalistado.ReadOnly = True
         Me.datalistado.RowHeadersVisible = False
         Me.datalistado.RowHeadersWidth = 62
         Me.datalistado.RowTemplate.Height = 28
         Me.datalistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.datalistado.Size = New System.Drawing.Size(279, 249)
+        Me.datalistado.Size = New System.Drawing.Size(186, 162)
         Me.datalistado.TabIndex = 21
         '
         'Eliminar
@@ -202,34 +218,35 @@ Partial Class frmCategoria
         Me.Eliminar.MinimumWidth = 8
         Me.Eliminar.Name = "Eliminar"
         Me.Eliminar.ReadOnly = True
-        Me.Eliminar.Width = 113
+        Me.Eliminar.Width = 77
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(15, 45)
+        Me.Label7.Location = New System.Drawing.Point(10, 29)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(277, 29)
+        Me.Label7.Size = New System.Drawing.Size(188, 20)
         Me.Label7.TabIndex = 18
         Me.Label7.Text = "Busqueda por Nombre"
         '
         'txtbuscar
         '
-        Me.txtbuscar.Location = New System.Drawing.Point(298, 43)
+        Me.txtbuscar.Location = New System.Drawing.Point(199, 28)
+        Me.txtbuscar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtbuscar.Name = "txtbuscar"
-        Me.txtbuscar.Size = New System.Drawing.Size(187, 35)
+        Me.txtbuscar.Size = New System.Drawing.Size(126, 26)
         Me.txtbuscar.TabIndex = 16
         '
         'frmCategoria
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1506, 886)
+        Me.ClientSize = New System.Drawing.Size(924, 512)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "frmCategoria"
         Me.Text = "Categoria"
         Me.GroupBox1.ResumeLayout(False)
