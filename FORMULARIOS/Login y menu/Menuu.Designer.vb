@@ -23,61 +23,37 @@ Partial Class Menuu
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Menuu))
-        Me.btnMinimizar = New System.Windows.Forms.PictureBox()
-        Me.btnCerrar = New System.Windows.Forms.PictureBox()
         Me.BarraTitulo = New System.Windows.Forms.Panel()
         Me.txtflag = New System.Windows.Forms.TextBox()
         Me.MenuVertical = New System.Windows.Forms.Panel()
-        Me.btnlorem = New System.Windows.Forms.Button()
         Me.lreporte = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel9 = New System.Windows.Forms.Panel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.lproveedor = New System.Windows.Forms.Panel()
-        Me.btnproveedor = New System.Windows.Forms.Button()
-        Me.btnproductos = New System.Windows.Forms.Button()
         Me.lempleado = New System.Windows.Forms.Panel()
-        Me.btncategoria = New System.Windows.Forms.Button()
         Me.lcompras = New System.Windows.Forms.Panel()
-        Me.btnempleados = New System.Windows.Forms.Button()
-        Me.btncompras = New System.Windows.Forms.Button()
-        Me.btnclientes = New System.Windows.Forms.Button()
         Me.panel2 = New System.Windows.Forms.Panel()
-        Me.btnventas = New System.Windows.Forms.Button()
         Me.panel1 = New System.Windows.Forms.Panel()
         Me.panel4 = New System.Windows.Forms.Panel()
         Me.panel7 = New System.Windows.Forms.Panel()
         Me.PanelForms = New System.Windows.Forms.Panel()
-        CType(Me.btnMinimizar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.btnCerrar, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.btnlorem = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnproveedor = New System.Windows.Forms.Button()
+        Me.btnproductos = New System.Windows.Forms.Button()
+        Me.btncategoria = New System.Windows.Forms.Button()
+        Me.btnempleados = New System.Windows.Forms.Button()
+        Me.btncompras = New System.Windows.Forms.Button()
+        Me.btnclientes = New System.Windows.Forms.Button()
+        Me.btnventas = New System.Windows.Forms.Button()
+        Me.btnMinimizar = New System.Windows.Forms.PictureBox()
+        Me.btnCerrar = New System.Windows.Forms.PictureBox()
         Me.BarraTitulo.SuspendLayout()
         Me.MenuVertical.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnMinimizar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.btnCerrar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'btnMinimizar
-        '
-        Me.btnMinimizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnMinimizar.Image = CType(resources.GetObject("btnMinimizar.Image"), System.Drawing.Image)
-        Me.btnMinimizar.Location = New System.Drawing.Point(971, 6)
-        Me.btnMinimizar.Name = "btnMinimizar"
-        Me.btnMinimizar.Size = New System.Drawing.Size(26, 24)
-        Me.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnMinimizar.TabIndex = 2
-        Me.btnMinimizar.TabStop = False
-        '
-        'btnCerrar
-        '
-        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnCerrar.Image = CType(resources.GetObject("btnCerrar.Image"), System.Drawing.Image)
-        Me.btnCerrar.Location = New System.Drawing.Point(1002, 6)
-        Me.btnCerrar.Name = "btnCerrar"
-        Me.btnCerrar.Size = New System.Drawing.Size(26, 24)
-        Me.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.btnCerrar.TabIndex = 0
-        Me.btnCerrar.TabStop = False
         '
         'BarraTitulo
         '
@@ -129,6 +105,88 @@ Partial Class Menuu
         Me.MenuVertical.Size = New System.Drawing.Size(220, 576)
         Me.MenuVertical.TabIndex = 8
         '
+        'lreporte
+        '
+        Me.lreporte.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.lreporte.Location = New System.Drawing.Point(-1, 325)
+        Me.lreporte.Name = "lreporte"
+        Me.lreporte.Size = New System.Drawing.Size(7, 50)
+        Me.lreporte.TabIndex = 13
+        '
+        'Panel9
+        '
+        Me.Panel9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Panel9.Location = New System.Drawing.Point(-2, 544)
+        Me.Panel9.Name = "Panel9"
+        Me.Panel9.Size = New System.Drawing.Size(7, 31)
+        Me.Panel9.TabIndex = 11
+        '
+        'lproveedor
+        '
+        Me.lproveedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.lproveedor.Location = New System.Drawing.Point(1, 434)
+        Me.lproveedor.Name = "lproveedor"
+        Me.lproveedor.Size = New System.Drawing.Size(5, 45)
+        Me.lproveedor.TabIndex = 11
+        '
+        'lempleado
+        '
+        Me.lempleado.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.lempleado.Location = New System.Drawing.Point(-2, 376)
+        Me.lempleado.Name = "lempleado"
+        Me.lempleado.Size = New System.Drawing.Size(8, 55)
+        Me.lempleado.TabIndex = 12
+        '
+        'lcompras
+        '
+        Me.lcompras.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.lcompras.Location = New System.Drawing.Point(-2, 483)
+        Me.lcompras.Name = "lcompras"
+        Me.lcompras.Size = New System.Drawing.Size(7, 59)
+        Me.lcompras.TabIndex = 10
+        '
+        'panel2
+        '
+        Me.panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.panel2.Location = New System.Drawing.Point(0, 162)
+        Me.panel2.Name = "panel2"
+        Me.panel2.Size = New System.Drawing.Size(10, 54)
+        Me.panel2.TabIndex = 4
+        '
+        'panel1
+        '
+        Me.panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.panel1.Location = New System.Drawing.Point(0, 104)
+        Me.panel1.Name = "panel1"
+        Me.panel1.Size = New System.Drawing.Size(10, 54)
+        Me.panel1.TabIndex = 2
+        '
+        'panel4
+        '
+        Me.panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.panel4.Location = New System.Drawing.Point(0, 219)
+        Me.panel4.Name = "panel4"
+        Me.panel4.Size = New System.Drawing.Size(10, 51)
+        Me.panel4.TabIndex = 8
+        '
+        'panel7
+        '
+        Me.panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.panel7.Location = New System.Drawing.Point(0, 273)
+        Me.panel7.Name = "panel7"
+        Me.panel7.Size = New System.Drawing.Size(10, 50)
+        Me.panel7.TabIndex = 14
+        '
+        'PanelForms
+        '
+        Me.PanelForms.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.PanelForms.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelForms.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.PanelForms.Location = New System.Drawing.Point(220, 37)
+        Me.PanelForms.Name = "PanelForms"
+        Me.PanelForms.Size = New System.Drawing.Size(820, 576)
+        Me.PanelForms.TabIndex = 9
+        '
         'btnlorem
         '
         Me.btnlorem.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
@@ -147,14 +205,6 @@ Partial Class Menuu
         Me.btnlorem.Text = "lorem ipsum"
         Me.btnlorem.UseVisualStyleBackColor = False
         '
-        'lreporte
-        '
-        Me.lreporte.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.lreporte.Location = New System.Drawing.Point(-1, 325)
-        Me.lreporte.Name = "lreporte"
-        Me.lreporte.Size = New System.Drawing.Size(7, 50)
-        Me.lreporte.TabIndex = 13
-        '
         'PictureBox1
         '
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
@@ -166,14 +216,6 @@ Partial Class Menuu
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
-        '
-        'Panel9
-        '
-        Me.Panel9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Panel9.Location = New System.Drawing.Point(-2, 544)
-        Me.Panel9.Name = "Panel9"
-        Me.Panel9.Size = New System.Drawing.Size(7, 31)
-        Me.Panel9.TabIndex = 11
         '
         'Button1
         '
@@ -192,14 +234,6 @@ Partial Class Menuu
         Me.Button1.TabIndex = 16
         Me.Button1.Text = "Cerrar Sesion"
         Me.Button1.UseVisualStyleBackColor = False
-        '
-        'lproveedor
-        '
-        Me.lproveedor.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.lproveedor.Location = New System.Drawing.Point(1, 434)
-        Me.lproveedor.Name = "lproveedor"
-        Me.lproveedor.Size = New System.Drawing.Size(5, 45)
-        Me.lproveedor.TabIndex = 11
         '
         'btnproveedor
         '
@@ -237,14 +271,6 @@ Partial Class Menuu
         Me.btnproductos.Text = "Productos"
         Me.btnproductos.UseVisualStyleBackColor = False
         '
-        'lempleado
-        '
-        Me.lempleado.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.lempleado.Location = New System.Drawing.Point(-2, 376)
-        Me.lempleado.Name = "lempleado"
-        Me.lempleado.Size = New System.Drawing.Size(8, 55)
-        Me.lempleado.TabIndex = 12
-        '
         'btncategoria
         '
         Me.btncategoria.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
@@ -262,14 +288,6 @@ Partial Class Menuu
         Me.btncategoria.TabIndex = 11
         Me.btncategoria.Text = "Categoría"
         Me.btncategoria.UseVisualStyleBackColor = False
-        '
-        'lcompras
-        '
-        Me.lcompras.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.lcompras.Location = New System.Drawing.Point(-2, 483)
-        Me.lcompras.Name = "lcompras"
-        Me.lcompras.Size = New System.Drawing.Size(7, 59)
-        Me.lcompras.TabIndex = 10
         '
         'btnempleados
         '
@@ -325,14 +343,6 @@ Partial Class Menuu
         Me.btnclientes.Text = "Clientes"
         Me.btnclientes.UseVisualStyleBackColor = False
         '
-        'panel2
-        '
-        Me.panel2.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.panel2.Location = New System.Drawing.Point(0, 162)
-        Me.panel2.Name = "panel2"
-        Me.panel2.Size = New System.Drawing.Size(10, 54)
-        Me.panel2.TabIndex = 4
-        '
         'btnventas
         '
         Me.btnventas.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
@@ -351,39 +361,29 @@ Partial Class Menuu
         Me.btnventas.Text = "     Ventas"
         Me.btnventas.UseVisualStyleBackColor = False
         '
-        'panel1
+        'btnMinimizar
         '
-        Me.panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.panel1.Location = New System.Drawing.Point(0, 104)
-        Me.panel1.Name = "panel1"
-        Me.panel1.Size = New System.Drawing.Size(10, 54)
-        Me.panel1.TabIndex = 2
+        Me.btnMinimizar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnMinimizar.Image = CType(resources.GetObject("btnMinimizar.Image"), System.Drawing.Image)
+        Me.btnMinimizar.Location = New System.Drawing.Point(971, 6)
+        Me.btnMinimizar.Name = "btnMinimizar"
+        Me.btnMinimizar.Size = New System.Drawing.Size(26, 24)
+        Me.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnMinimizar.TabIndex = 2
+        Me.btnMinimizar.TabStop = False
         '
-        'panel4
+        'btnCerrar
         '
-        Me.panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.panel4.Location = New System.Drawing.Point(0, 219)
-        Me.panel4.Name = "panel4"
-        Me.panel4.Size = New System.Drawing.Size(10, 51)
-        Me.panel4.TabIndex = 8
-        '
-        'panel7
-        '
-        Me.panel7.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.panel7.Location = New System.Drawing.Point(0, 273)
-        Me.panel7.Name = "panel7"
-        Me.panel7.Size = New System.Drawing.Size(10, 50)
-        Me.panel7.TabIndex = 14
-        '
-        'PanelForms
-        '
-        Me.PanelForms.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.PanelForms.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelForms.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        Me.PanelForms.Location = New System.Drawing.Point(220, 37)
-        Me.PanelForms.Name = "PanelForms"
-        Me.PanelForms.Size = New System.Drawing.Size(820, 576)
-        Me.PanelForms.TabIndex = 9
+        Me.btnCerrar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCerrar.Image = CType(resources.GetObject("btnCerrar.Image"), System.Drawing.Image)
+        Me.btnCerrar.Location = New System.Drawing.Point(1002, 6)
+        Me.btnCerrar.Name = "btnCerrar"
+        Me.btnCerrar.Size = New System.Drawing.Size(26, 24)
+        Me.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.btnCerrar.TabIndex = 0
+        Me.btnCerrar.TabStop = False
         '
         'Menuu
         '
@@ -395,13 +395,14 @@ Partial Class Menuu
         Me.Controls.Add(Me.BarraTitulo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Menuu"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Menu"
-        CType(Me.btnMinimizar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.btnCerrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.BarraTitulo.ResumeLayout(False)
         Me.BarraTitulo.PerformLayout()
         Me.MenuVertical.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnMinimizar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.btnCerrar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

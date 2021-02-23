@@ -115,3 +115,6 @@ C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\REPOSITORIO\GraficasCeiben
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\REPOSITORIO\GraficasCeibena\obj\Debug\Proyecto.exe
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\REPOSITORIO\GraficasCeibena\obj\Debug\Proyecto.xml
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\REPOSITORIO\GraficasCeibena\obj\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.mostrarCategoria.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmClientes.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmProveedor.resources

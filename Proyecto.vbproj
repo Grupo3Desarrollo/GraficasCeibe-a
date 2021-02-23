@@ -92,10 +92,22 @@
     <Compile Include="FORMULARIOS\Apartados\frmProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmProveedor.Designer.vb">
+      <DependentUpon>frmProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.Designer.vb">
       <DependentUpon>mostrarCategoria.vb</DependentUpon>
     </Compile>
     <Compile Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmClientes.Designer.vb">
+      <DependentUpon>frmClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmClientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMULARIOS\Login y menu\frmhora.Designer.vb">
@@ -144,8 +156,14 @@
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmProducto.resx">
       <DependentUpon>frmProducto.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmProveedor.resx">
+      <DependentUpon>frmProveedor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.resx">
       <DependentUpon>mostrarCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmClientes.resx">
+      <DependentUpon>frmClientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Login y menu\frmhora.resx">
       <DependentUpon>frmhora.vb</DependentUpon>
