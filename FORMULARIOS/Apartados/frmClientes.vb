@@ -2,6 +2,7 @@
 Imports System.ComponentModel
 
 Public Class frmClientes
+
     Dim conexion As New Conexion()
     Dim dt As New DataTable()
 
