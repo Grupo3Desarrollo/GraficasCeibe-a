@@ -7,7 +7,9 @@ Public Class frmClientes
     Dim dt As New DataTable()
 
     Private Sub FrmCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         mostrar()
+
     End Sub
     Private Sub ocultar_columnas()
         datalistado.Columns(1).Visible = False
