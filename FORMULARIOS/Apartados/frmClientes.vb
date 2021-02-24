@@ -9,6 +9,23 @@ Public Class frmClientes
     Private Sub FrmCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar()
     End Sub
+    Private Sub ocultar_columnas()
+        datalistado.Columns(1).Visible = False
+    End Sub
+
+    Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
+        limpiar()
+        mostrar()
+    End Sub
+
+    Private Sub btnMinimizar_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs) Handles txtbuscar.TextChanged
+        buscar()
+    End Sub
+
 
     Public Sub mostrar()
         Try
@@ -64,9 +81,6 @@ Public Class frmClientes
         End Try
     End Sub
 
-    Private Sub ocultar_columnas()
-        datalistado.Columns(1).Visible = False
-    End Sub
 
     Private Sub insertarCliente()
         'Dim idcliente As Integer
@@ -114,9 +128,9 @@ Public Class frmClientes
 
         Try
             If conexion.editarCliente(idcliente, nombre, apellidos, direccion, telefono, dni) Then
-                MessageBox.Show("Cliente modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Cliente modificado con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("Error al modificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error al modificar cliente", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -138,32 +152,25 @@ Public Class frmClientes
         End If
     End Sub
 
-    Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
-        limpiar()
-        mostrar()
-    End Sub
-
-    Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs) Handles txtbuscar.TextChanged
-        buscar()
-    End Sub
 
     Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
         Dim FilaActual As Integer
         FilaActual = datalistado.CurrentRow.Index
+        btnguardar.Visible = False
+        btneditar.Visible = True
         txtidcliente.Text = datalistado.Rows(FilaActual).Cells(1).Value
         txtnombre.Text = datalistado.Rows(FilaActual).Cells(2).Value
         txtapellidos.Text = datalistado.Rows(FilaActual).Cells(3).Value
         txtdireccion.Text = datalistado.Rows(FilaActual).Cells(4).Value
         txttelefono.Text = datalistado.Rows(FilaActual).Cells(5).Value
         txtdni.Text = datalistado.Rows(FilaActual).Cells(6).Value
-        btnguardar.Visible = False
-        btneditar.Visible = True
+
 
     End Sub
 
     Private Sub btneditar_Click(sender As Object, e As EventArgs) Handles btneditar.Click
         Dim result As DialogResult
-        result = MessageBox.Show("Realmente desea editar los datos del cliente?", "Modifiar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        result = MessageBox.Show("Esta seguro de editar los datos del cliente?", "Modifiar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
 
         If result = DialogResult.OK Then
 
@@ -177,19 +184,11 @@ Public Class frmClientes
                     MsgBox(ex.Message)
                 End Try
             Else
-                MessageBox.Show("Revise los datos Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Revise los datos ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
             limpiar()
         End If
-    End Sub
-
-    Private Sub btnMinimizar_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
-        Me.WindowState = FormWindowState.Minimized
-    End Sub
-
-    Private Sub txttelefono_TextChanged(sender As Object, e As EventArgs) Handles txttelefono.TextChanged
-
     End Sub
 
     Private Sub txttelefono_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txttelefono.KeyPress
@@ -210,10 +209,6 @@ Public Class frmClientes
         Else
             e.Handled = True
         End If
-    End Sub
-
-    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtnombre.TextChanged
-
     End Sub
 
 
