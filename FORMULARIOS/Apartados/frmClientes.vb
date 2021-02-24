@@ -212,5 +212,60 @@ Public Class frmClientes
     End Sub
 
 
+    Private Sub txtapellidos_TextChanged(sender As Object, e As EventArgs) Handles txtapellidos.TextChanged
+
+    End Sub
+
+    Private Sub txtapellidos_Validating(sender As Object, e As CancelEventArgs) Handles txtapellidos.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtdireccion_TextChanged(sender As Object, e As EventArgs) Handles txtdireccion.TextChanged
+
+    End Sub
+
+    Private Sub txtdireccion_Validating(sender As Object, e As CancelEventArgs) Handles txtdireccion.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txttelefono_Validating(sender As Object, e As CancelEventArgs) Handles txttelefono.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtdni_Validating(sender As Object, e As CancelEventArgs) Handles txtdni.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
 
 End Class
