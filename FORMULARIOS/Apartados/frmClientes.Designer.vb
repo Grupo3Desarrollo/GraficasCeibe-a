@@ -22,12 +22,15 @@ Partial Class frmClientes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.btnguardar = New System.Windows.Forms.Button()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.btneditar = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.txtdni = New System.Windows.Forms.TextBox()
@@ -47,11 +50,12 @@ Partial Class frmClientes
         Me.txtbuscar = New System.Windows.Forms.TextBox()
         Me.datalistado = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -84,15 +88,24 @@ Partial Class frmClientes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "DATOS DEL CLIENTE"
         '
-        'Label6
+        'Label8
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(422, 185)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(106, 20)
-        Me.Label6.TabIndex = 11
-        Me.Label6.Text = "IDENTIDAD"
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(56, 184)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(63, 20)
+        Me.Label8.TabIndex = 18
+        Me.Label8.Text = "EMAIL"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(169, 182)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox1.MaxLength = 13
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(204, 26)
+        Me.TextBox1.TabIndex = 17
         '
         'btnguardar
         '
@@ -107,6 +120,16 @@ Partial Class frmClientes
         Me.btnguardar.Text = "GUARDAR"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnguardar.UseVisualStyleBackColor = False
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(422, 185)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(106, 20)
+        Me.Label6.TabIndex = 11
+        Me.Label6.Text = "IDENTIDAD"
         '
         'btneditar
         '
@@ -292,26 +315,26 @@ Partial Class frmClientes
         Me.datalistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.datalistado.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.datalistado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.HotTrack
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.datalistado.ColumnHeadersHeight = 38
         Me.datalistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.datalistado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Eliminar})
         Me.datalistado.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
         Me.datalistado.Location = New System.Drawing.Point(85, 62)
@@ -331,24 +354,9 @@ Partial Class frmClientes
         Me.Eliminar.ReadOnly = True
         Me.Eliminar.Width = 77
         '
-        'Label8
+        'ErrorValidacion
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(56, 184)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(63, 20)
-        Me.Label8.TabIndex = 18
-        Me.Label8.Text = "EMAIL"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(169, 182)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox1.MaxLength = 13
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox1.TabIndex = 17
+        Me.ErrorValidacion.ContainerControl = Me
         '
         'frmClientes
         '
@@ -366,6 +374,7 @@ Partial Class frmClientes
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -394,4 +403,6 @@ Partial Class frmClientes
     Friend WithEvents Eliminar As DataGridViewCheckBoxColumn
     Friend WithEvents Label8 As Label
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents ErrorValidacion As ErrorProvider
+    Friend WithEvents ToolTip1 As ToolTip
 End Class
