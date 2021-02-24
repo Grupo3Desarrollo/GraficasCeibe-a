@@ -22,6 +22,7 @@ Partial Class frmProveedor
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProveedor))
@@ -31,20 +32,22 @@ Partial Class frmProveedor
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtbuscar = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnguardar = New System.Windows.Forms.Button()
+        Me.btneditar = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txttelefono = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtciudad = New System.Windows.Forms.TextBox()
+        Me.btnnuevo = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtdescripProv = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtidproveedor = New System.Windows.Forms.TextBox()
-        Me.btnguardar = New System.Windows.Forms.Button()
-        Me.btneditar = New System.Windows.Forms.Button()
-        Me.btnnuevo = New System.Windows.Forms.Button()
+        Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox2
@@ -156,6 +159,38 @@ Partial Class frmProveedor
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Proveedor"
         '
+        'btnguardar
+        '
+        Me.btnguardar.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
+        Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnguardar.Location = New System.Drawing.Point(747, 128)
+        Me.btnguardar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnguardar.Name = "btnguardar"
+        Me.btnguardar.Size = New System.Drawing.Size(107, 60)
+        Me.btnguardar.TabIndex = 16
+        Me.btnguardar.Text = "GUARDAR"
+        Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnguardar.UseVisualStyleBackColor = False
+        '
+        'btneditar
+        '
+        Me.btneditar.BackColor = System.Drawing.Color.SteelBlue
+        Me.btneditar.BackgroundImage = CType(resources.GetObject("btneditar.BackgroundImage"), System.Drawing.Image)
+        Me.btneditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btneditar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btneditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btneditar.Location = New System.Drawing.Point(747, 131)
+        Me.btneditar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btneditar.Name = "btneditar"
+        Me.btneditar.Size = New System.Drawing.Size(107, 60)
+        Me.btneditar.TabIndex = 13
+        Me.btneditar.Text = "EDITAR"
+        Me.btneditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btneditar.UseVisualStyleBackColor = False
+        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -196,6 +231,22 @@ Partial Class frmProveedor
         Me.txtciudad.Name = "txtciudad"
         Me.txtciudad.Size = New System.Drawing.Size(177, 26)
         Me.txtciudad.TabIndex = 6
+        '
+        'btnnuevo
+        '
+        Me.btnnuevo.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
+        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnnuevo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnuevo.Location = New System.Drawing.Point(747, 49)
+        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnnuevo.Name = "btnnuevo"
+        Me.btnnuevo.Size = New System.Drawing.Size(107, 60)
+        Me.btnnuevo.TabIndex = 12
+        Me.btnnuevo.Text = "NUEVO"
+        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnnuevo.UseVisualStyleBackColor = False
         '
         'Label2
         '
@@ -239,53 +290,9 @@ Partial Class frmProveedor
         Me.txtidproveedor.Size = New System.Drawing.Size(177, 26)
         Me.txtidproveedor.TabIndex = 0
         '
-        'btnguardar
+        'ErrorValidacion
         '
-        Me.btnguardar.BackColor = System.Drawing.Color.SteelBlue
-        Me.btnguardar.BackgroundImage = CType(resources.GetObject("btnguardar.BackgroundImage"), System.Drawing.Image)
-        Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnguardar.Location = New System.Drawing.Point(747, 128)
-        Me.btnguardar.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(107, 60)
-        Me.btnguardar.TabIndex = 16
-        Me.btnguardar.Text = "GUARDAR"
-        Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnguardar.UseVisualStyleBackColor = False
-        '
-        'btneditar
-        '
-        Me.btneditar.BackColor = System.Drawing.Color.SteelBlue
-        Me.btneditar.BackgroundImage = CType(resources.GetObject("btneditar.BackgroundImage"), System.Drawing.Image)
-        Me.btneditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btneditar.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btneditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btneditar.Location = New System.Drawing.Point(747, 131)
-        Me.btneditar.Margin = New System.Windows.Forms.Padding(2)
-        Me.btneditar.Name = "btneditar"
-        Me.btneditar.Size = New System.Drawing.Size(107, 60)
-        Me.btneditar.TabIndex = 13
-        Me.btneditar.Text = "EDITAR"
-        Me.btneditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btneditar.UseVisualStyleBackColor = False
-        '
-        'btnnuevo
-        '
-        Me.btnnuevo.BackColor = System.Drawing.Color.SteelBlue
-        Me.btnnuevo.BackgroundImage = CType(resources.GetObject("btnnuevo.BackgroundImage"), System.Drawing.Image)
-        Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnnuevo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnnuevo.Location = New System.Drawing.Point(747, 49)
-        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(107, 60)
-        Me.btnnuevo.TabIndex = 12
-        Me.btnnuevo.Text = "NUEVO"
-        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnnuevo.UseVisualStyleBackColor = False
+        Me.ErrorValidacion.ContainerControl = Me
         '
         'frmProveedor
         '
@@ -303,6 +310,7 @@ Partial Class frmProveedor
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -324,4 +332,5 @@ Partial Class frmProveedor
     Friend WithEvents txtdescripProv As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtidproveedor As TextBox
+    Friend WithEvents ErrorValidacion As ErrorProvider
 End Class
