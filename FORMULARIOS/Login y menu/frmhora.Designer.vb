@@ -27,7 +27,7 @@ Partial Class frmhora
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.labelhora1 = New System.Windows.Forms.Label()
-        Me.labelfecha = New System.Windows.Forms.Label()
+        Me.fechita = New System.Windows.Forms.Label()
         Me.timerhora = New System.Windows.Forms.Timer(Me.components)
         Me.timerfecha = New System.Windows.Forms.Timer(Me.components)
         Me.DateTimePicker12 = New System.Windows.Forms.DateTimePicker()
@@ -38,20 +38,20 @@ Partial Class frmhora
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(522, 79)
+        Me.PictureBox1.Location = New System.Drawing.Point(554, 80)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(346, 384)
+        Me.PictureBox1.Size = New System.Drawing.Size(459, 384)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 5
         Me.PictureBox1.TabStop = False
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.fechita)
         Me.Panel1.Controls.Add(Me.labelhora1)
-        Me.Panel1.Controls.Add(Me.labelfecha)
         Me.Panel1.Location = New System.Drawing.Point(70, 222)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(435, 150)
+        Me.Panel1.Size = New System.Drawing.Size(364, 192)
         Me.Panel1.TabIndex = 4
         '
         'labelhora1
@@ -65,15 +65,16 @@ Partial Class frmhora
         Me.labelhora1.TabIndex = 2
         Me.labelhora1.Text = "Label1"
         '
-        'labelfecha
+        'fechita
         '
-        Me.labelfecha.AutoSize = True
-        Me.labelfecha.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelfecha.Location = New System.Drawing.Point(39, 86)
-        Me.labelfecha.Name = "labelfecha"
-        Me.labelfecha.Size = New System.Drawing.Size(95, 31)
-        Me.labelfecha.TabIndex = 1
-        Me.labelfecha.Text = "Label1"
+        Me.fechita.AutoSize = True
+        Me.fechita.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.fechita.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.fechita.Location = New System.Drawing.Point(59, 104)
+        Me.fechita.Name = "fechita"
+        Me.fechita.Size = New System.Drawing.Size(77, 25)
+        Me.fechita.TabIndex = 3
+        Me.fechita.Text = "Label1"
         '
         'timerhora
         '
@@ -81,6 +82,7 @@ Partial Class frmhora
         '
         'timerfecha
         '
+        Me.timerfecha.Enabled = True
         '
         'DateTimePicker12
         '
@@ -111,9 +113,9 @@ Partial Class frmhora
 
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents labelfecha As Label
     Friend WithEvents timerhora As Timer
     Friend WithEvents timerfecha As Timer
     Friend WithEvents DateTimePicker12 As DateTimePicker
     Friend WithEvents labelhora1 As Label
+    Friend WithEvents fechita As Label
 End Class

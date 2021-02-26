@@ -20,10 +20,6 @@ Public Class frmClientes
         mostrar()
     End Sub
 
-    Private Sub btnMinimizar_Click(sender As Object, e As EventArgs) Handles btnMinimizar.Click
-        Me.WindowState = FormWindowState.Minimized
-    End Sub
-
     Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs) Handles txtbuscar.TextChanged
         buscar()
     End Sub
@@ -60,15 +56,28 @@ Public Class frmClientes
         btneditar.Visible = False
         txtnombre.Text = ""
         txtapellidos.Text = ""
+        txtcorreo.Text = ""
         txtdireccion.Text = ""
         txttelefono.Text = ""
         txtdni.Text = ""
         txtbuscar.Text = ""
         txtidcliente.Text = ""
     End Sub
+
+    'Private Sub buscar()
+    '    Try
+    '        Dim dni As String
+    '        dni = txtbuscar.Text
+    '        dt = conexion.buscarCliente(dni)
+    '        datalistado.DataSource = If(dt.Rows.Count <> 0, dt, Nothing)
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
+
     Private Sub buscar()
         Try
-            dt = conexion.busqueda(" cliente ", " dni like '%" + txtbuscar.Text + "%'")
+            dt = conexion.busqueda(" clientes ", " dni like '%" + txtbuscar.Text + "%'")
 
             If dt.Rows.Count <> 0 Then
                 datalistado.DataSource = dt
@@ -85,8 +94,7 @@ Public Class frmClientes
 
 
     Private Sub insertarCliente()
-        'Dim idcliente As Integer
-        Dim direccion, telefono, dni As String
+        Dim direccion, telefono, dni, correo As String
         Dim mayus, mayus1 As String
 
         mayus = txtnombre.Text
@@ -96,12 +104,13 @@ Public Class frmClientes
         'nombre = txtNombre.Text
         mayus1 = txtapellidos.Text
         Dim apellidos As String = StrConv(mayus1, VbStrConv.ProperCase)
+        correo = txtcorreo.Text
         direccion = txtdireccion.Text
         telefono = txttelefono.Text
         dni = txtdni.Text
 
         Try
-            If conexion.insertarCliente(nombre, apellidos, direccion, telefono, dni) Then
+            If conexion.insertarCliente(nombre, apellidos, correo, direccion, telefono, dni) Then
 
             Else
                 MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -113,7 +122,7 @@ Public Class frmClientes
 
     Private Sub editarCliente()
         Dim idcliente As Integer
-        Dim direccion, telefono, dni As String
+        Dim direccion, telefono, dni, correo As String
         Dim mayus, mayus1 As String
 
         mayus = txtnombre.Text
@@ -123,16 +132,17 @@ Public Class frmClientes
 
         mayus1 = txtapellidos.Text
         Dim apellidos As String = StrConv(mayus1, VbStrConv.ProperCase)
+        correo = txtcorreo.Text
         idcliente = txtidcliente.Text
         direccion = txtdireccion.Text
         telefono = txttelefono.Text
         dni = txtdni.Text
 
         Try
-            If conexion.editarCliente(idcliente, nombre, apellidos, direccion, telefono, dni) Then
+            If conexion.editarCliente(idcliente, nombre, apellidos, correo, direccion, telefono, dni) Then
                 MessageBox.Show("Cliente modificado con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("Error al modificar cliente", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error al modificar Cliente", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -163,9 +173,10 @@ Public Class frmClientes
         txtidcliente.Text = datalistado.Rows(FilaActual).Cells(1).Value
         txtnombre.Text = datalistado.Rows(FilaActual).Cells(2).Value
         txtapellidos.Text = datalistado.Rows(FilaActual).Cells(3).Value
-        txtdireccion.Text = datalistado.Rows(FilaActual).Cells(4).Value
-        txttelefono.Text = datalistado.Rows(FilaActual).Cells(5).Value
-        txtdni.Text = datalistado.Rows(FilaActual).Cells(6).Value
+        txtcorreo.Text = datalistado.Rows(FilaActual).Cells(4).Value
+        txtdireccion.Text = datalistado.Rows(FilaActual).Cells(5).Value
+        txttelefono.Text = datalistado.Rows(FilaActual).Cells(6).Value
+        txtdni.Text = datalistado.Rows(FilaActual).Cells(7).Value
 
 
     End Sub
@@ -229,7 +240,6 @@ Public Class frmClientes
             MsgBox(ex.Message)
         End Try
     End Sub
-
     Private Sub txtdireccion_TextChanged(sender As Object, e As EventArgs) Handles txtdireccion.TextChanged
 
     End Sub
@@ -268,6 +278,5 @@ Public Class frmClientes
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
-
+    End Sub
 End Class

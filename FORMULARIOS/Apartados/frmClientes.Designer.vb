@@ -28,7 +28,7 @@ Partial Class frmClientes
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtcorreo = New System.Windows.Forms.TextBox()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.btneditar = New System.Windows.Forms.Button()
@@ -61,7 +61,7 @@ Partial Class frmClientes
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txtcorreo)
         Me.GroupBox1.Controls.Add(Me.btnguardar)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.btneditar)
@@ -94,18 +94,18 @@ Partial Class frmClientes
         Me.Label8.Location = New System.Drawing.Point(56, 184)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(63, 20)
+        Me.Label8.Size = New System.Drawing.Size(85, 20)
         Me.Label8.TabIndex = 18
-        Me.Label8.Text = "EMAIL"
+        Me.Label8.Text = "CORREO"
         '
-        'TextBox1
+        'txtcorreo
         '
-        Me.TextBox1.Location = New System.Drawing.Point(169, 182)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox1.MaxLength = 13
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(204, 26)
-        Me.TextBox1.TabIndex = 17
+        Me.txtcorreo.Location = New System.Drawing.Point(169, 182)
+        Me.txtcorreo.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtcorreo.MaxLength = 50
+        Me.txtcorreo.Name = "txtcorreo"
+        Me.txtcorreo.Size = New System.Drawing.Size(204, 26)
+        Me.txtcorreo.TabIndex = 17
         '
         'btnguardar
         '
@@ -291,7 +291,7 @@ Partial Class frmClientes
         'inexistente
         '
         Me.inexistente.AutoSize = True
-        Me.inexistente.Location = New System.Drawing.Point(383, 139)
+        Me.inexistente.Location = New System.Drawing.Point(454, 147)
         Me.inexistente.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.inexistente.Name = "inexistente"
         Me.inexistente.Size = New System.Drawing.Size(160, 20)
@@ -402,7 +402,7 @@ Partial Class frmClientes
     Friend WithEvents datalistado As DataGridView
     Friend WithEvents Eliminar As DataGridViewCheckBoxColumn
     Friend WithEvents Label8 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtcorreo As TextBox
     Friend WithEvents ErrorValidacion As ErrorProvider
     Friend WithEvents ToolTip1 As ToolTip
 End Class

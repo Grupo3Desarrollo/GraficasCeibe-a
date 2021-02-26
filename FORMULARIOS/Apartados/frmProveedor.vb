@@ -52,7 +52,7 @@ Public Class frmProveedor
         End Try
     End Sub
 
-    Private Sub insertarCliente()
+    Private Sub insertarProv()
         Dim P_descripProv, P_ciudad As String
         Dim P_Tel As Integer
         P_descripProv = txtdescripProv.Text
@@ -92,7 +92,7 @@ Public Class frmProveedor
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
         If Me.ValidateChildren = True And txtdescripProv.Text <> "" And txtciudad.Text <> "" And txttelefono.Text <> "" Then
             Try
-                insertarCliente()
+                insertarProv()
                 mostrar()
                 limpiar()
                 conexion.conexion.Close()

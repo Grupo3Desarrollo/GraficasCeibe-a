@@ -4,7 +4,7 @@ Imports System.Text
 
 Public Class Conexion
     'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-6LV81RN;Initial Catalog=GraficasC; user id = sa; password = Aleman16848760")
-    Public conexion As SqlConnection = New SqlConnection("Data Source=DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source=HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
     Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
@@ -410,5 +410,194 @@ Public Class Conexion
             conexion.Close()
         End Try
     End Function
+
+    'Proveedor
+    Public Function insertarProveedor(P_descripProv As String, P_ciudad As String, P_Tel As Integer)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_Proveedor", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@P_descripProv", P_descripProv)
+            cmb.Parameters.AddWithValue("@P_ciudad", P_ciudad)
+            cmb.Parameters.AddWithValue("@P_Tel", P_Tel)
+
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function editarProveedor(idProveedor As Integer, P_descripProv As String, P_ciudad As String, P_Tel As Integer)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("editar_Proveedor", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idProveedor", idProveedor)
+            cmb.Parameters.AddWithValue("@P_descripProv", P_descripProv)
+            cmb.Parameters.AddWithValue("@P_ciudad", P_ciudad)
+            cmb.Parameters.AddWithValue("@P_Tel", P_Tel)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function mostrarProveedor() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_proveedor", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function buscarProveedor(P_descripProv As String) As DataTable
+        Try
+            conexion.Open()
+            Dim cmb As New SqlCommand("buscarProveedor", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@P_descripProv", P_descripProv)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    'Clientes
+    Public Function mostrar() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_cliente", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function insertarCliente(nombre As String, apellidos As String, correo As String, direccion As String, telefono As String, dni As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_cliente", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@nombre", nombre)
+            cmb.Parameters.AddWithValue("@apellidos", apellidos)
+            cmb.Parameters.AddWithValue("@correo", correo)
+            cmb.Parameters.AddWithValue("@direccion", direccion)
+            cmb.Parameters.AddWithValue("@telefono", telefono)
+            cmb.Parameters.AddWithValue("@dni", dni)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function editarCliente(idcliente As Integer, nombre As String, apellidos As String, correo As String, direccion As String, telefono As String, dni As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("editar_cliente", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idcliente", idcliente)
+            cmb.Parameters.AddWithValue("@nombre", nombre)
+            cmb.Parameters.AddWithValue("@apellidos", apellidos)
+            cmb.Parameters.AddWithValue("@correo", correo)
+            cmb.Parameters.AddWithValue("@direccion", direccion)
+            cmb.Parameters.AddWithValue("@telefono", telefono)
+            cmb.Parameters.AddWithValue("@dni", dni)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+    Function busqueda(ByVal tabla, ByVal condicion) As DataTable
+        Try
+            conexion.Open()
+            Dim buscar As String = "select * from " + tabla + " where " + condicion
+            Dim cmd As New SqlCommand(buscar, conexion)
+            If cmd.ExecuteNonQuery Then
+                Dim dv As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dv)
+                Return dv
+            Else
+                Return Nothing
+            End If
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        End Try
+    End Function
+
 
 End Class
