@@ -181,6 +181,50 @@ SELECT Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha 
 	   FROM Empleados 
 WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@UserName+ '%') OR DNIEmpleado LIKE '%' +@UserName+ '%'
 
+-- CLIENTE
+-- Mostrar Cliente
+CREATE PROCEDURE mostrar_cliente
+as
+SELECT idcliente as 'Codigo',nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',telefono as 'Telefono', correo as 'Correo', direccion as 'Dirección',dni as 'Identidad' FROM cliente order BY idcliente desc
+go
+
+-- insertar cliente
+CREATE PROCEDURE insertar_cliente 
+	@nombre VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@correo NVARCHAR(50),
+	@direccion VARCHAR(100),
+	@telefono VARCHAR(9),
+	@dni NVARCHAR(13)
+	AS BEGIN
+		IF EXISTS (SELECT dni,telefono,correo FROM cliente WHERE dni=@dni AND telefono=@telefono AND correo=@correo)
+		RAISERROR ('Ya existe un registro con ese DNI, porfavor ingrese uno nuevo',16,1)
+		ELSE
+		INSERT INTO cliente VALUES(@nombre,@apellidos,@correo,@direccion,@telefono,@dni) 
+END
+
+--Editar cliente
+CREATE PROCEDURE editar_cliente
+    @idcliente INT, 
+	@nombre as VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@correo NVARCHAR(50),
+	@direccion VARCHAR(100),
+	@telefono VARCHAR(9),
+	@dni NVARCHAR(13)
+	as
+	   UPDATE cliente SET nombre = @nombre, apellidos = @apellidos, correo=@correo, direccion = @direccion, telefono = @telefono,dni = @dni
+	   WHERE idcliente = @idcliente
+go
+
+-- Buscar cliente
+CREATE PROCEDURE buscarCliente
+@dni NVARCHAR(13)
+as
+SELECT idcliente as 'Codigo',nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',telefono as 'Telefono',dni as 'Identidad' 
+FROM cliente
+WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@dni+ '%') OR dni LIKE '%' +@dni+ '%'
+
 -- CATEGORIA
 -- insertar categoria
 CREATE PROCEDURE insertar_categoria
@@ -260,3 +304,288 @@ as
 SELECT pro.idproducto as 'Codigo producto', pro.idcategoria as 'Codigo categoria', cat.nombre_categoria as 'Categoria', pro.nombre as 'Producto',pro.descripcion as 'Descripcion',pro.stock as 'Stock',pro.precio_compra as 'Precio de compra',pro.precio_venta as 'Precio de venta',pro.fecha_vencimiento as 'Fecha de vencimiento',pro.imagen as 'Imagen'
 FROM productos as pro inner join categorias as cat on pro.idcategoria = cat.idcategoria
 WHERE pro.nombre LIKE '%' +@nombre+ '%'
+
+-- VENTA
+-- insertar venta
+CREATE PROCEDURE insertar_venta
+@idcliente as INT,
+@fecha_venta as DATE,
+@num_documento as VARCHAR(50),
+@idEmpleado as NVARCHAR(13)
+as
+INSERT INTO venta VALUES(@idcliente,@fecha_venta,@num_documento,@idEmpleado)
+go
+
+--editar
+CREATE PROCEDURE editar_venta
+@idventa as INT,
+@idcliente as INT,
+@fecha_venta as DATE,
+@num_documento as VARCHAR(50),
+@idEmpleado as NVARCHAR(13)
+as
+UPDATE venta SET idcliente=@idcliente,fecha_venta=@fecha_venta,num_documento=@num_documento, idEmpleado=@idEmpleado
+WHERE idventa=@idventa
+go
+
+-- mostrar venta
+CREATE PROCEDURE mostrar_venta
+as
+SELECT   dbo.venta.idventa as 'Codigo Venta', dbo.venta.idcliente 'Codigo Cliente', dbo.cliente.nombre as 'Nombre Cliente', dbo.cliente.apellidos as 'Apellidos Cliente', dbo.cliente.dni as 'Identidad Cliente', dbo.venta.fecha_venta as 'Fecha de la venta', dbo.venta.num_documento as 'Numero de Documento', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
+FROM     dbo.venta INNER JOIN
+             dbo.cliente ON dbo.venta.idcliente = dbo.cliente.idcliente
+			 inner join 
+			 dbo.Empleados ON dbo.venta.idEmpleado = dbo.Empleados.idEmpleado
+			 order BY dbo.venta.idventa desc
+			 go
+
+-- Buscar Venta
+CREATE PROCEDURE buscarVenta
+@num_documento as VARCHAR(50)
+as
+SELECT   dbo.venta.idventa as 'Codigo Venta', dbo.venta.idcliente 'Codigo Cliente', dbo.cliente.nombre as 'Nombre Cliente', dbo.cliente.apellidos as 'Apellidos Cliente', dbo.cliente.dni as 'Identidad Cliente', dbo.venta.fecha_venta as 'Fecha de la venta', dbo.venta.num_documento as 'Numero de Documento', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
+FROM     dbo.venta INNER JOIN
+             dbo.cliente ON dbo.venta.idcliente = dbo.cliente.idcliente
+			 inner join 
+			 dbo.Empleados ON dbo.venta.idEmpleado = dbo.Empleados.idEmpleado
+WHERE num_documento LIKE '%' +@num_documento+ '%'
+
+-- DETALLES DE VENTA
+
+-- insertar detalles venta
+CREATE PROCEDURE insertar_detalles_venta
+@idventa as INT,
+@idproducto as INT,
+@precio_V as decimal (10,2),
+@cantidad as decimal (10,2)
+
+as
+INSERT INTO detalle_venta VALUES(@idventa,@idproducto,@precio_V,@cantidad)
+go
+
+-- editar detalles venta
+CREATE PROCEDURE editar_detalles_venta
+@idventa as INT,
+@idproducto as INT,
+@precio_V as decimal (10,2),
+@cantidad as decimal (10,2)
+as
+UPDATE detalle_venta SET idproducto=@idproducto, precio_V=@precio_V ,cantidad=@cantidad
+WHERE idventa= @idventa
+go
+
+-- mostrar detalles venta
+
+CREATE PROCEDURE mostrar_detalle_venta
+as
+SELECT        dbo.detalle_venta.idventa as 'Codigo Venta', dbo.detalle_venta.idproducto as 'Codigo Producto', dbo.producto.nombre as 'Producto', dbo.detalle_venta.precio_V as 'Precio Unitario', dbo.detalle_venta.cantidad as 'Cantidad'
+FROM            dbo.detalle_venta INNER JOIN
+                         dbo.producto ON dbo.detalle_venta.idproducto = dbo.producto.idproducto 
+						 order BY  dbo.detalle_venta.iddetalle_venta desc
+go
+
+-- STOCK
+-- AUMENTAR STOCK
+CREATE PROCEDURE aumentar_stock
+@idproducto as INT,
+@cantidad as decimal (18,2)
+as
+UPDATE producto SET stock = stock+@cantidad 
+WHERE idproducto=@idproducto
+go
+
+-- DISMINUID STOCK
+CREATE PROCEDURE disminuir_stock
+@idproducto as INT,
+@cantidad as decimal (18,2)
+as
+UPDATE producto SET stock = stock-@cantidad 
+WHERE idproducto=@idproducto
+go
+
+-- PROVEEDORE
+--Mostrar Proveedor
+CREATE PROCEDURE mostrar_proveedor
+	as
+	SELECT
+	      idProveedor as 'Codigo Proveedor', P_descripProv as 'Descripcion del Proveedor', P_ciudad as 'Ciudad', P_Tel as 'Telefono'
+    FROM Proveedores 
+	order BY  idProveedor desc
+go
+
+-- Insertar Proveedor
+CREATE PROCEDURE insertar_Proveedor
+	@P_descripProv VARCHAR(20),
+	@P_ciudad VARCHAR(30),
+	@P_Tel INT
+
+	AS BEGIN
+		IF EXISTS (SELECT P_Tel FROM Proveedores WHERE P_Tel=@P_Tel)
+		RAISERROR ('Ya existe un Proveedor con este telefono, porfavor ingrese uno nuevo',16,1)
+		ELSE
+		INSERT INTO Proveedores VALUES(@P_descripProv,@P_ciudad,@P_Tel) 
+END
+
+-- Editar Proveedor
+CREATE PROCEDURE editar_Proveedor
+    @idProveedor INT,
+	@P_descripProv VARCHAR(20),
+	@P_ciudad VARCHAR(30),
+	@P_Tel INT
+	as
+	   UPDATE Proveedores SET P_descripProv=@P_descripProv, P_ciudad=@P_ciudad, P_Tel=@P_Tel
+	   WHERE idProveedor = @idProveedor
+go
+
+-- Buscar proveedor
+CREATE PROCEDURE buscarProveedor
+@P_descripProv VARCHAR(20)
+as
+	SELECT
+	      idProveedor as 'Codigo Proveedor', P_descripProv as 'Descripcion del Proveedor', P_ciudad as 'Ciudad', P_Tel as 'Telefono'
+    FROM Proveedores
+WHERE P_descripProv LIKE '%' +@P_descripProv+ '%'
+
+--CompraProveedor
+-- Insertar Compra
+CREATE PROCEDURE ingresar_CompraProveedor
+	@fecha_compra as DATE,
+	@idproducto as INT,
+	@idProveedor as INT
+
+	AS BEGIN
+		INSERT INTO Compras VALUES(@fecha_compra, @idproducto, @idProveedor) 
+END
+
+-- Editar Compra
+CREATE PROCEDURE editar_compra
+	@iCompra as INT,
+	@fecha_compra as DATE,
+	@idproducto as INT,
+	@idProveedor as INT
+as
+UPDATE Compras SET fecha_compra=@fecha_compra, idproducto=@idproducto, idProveedor=@idProveedor
+WHERE idCompra=@idCompra
+go
+
+
+
+
+
+
+CREATE PROCEDURE insertar_CompraProveedor
+	@idProveedor INT,
+	@idproducto INT,
+	@P_precio_compra decimal (18,2),
+	@P_cantidad INT,
+	@fecha_compra DATE
+
+	AS BEGIN
+		INSERT INTO Compra VALUES(@idProveedor,@idproducto,@P_precio_compra,@P_cantidad,@fecha_compra) 
+END
+
+
+-- MostrarCompraProveedor
+
+CREATE PROCEDURE mostrar_CompraProveedor
+as
+SELECT dbo.Compra.idCompra as 'Codigo Compra', dbo.Proveedores.idProveedor as 'Codigo Proveedor', dbo.producto.idproducto as 'Codigo Producto', dbo.Proveedores.P_descripProv as 'Descripcion Proveedor', dbo.producto.nombre as 'Producto', dbo.Compra.P_cantidad as 'Cantidad', dbo.Compra.P_precio_compra as 'Precio de Compra', dbo.Compra.fecha_compra as 'Fecha de Compra'
+FROM   dbo.producto INNER JOIN
+             dbo.Compra ON dbo.producto.idproducto = dbo.Compra.idproducto INNER JOIN
+             dbo.Proveedores ON dbo.Compra.idProveedor = dbo.Proveedores.idProveedor
+			 order BY dbo.Compra.idCompra desc
+
+--Trabajo 23/02/21 - 26/02/21
+
+-- CLIENTE
+-- Mostrar Cliente
+CREATE PROCEDURE mostrar_cliente
+as
+SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' FROM clientes order BY idcliente desc
+go
+
+-- insertar cliente
+CREATE PROCEDURE insertar_cliente 
+	@nombre VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@correo NVARCHAR(50),
+	@direccion VARCHAR(100),
+	@telefono VARCHAR(9),
+	@dni NVARCHAR(13)
+	AS BEGIN
+		IF EXISTS (SELECT dni,telefono FROM clientes WHERE dni=@dni AND telefono=@telefono)
+		RAISERROR ('Ya existe un registro con ese DNI, porfavor ingrese uno nuevo',16,1)
+		ELSE
+		INSERT INTO clientes VALUES(@nombre,@apellidos,@correo,@direccion,@telefono,@dni) 
+END
+
+--Editar cliente
+CREATE PROCEDURE editar_cliente
+    @idcliente INT, 
+	@nombre as VARCHAR(50),
+	@apellidos VARCHAR(50),
+	@correo NVARCHAR(50),
+	@direccion VARCHAR(100),
+	@telefono VARCHAR(9),
+	@dni NVARCHAR(13)
+	as
+	   UPDATE clientes SET nombre = @nombre, apellidos = @apellidos,correo = @correo, direccion = @direccion, telefono = @telefono,dni = @dni
+	   WHERE idcliente = @idcliente
+go
+
+-- Buscar cliente
+CREATE PROCEDURE buscarCliente
+@dni NVARCHAR(13)
+as
+SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección'
+FROM clientes
+WHERE (CONCAT(nombre, '',apellidos) LIKE '%' +@dni+ '%') OR dni LIKE '%' +@dni+ '%'
+
+
+-- PROVEEDORE
+--Mostrar Proveedor
+CREATE PROCEDURE mostrar_proveedor
+	as
+	SELECT
+	      idProveedor as 'Codigo Proveedor', P_descripProv as 'Descripcion del Proveedor', P_ciudad as 'Ciudad', P_Tel as 'Telefono'
+    FROM Proveedores 
+	order BY  idProveedor desc
+go
+
+-- Insertar Proveedor
+CREATE PROCEDURE insertar_Proveedor
+	@P_descripProv VARCHAR(20),
+	@P_ciudad VARCHAR(30),
+	@P_Tel INT
+
+	AS BEGIN
+		IF EXISTS (SELECT P_Tel FROM Proveedores WHERE P_Tel=@P_Tel)
+		RAISERROR ('Ya existe un Proveedor con este telefono, porfavor ingrese uno nuevo',16,1)
+		ELSE
+		INSERT INTO Proveedores VALUES(@P_descripProv,@P_ciudad,@P_Tel) 
+END
+
+-- Editar Proveedor
+CREATE PROCEDURE editar_Proveedor
+    @idProveedor INT,
+	@P_descripProv VARCHAR(20),
+	@P_ciudad VARCHAR(30),
+	@P_Tel INT
+	as
+	   UPDATE Proveedores SET P_descripProv=@P_descripProv, P_ciudad=@P_ciudad, P_Tel=@P_Tel
+	   WHERE idProveedor = @idProveedor
+go
+
+-- Buscar proveedor
+CREATE PROCEDURE buscarProveedor
+@P_descripProv VARCHAR(20)
+as
+	SELECT
+	      idProveedor as 'Codigo Proveedor', P_descripProv as 'Descripcion del Proveedor', P_ciudad as 'Ciudad', P_Tel as 'Telefono'
+    FROM Proveedores
+WHERE (P_descripProv LIKE '%' +@P_descripProv+ '%') OR (P_ciudad LIKE '%' +@P_descripProv+ '%') 
+
+/*
+execute insertar_Empleado 'Jonathan Alexis','Aleman Linares','1998-05-09','96693357','M','Activo','Y8msdnxDm9U=','0101199804248','Gerente'
+execute insertar_Empleado 'Hugo Geovany','Murillo Urbina','2000-02-17','96693300','M','Activo','Y8msdnxDm9U=','1807200000429','Dependiente'
+*/
