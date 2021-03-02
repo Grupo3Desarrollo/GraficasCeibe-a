@@ -83,4 +83,10 @@ Public Class Menuu
     Private Sub btnproveedor_Click(sender As Object, e As EventArgs) Handles btnproveedor.Click
         abrirFormulario(frmProveedor)
     End Sub
+
+    Private Sub btnventas_Click(sender As Object, e As EventArgs) Handles btnventas.Click
+        abrirFormulario(frmVenta)
+    End Sub
+
+
 End Class

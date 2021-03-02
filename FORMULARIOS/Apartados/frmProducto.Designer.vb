@@ -256,7 +256,7 @@ Partial Class frmProducto
         '
         'txtnom_categoria
         '
-        Me.txtnom_categoria.Location = New System.Drawing.Point(253, 131)
+        Me.txtnom_categoria.Location = New System.Drawing.Point(253, 133)
         Me.txtnom_categoria.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtnom_categoria.Name = "txtnom_categoria"
         Me.txtnom_categoria.ReadOnly = True
@@ -339,7 +339,7 @@ Partial Class frmProducto
         '
         'txtidcategoria
         '
-        Me.txtidcategoria.Location = New System.Drawing.Point(216, 131)
+        Me.txtidcategoria.Location = New System.Drawing.Point(216, 133)
         Me.txtidcategoria.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtidcategoria.Name = "txtidcategoria"
         Me.txtidcategoria.ReadOnly = True

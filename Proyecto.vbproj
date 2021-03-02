@@ -80,6 +80,12 @@
     <Compile Include="FORMULARIOS\Apartados\frmCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmDetalleVenta.Designer.vb">
+      <DependentUpon>frmDetalleVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmDetalleVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMULARIOS\Apartados\frmEmpleados.Designer.vb">
       <DependentUpon>frmEmpleados.vb</DependentUpon>
     </Compile>
@@ -98,6 +104,24 @@
     <Compile Include="FORMULARIOS\Apartados\frmProveedor.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmVenta.Designer.vb">
+      <DependentUpon>frmVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarProveedor.Designer.vb">
+      <DependentUpon>mostrarProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarClientes.Designer.vb">
+      <DependentUpon>mostrarClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.Designer.vb">
       <DependentUpon>mostrarCategoria.vb</DependentUpon>
     </Compile>
@@ -108,6 +132,12 @@
       <DependentUpon>frmClientes.vb</DependentUpon>
     </Compile>
     <Compile Include="FORMULARIOS\Apartados\frmClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarEmpleados.Designer.vb">
+      <DependentUpon>mostrarEmpleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMULARIOS\Login y menu\frmhora.Designer.vb">
@@ -127,6 +157,12 @@
       <DependentUpon>Menuu.vb</DependentUpon>
     </Compile>
     <Compile Include="FORMULARIOS\Login y menu\Menuu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarProductos.Designer.vb">
+      <DependentUpon>mostrarProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Frm Busquedas\mostrarProductos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -150,6 +186,9 @@
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmCategoria.resx">
       <DependentUpon>frmCategoria.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmDetalleVenta.resx">
+      <DependentUpon>frmDetalleVenta.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmEmpleados.resx">
       <DependentUpon>frmEmpleados.vb</DependentUpon>
     </EmbeddedResource>
@@ -159,11 +198,23 @@
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmProveedor.resx">
       <DependentUpon>frmProveedor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmVenta.resx">
+      <DependentUpon>frmVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarProveedor.resx">
+      <DependentUpon>mostrarProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarClientes.resx">
+      <DependentUpon>mostrarClientes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarCategoria.resx">
       <DependentUpon>mostrarCategoria.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmClientes.resx">
       <DependentUpon>frmClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarEmpleados.resx">
+      <DependentUpon>mostrarEmpleados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Login y menu\frmhora.resx">
       <DependentUpon>frmhora.vb</DependentUpon>
@@ -173,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Login y menu\Menuu.resx">
       <DependentUpon>Menuu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarProductos.resx">
+      <DependentUpon>mostrarProductos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -120,3 +120,9 @@ C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Deb
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmProveedor.resources
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\REPOSITORIO\GraficasCeibena\obj\Debug\Proyecto.frmProveedor.resources
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\REPOSITORIO\GraficasCeibena\obj\Debug\Proyecto.frmClientes.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmVenta.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmDetalleVenta.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.MostrarClientes.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.mostrarEmpleados.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.mostrarProductos.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.mostrarProveedor.resources
