@@ -67,7 +67,6 @@ CREATE TABLE detalles_ventas(
 	idproducto INT NOT NULL,
 	precio_V DECIMAL (10,2) NOT NULL,
 	cantidad DECIMAL (10,2) NOT NULL,
-	subtotal DECIMAL (10,2) NULL,
 	primary key(idventa,idproducto),
 	CONSTRAINT FK_IDventa FOREIGN KEY (idventa) REFERENCES ventas(idventa),
 	CONSTRAINT FK_IDproducto FOREIGN KEY (idproducto) REFERENCES productos(idproducto)
@@ -394,16 +393,14 @@ FROM     dbo.ventas INNER JOIN
 WHERE num_documento LIKE '%' +@num_documento+ '%'
 
 -- DETALLES DE VENTA
-
 -- insertar detalles venta
 CREATE PROCEDURE insertar_detalles_venta
 @idventa as INT,
 @idproducto as INT,
 @precio_V as decimal (10,2),
 @cantidad as decimal (10,2)
-
 as
-INSERT INTO detalle_ventas VALUES(@idventa,@idproducto,@precio_V,@cantidad)
+INSERT INTO detalles_ventas VALUES(@idventa,@idproducto,@precio_V,@cantidad)
 go
 
 -- editar detalles venta
@@ -413,7 +410,7 @@ CREATE PROCEDURE editar_detalles_venta
 @precio_V as decimal (10,2),
 @cantidad as decimal (10,2)
 as
-UPDATE detalle_ventas SET idproducto=@idproducto, precio_V=@precio_V ,cantidad=@cantidad
+UPDATE detalles_ventas SET idproducto=@idproducto, precio_V=@precio_V ,cantidad=@cantidad
 WHERE idventa= @idventa
 go
 

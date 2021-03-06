@@ -693,4 +693,118 @@ Public Class Conexion
         End Try
     End Function
 
+    'Detalles de venta
+    Public Function mostrarDetalleVenta() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_detalle_venta", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function insertarDetallesVenta(idventa As Integer, idproducto As Integer, precio_V As Double, cantidad As Double)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_detalles_venta", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idventa", idventa)
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
+            cmb.Parameters.AddWithValue("@precio_V", precio_V)
+            cmb.Parameters.AddWithValue("@cantidad", cantidad)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function editarDetallesVenta(idventa As Integer, idproducto As Integer, precio_V As Double, cantidad As Double)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("editar_detalles_venta", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idventa", idventa)
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
+            cmb.Parameters.AddWithValue("@precio_V", precio_V)
+            cmb.Parameters.AddWithValue("@cantidad", cantidad)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    ' AUMENTAR STOCK
+    Public Function aumentar_stock(idproducto As Integer, cantidad As Double)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("aumentar_stock", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
+            cmb.Parameters.AddWithValue("@cantidad", cantidad)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    '   DISMINUIR STOCK
+    Public Function disminuir_stock(idproducto As Integer, cantidad As Double)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("disminuir_stock", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
+            cmb.Parameters.AddWithValue("@cantidad", cantidad)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
 End Class
