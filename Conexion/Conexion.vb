@@ -599,5 +599,98 @@ Public Class Conexion
         End Try
     End Function
 
+    'Ventas
+    Public Function mostrarVenta() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_venta", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function insertarVenta(fecha_venta As Date, num_documento As String, idEmpleado As String, idcliente As Integer)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_venta", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@fecha_venta", fecha_venta)
+            cmb.Parameters.AddWithValue("@num_documento", num_documento)
+            cmb.Parameters.AddWithValue("@idEmpleado", idEmpleado)
+            cmb.Parameters.AddWithValue("@idcliente", idcliente)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function editarVenta(idventa As Integer, idcliente As Integer, fecha_venta As Date, num_documento As String, idEmpleado As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("editar_venta", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idventa", idventa)
+            cmb.Parameters.AddWithValue("@idcliente", idcliente)
+            cmb.Parameters.AddWithValue("@fecha_venta", fecha_venta)
+            cmb.Parameters.AddWithValue("@num_documento", num_documento)
+            cmb.Parameters.AddWithValue("@idEmpleado", idEmpleado)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function buscarVenta(num_documento As String) As DataTable
+        Try
+            conexion.Open()
+            Dim cmb As New SqlCommand("buscarVenta", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@num_documento", num_documento)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
 
 End Class

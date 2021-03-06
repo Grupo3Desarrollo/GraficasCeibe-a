@@ -49,8 +49,6 @@ Public Class frmVenta
         btneditar.Visible = False
     End Sub
 
-
-
     Private Sub buscar()
         Try
             Dim num_documento As String
@@ -72,8 +70,7 @@ Public Class frmVenta
         idEmpleado = txtidempleado.Text
 
         Try
-            If conexion.insertarVenta(idcliente, fecha_venta, num_documento, idEmpleado) Then
-
+            If conexion.insertarVenta(fecha_venta, num_documento, idEmpleado, idcliente) Then
             Else
                 MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -154,13 +151,13 @@ Public Class frmVenta
     End Sub
 
     Private Sub cargar_detalle()
-        frmDetalles_venta.txtidventa.Text = datalistado.SelectedCells.Item(1).Value
-        frmDetalles_venta.txtidcliente.Text = datalistado.SelectedCells.Item(2).Value
-        frmDetalles_venta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value
-        frmDetalles_venta.txtfecha.Text = datalistado.SelectedCells.Item(6).Value
-        frmDetalles_venta.txtnum_documento.Text = datalistado.SelectedCells.Item(7).Value
+        frmDetalleVenta.txtidventa.Text = datalistado.SelectedCells.Item(1).Value
+        frmDetalleVenta.txtidcliente.Text = datalistado.SelectedCells.Item(2).Value
+        frmDetalleVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value
+        frmDetalleVenta.txtfecha.Text = datalistado.SelectedCells.Item(6).Value
+        frmDetalleVenta.txtnum_documento.Text = datalistado.SelectedCells.Item(7).Value
 
-        frmDetalles_venta.ShowDialog()
+        frmDetalleVenta.ShowDialog()
     End Sub
 
     Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
@@ -184,10 +181,6 @@ Public Class frmVenta
     Private Sub txtbuscarempleado_Click(sender As Object, e As EventArgs) Handles txtbuscarempleado.Click
         mostrarEmpleados.txtflag.Text = "1"
         mostrarEmpleados.ShowDialog()
-    End Sub
-
-    Private Sub frmVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 
     Private Sub btnBuscarCliente_MouseHover(sender As Object, e As EventArgs) Handles btnBuscarCliente.MouseHover
