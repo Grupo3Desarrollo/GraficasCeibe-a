@@ -22,6 +22,7 @@ Partial Class frmEmpleados
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEmpleados))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -51,9 +52,11 @@ Partial Class frmEmpleados
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtbuscar = New System.Windows.Forms.TextBox()
+        Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -390,6 +393,10 @@ Partial Class frmEmpleados
         Me.txtbuscar.Size = New System.Drawing.Size(186, 26)
         Me.txtbuscar.TabIndex = 16
         '
+        'ErrorValidacion
+        '
+        Me.ErrorValidacion.ContainerControl = Me
+        '
         'frmEmpleados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -406,6 +413,7 @@ Partial Class frmEmpleados
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -436,4 +444,5 @@ Partial Class frmEmpleados
     Friend WithEvents Label7 As Label
     Friend WithEvents txtbuscar As TextBox
     Friend WithEvents txtCodigo As TextBox
+    Friend WithEvents ErrorValidacion As ErrorProvider
 End Class

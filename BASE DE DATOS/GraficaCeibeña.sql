@@ -184,7 +184,7 @@ WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@UserName+ '%') OR DNIEmpleado LI
 -- Mostrar Cliente
 CREATE PROCEDURE mostrar_cliente
 as
-SELECT idcliente as 'Codigo',nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',telefono as 'Telefono', correo as 'Correo', direccion as 'Dirección',dni as 'Identidad' FROM cliente order BY idcliente desc
+SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' FROM clientes order BY idcliente desc
 go
 
 -- insertar cliente
@@ -196,10 +196,10 @@ CREATE PROCEDURE insertar_cliente
 	@telefono VARCHAR(9),
 	@dni NVARCHAR(13)
 	AS BEGIN
-		IF EXISTS (SELECT dni,telefono,correo FROM cliente WHERE dni=@dni AND telefono=@telefono AND correo=@correo)
+		IF EXISTS (SELECT dni,telefono FROM clientes WHERE dni=@dni AND telefono=@telefono)
 		RAISERROR ('Ya existe un registro con ese DNI, porfavor ingrese uno nuevo',16,1)
 		ELSE
-		INSERT INTO cliente VALUES(@nombre,@apellidos,@correo,@direccion,@telefono,@dni) 
+		INSERT INTO clientes VALUES(@nombre,@apellidos,@correo,@direccion,@telefono,@dni) 
 END
 
 --Editar cliente
@@ -212,7 +212,7 @@ CREATE PROCEDURE editar_cliente
 	@telefono VARCHAR(9),
 	@dni NVARCHAR(13)
 	as
-	   UPDATE cliente SET nombre = @nombre, apellidos = @apellidos, correo=@correo, direccion = @direccion, telefono = @telefono,dni = @dni
+	   UPDATE clientes SET nombre = @nombre, apellidos = @apellidos,correo = @correo, direccion = @direccion, telefono = @telefono,dni = @dni
 	   WHERE idcliente = @idcliente
 go
 
@@ -220,9 +220,9 @@ go
 CREATE PROCEDURE buscarCliente
 @dni NVARCHAR(13)
 as
-SELECT idcliente as 'Codigo',nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',telefono as 'Telefono',dni as 'Identidad' 
-FROM cliente
-WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@dni+ '%') OR dni LIKE '%' +@dni+ '%'
+SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección'
+FROM clientes
+WHERE (CONCAT(nombre, '',apellidos) LIKE '%' +@dni+ '%') OR dni LIKE '%' +@dni+ '%'
 
 -- CATEGORIA
 -- insertar categoria

@@ -22,6 +22,7 @@ Partial Class frmCategoria
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCategoria))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -39,9 +40,11 @@ Partial Class frmCategoria
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtbuscar = New System.Windows.Forms.TextBox()
+        Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -56,9 +59,9 @@ Partial Class frmCategoria
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Window
         Me.GroupBox1.Location = New System.Drawing.Point(158, 159)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(285, 259)
         Me.GroupBox1.TabIndex = 20
         Me.GroupBox1.TabStop = False
@@ -70,7 +73,7 @@ Partial Class frmCategoria
         Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.Location = New System.Drawing.Point(182, 149)
-        Me.btnguardar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnguardar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(88, 62)
         Me.btnguardar.TabIndex = 16
@@ -85,7 +88,7 @@ Partial Class frmCategoria
         Me.btneditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btneditar.Image = CType(resources.GetObject("btneditar.Image"), System.Drawing.Image)
         Me.btneditar.Location = New System.Drawing.Point(182, 149)
-        Me.btneditar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btneditar.Margin = New System.Windows.Forms.Padding(2)
         Me.btneditar.Name = "btneditar"
         Me.btneditar.Size = New System.Drawing.Size(88, 62)
         Me.btneditar.TabIndex = 13
@@ -99,7 +102,7 @@ Partial Class frmCategoria
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
         Me.btnnuevo.Location = New System.Drawing.Point(29, 149)
-        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(95, 62)
         Me.btnnuevo.TabIndex = 12
@@ -120,7 +123,7 @@ Partial Class frmCategoria
         'txtnombre
         '
         Me.txtnombre.Location = New System.Drawing.Point(94, 70)
-        Me.txtnombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtnombre.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnombre.Name = "txtnombre"
         Me.txtnombre.Size = New System.Drawing.Size(177, 26)
         Me.txtnombre.TabIndex = 2
@@ -138,7 +141,7 @@ Partial Class frmCategoria
         'txtidcategoria
         '
         Me.txtidcategoria.Location = New System.Drawing.Point(94, 32)
-        Me.txtidcategoria.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtidcategoria.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidcategoria.Name = "txtidcategoria"
         Me.txtidcategoria.ReadOnly = True
         Me.txtidcategoria.Size = New System.Drawing.Size(177, 26)
@@ -153,9 +156,9 @@ Partial Class frmCategoria
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.Window
         Me.GroupBox2.Location = New System.Drawing.Point(590, 159)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(339, 259)
         Me.GroupBox2.TabIndex = 21
         Me.GroupBox2.TabStop = False
@@ -202,7 +205,7 @@ Partial Class frmCategoria
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
         Me.datalistado.Location = New System.Drawing.Point(87, 70)
-        Me.datalistado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.datalistado.Margin = New System.Windows.Forms.Padding(2)
         Me.datalistado.Name = "datalistado"
         Me.datalistado.ReadOnly = True
         Me.datalistado.RowHeadersVisible = False
@@ -233,10 +236,14 @@ Partial Class frmCategoria
         'txtbuscar
         '
         Me.txtbuscar.Location = New System.Drawing.Point(199, 28)
-        Me.txtbuscar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtbuscar.Margin = New System.Windows.Forms.Padding(2)
         Me.txtbuscar.Name = "txtbuscar"
         Me.txtbuscar.Size = New System.Drawing.Size(126, 26)
         Me.txtbuscar.TabIndex = 16
+        '
+        'ErrorValidacion
+        '
+        Me.ErrorValidacion.ContainerControl = Me
         '
         'frmCategoria
         '
@@ -254,6 +261,7 @@ Partial Class frmCategoria
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -272,4 +280,5 @@ Partial Class frmCategoria
     Friend WithEvents Eliminar As DataGridViewCheckBoxColumn
     Friend WithEvents Label7 As Label
     Friend WithEvents txtbuscar As TextBox
+    Friend WithEvents ErrorValidacion As ErrorProvider
 End Class

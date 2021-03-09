@@ -23,25 +23,23 @@ Partial Class frmDetalleVenta
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleVenta))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleVenta))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.txtstock = New System.Windows.Forms.NumericUpDown()
         Me.txtcantidad = New System.Windows.Forms.NumericUpDown()
         Me.txtprecio_unitario = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.btnBuscarProducto = New System.Windows.Forms.Button()
         Me.txtnom_producto = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtidproducto = New System.Windows.Forms.TextBox()
-        Me.CMBtipo_documento = New System.Windows.Forms.ComboBox()
         Me.txtfecha = New System.Windows.Forms.DateTimePicker()
         Me.txtnombre_cliente = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtnum_documento = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtidcliente = New System.Windows.Forms.TextBox()
@@ -54,15 +52,15 @@ Partial Class frmDetalleVenta
         Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btnimprimir = New System.Windows.Forms.Button()
-        Me.btnBuscarProducto = New System.Windows.Forms.Button()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
+        Me.txtstock = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.txtstock, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtstock, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -77,12 +75,10 @@ Partial Class frmDetalleVenta
         Me.GroupBox1.Controls.Add(Me.txtnom_producto)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.txtidproducto)
-        Me.GroupBox1.Controls.Add(Me.CMBtipo_documento)
         Me.GroupBox1.Controls.Add(Me.txtfecha)
         Me.GroupBox1.Controls.Add(Me.txtnombre_cliente)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.txtnum_documento)
-        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtidcliente)
@@ -99,21 +95,9 @@ Partial Class frmDetalleVenta
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Mantenimiento"
         '
-        'txtstock
-        '
-        Me.txtstock.Location = New System.Drawing.Point(271, 317)
-        Me.txtstock.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtstock.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
-        Me.txtstock.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
-        Me.txtstock.Name = "txtstock"
-        Me.txtstock.ReadOnly = True
-        Me.txtstock.Size = New System.Drawing.Size(80, 26)
-        Me.txtstock.TabIndex = 30
-        Me.txtstock.Value = New Decimal(New Integer() {1, 0, 0, 0})
-        '
         'txtcantidad
         '
-        Me.txtcantidad.Location = New System.Drawing.Point(114, 317)
+        Me.txtcantidad.Location = New System.Drawing.Point(114, 298)
         Me.txtcantidad.Margin = New System.Windows.Forms.Padding(2)
         Me.txtcantidad.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.txtcantidad.Name = "txtcantidad"
@@ -143,7 +127,7 @@ Partial Class frmDetalleVenta
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(209, 319)
+        Me.Label8.Location = New System.Drawing.Point(209, 300)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(55, 20)
@@ -153,16 +137,26 @@ Partial Class frmDetalleVenta
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(8, 319)
+        Me.Label7.Location = New System.Drawing.Point(8, 300)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(81, 20)
         Me.Label7.TabIndex = 25
         Me.Label7.Text = "Cantidad"
         '
+        'btnBuscarProducto
+        '
+        Me.btnBuscarProducto.Image = CType(resources.GetObject("btnBuscarProducto.Image"), System.Drawing.Image)
+        Me.btnBuscarProducto.Location = New System.Drawing.Point(313, 238)
+        Me.btnBuscarProducto.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnBuscarProducto.Name = "btnBuscarProducto"
+        Me.btnBuscarProducto.Size = New System.Drawing.Size(38, 26)
+        Me.btnBuscarProducto.TabIndex = 24
+        Me.btnBuscarProducto.UseVisualStyleBackColor = True
+        '
         'txtnom_producto
         '
-        Me.txtnom_producto.Location = New System.Drawing.Point(146, 276)
+        Me.txtnom_producto.Location = New System.Drawing.Point(146, 238)
         Me.txtnom_producto.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnom_producto.Name = "txtnom_producto"
         Me.txtnom_producto.ReadOnly = True
@@ -172,7 +166,7 @@ Partial Class frmDetalleVenta
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(8, 279)
+        Me.Label6.Location = New System.Drawing.Point(8, 241)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(81, 20)
@@ -181,23 +175,12 @@ Partial Class frmDetalleVenta
         '
         'txtidproducto
         '
-        Me.txtidproducto.Location = New System.Drawing.Point(114, 276)
+        Me.txtidproducto.Location = New System.Drawing.Point(114, 238)
         Me.txtidproducto.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidproducto.Name = "txtidproducto"
         Me.txtidproducto.ReadOnly = True
         Me.txtidproducto.Size = New System.Drawing.Size(28, 26)
         Me.txtidproducto.TabIndex = 21
-        '
-        'CMBtipo_documento
-        '
-        Me.CMBtipo_documento.FormattingEnabled = True
-        Me.CMBtipo_documento.Items.AddRange(New Object() {"Boleta", "Factura"})
-        Me.CMBtipo_documento.Location = New System.Drawing.Point(114, 185)
-        Me.CMBtipo_documento.Margin = New System.Windows.Forms.Padding(2)
-        Me.CMBtipo_documento.Name = "CMBtipo_documento"
-        Me.CMBtipo_documento.Size = New System.Drawing.Size(177, 28)
-        Me.CMBtipo_documento.TabIndex = 20
-        Me.CMBtipo_documento.Text = "Factura"
         '
         'txtfecha
         '
@@ -221,7 +204,7 @@ Partial Class frmDetalleVenta
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(9, 235)
+        Me.Label5.Location = New System.Drawing.Point(9, 197)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(68, 20)
@@ -230,22 +213,12 @@ Partial Class frmDetalleVenta
         '
         'txtnum_documento
         '
-        Me.txtnum_documento.Location = New System.Drawing.Point(114, 232)
+        Me.txtnum_documento.Location = New System.Drawing.Point(114, 194)
         Me.txtnum_documento.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnum_documento.MaxLength = 9
         Me.txtnum_documento.Name = "txtnum_documento"
         Me.txtnum_documento.Size = New System.Drawing.Size(177, 26)
         Me.txtnum_documento.TabIndex = 8
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 191)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(80, 20)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Tipo Doc"
         '
         'Label3
         '
@@ -313,7 +286,7 @@ Partial Class frmDetalleVenta
         'inexistente
         '
         Me.inexistente.AutoSize = True
-        Me.inexistente.Location = New System.Drawing.Point(139, 115)
+        Me.inexistente.Location = New System.Drawing.Point(147, 106)
         Me.inexistente.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.inexistente.Name = "inexistente"
         Me.inexistente.Size = New System.Drawing.Size(160, 20)
@@ -349,7 +322,7 @@ Partial Class frmDetalleVenta
         Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
-        Me.datalistado.Location = New System.Drawing.Point(4, 29)
+        Me.datalistado.Location = New System.Drawing.Point(27, 24)
         Me.datalistado.Margin = New System.Windows.Forms.Padding(2)
         Me.datalistado.Name = "datalistado"
         Me.datalistado.ReadOnly = True
@@ -396,16 +369,6 @@ Partial Class frmDetalleVenta
         Me.btnimprimir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnimprimir.UseVisualStyleBackColor = False
         '
-        'btnBuscarProducto
-        '
-        Me.btnBuscarProducto.Image = CType(resources.GetObject("btnBuscarProducto.Image"), System.Drawing.Image)
-        Me.btnBuscarProducto.Location = New System.Drawing.Point(313, 276)
-        Me.btnBuscarProducto.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnBuscarProducto.Name = "btnBuscarProducto"
-        Me.btnBuscarProducto.Size = New System.Drawing.Size(38, 26)
-        Me.btnBuscarProducto.TabIndex = 24
-        Me.btnBuscarProducto.UseVisualStyleBackColor = True
-        '
         'btnguardar
         '
         Me.btnguardar.BackColor = System.Drawing.Color.SteelBlue
@@ -438,6 +401,18 @@ Partial Class frmDetalleVenta
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnnuevo.UseVisualStyleBackColor = False
         '
+        'txtstock
+        '
+        Me.txtstock.Location = New System.Drawing.Point(271, 298)
+        Me.txtstock.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtstock.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.txtstock.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
+        Me.txtstock.Name = "txtstock"
+        Me.txtstock.ReadOnly = True
+        Me.txtstock.Size = New System.Drawing.Size(80, 26)
+        Me.txtstock.TabIndex = 30
+        Me.txtstock.Value = New Decimal(New Integer() {1, 0, 0, 0})
+        '
         'frmDetalleVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -455,12 +430,12 @@ Partial Class frmDetalleVenta
         Me.Text = "frmDetalleVenta"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.txtstock, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtstock, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -468,7 +443,6 @@ Partial Class frmDetalleVenta
     Friend WithEvents Button1 As Button
     Friend WithEvents btnimprimir As Button
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents txtstock As NumericUpDown
     Friend WithEvents txtcantidad As NumericUpDown
     Friend WithEvents txtprecio_unitario As TextBox
     Friend WithEvents Label9 As Label
@@ -478,12 +452,10 @@ Partial Class frmDetalleVenta
     Friend WithEvents txtnom_producto As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents txtidproducto As TextBox
-    Friend WithEvents CMBtipo_documento As ComboBox
     Friend WithEvents txtfecha As DateTimePicker
     Friend WithEvents txtnombre_cliente As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtnum_documento As TextBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtidcliente As TextBox
@@ -496,4 +468,5 @@ Partial Class frmDetalleVenta
     Friend WithEvents btnnuevo As Button
     Friend WithEvents ToolTip As ToolTip
     Friend WithEvents ErrorValidacion As ErrorProvider
+    Friend WithEvents txtstock As NumericUpDown
 End Class

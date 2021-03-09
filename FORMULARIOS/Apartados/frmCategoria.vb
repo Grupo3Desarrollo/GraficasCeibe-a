@@ -31,6 +31,7 @@ Public Class frmCategoria
         End Try
         btnnuevo.Visible = True
         btneditar.Visible = False
+        buscar()
     End Sub
     Public Sub limpiar()
         btnguardar.Visible = True
@@ -63,6 +64,7 @@ Public Class frmCategoria
         txtnombre.Text = nombre_categoria
         Try
             If conexion.insertarCategoria(nombre_categoria) Then
+                MessageBox.Show("Categoria ingresada con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Else
                 MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -80,9 +82,9 @@ Public Class frmCategoria
 
         Try
             If conexion.editarCategoria(idcategoria, nombre_categoria) Then
-
+                MessageBox.Show("Categoria modificada con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error al editar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -145,4 +147,15 @@ Public Class frmCategoria
         btneditar.Visible = True
     End Sub
 
+    Private Sub txtnombre_Validating(sender As Object, e As CancelEventArgs) Handles txtnombre.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class

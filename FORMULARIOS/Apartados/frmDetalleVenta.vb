@@ -10,7 +10,6 @@
         Try
             Dim func As New Conexion
             dt = func.mostrarDetalleVenta
-            'datalistado.Columns.Item("Eliminar").Visible = False
 
             If dt.Rows.Count <> 0 Then
                 datalistado.DataSource = dt

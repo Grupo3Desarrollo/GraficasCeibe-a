@@ -18,7 +18,6 @@ Public Class frmProveedor
                 txtbuscar.Enabled = True
                 datalistado.ColumnHeadersVisible = True
                 inexistente.Visible = False
-
             Else
                 datalistado.DataSource = Nothing
                 txtbuscar.Enabled = False
@@ -47,6 +46,7 @@ Public Class frmProveedor
             P_descripProv = txtbuscar.Text
             dt = conexion.buscarProveedor(P_descripProv)
             datalistado.DataSource = If(dt.Rows.Count <> 0, dt, Nothing)
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -80,7 +80,7 @@ Public Class frmProveedor
 
         Try
             If conexion.editarProveedor(idProveedor, P_descripProv, P_ciudad, P_Tel) Then
-                MessageBox.Show("Cliente modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Proveedor modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al modificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

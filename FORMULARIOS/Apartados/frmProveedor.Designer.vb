@@ -70,7 +70,7 @@ Partial Class frmProveedor
         'inexistente
         '
         Me.inexistente.AutoSize = True
-        Me.inexistente.Location = New System.Drawing.Point(385, 137)
+        Me.inexistente.Location = New System.Drawing.Point(385, 146)
         Me.inexistente.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.inexistente.Name = "inexistente"
         Me.inexistente.Size = New System.Drawing.Size(160, 20)
@@ -107,14 +107,14 @@ Partial Class frmProveedor
         Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
-        Me.datalistado.Location = New System.Drawing.Point(112, 68)
+        Me.datalistado.Location = New System.Drawing.Point(152, 67)
         Me.datalistado.Margin = New System.Windows.Forms.Padding(2)
         Me.datalistado.Name = "datalistado"
         Me.datalistado.ReadOnly = True
         Me.datalistado.RowHeadersVisible = False
         Me.datalistado.RowTemplate.Height = 28
         Me.datalistado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.datalistado.Size = New System.Drawing.Size(676, 157)
+        Me.datalistado.Size = New System.Drawing.Size(597, 157)
         Me.datalistado.TabIndex = 19
         '
         'Label7

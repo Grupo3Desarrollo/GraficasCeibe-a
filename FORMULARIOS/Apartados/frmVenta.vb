@@ -164,7 +164,7 @@ Public Class frmVenta
         cargar_detalle()
     End Sub
 
-    Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs) Handles txtbuscar.TextChanged
+    Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs)
         buscar()
     End Sub
 
@@ -225,4 +225,7 @@ Public Class frmVenta
         End If
     End Sub
 
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
 End Class

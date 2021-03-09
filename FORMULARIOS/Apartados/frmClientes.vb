@@ -7,9 +7,7 @@ Public Class frmClientes
     Dim dt As New DataTable()
 
     Private Sub FrmCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         mostrar()
-
     End Sub
     Private Sub ocultar_columnas()
         datalistado.Columns(1).Visible = False
@@ -269,6 +267,22 @@ Public Class frmClientes
     End Sub
 
     Private Sub txtdni_Validating(sender As Object, e As CancelEventArgs) Handles txtdni.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtcorreo_TextChanged(sender As Object, e As EventArgs) Handles txtcorreo.TextChanged
+
+    End Sub
+
+    Private Sub txtcorreo_Validating(sender As Object, e As CancelEventArgs) Handles txtcorreo.Validating
         Try
             If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
                 Me.ErrorValidacion.SetError(sender, "")
