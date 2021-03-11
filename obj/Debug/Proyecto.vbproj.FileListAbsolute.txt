@@ -152,3 +152,4 @@ C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\ULTIMOrepo\GraficasCeibena
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\ULTIMOrepo\GraficasCeibena\obj\Debug\Proyecto.exe
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\ULTIMOrepo\GraficasCeibena\obj\Debug\Proyecto.xml
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\ULTIMOrepo\GraficasCeibena\obj\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmCompras.resources

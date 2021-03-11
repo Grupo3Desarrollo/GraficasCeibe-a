@@ -88,5 +88,11 @@ Public Class Menuu
         abrirFormulario(frmVenta)
     End Sub
 
+    Private Sub PanelForms_Paint(sender As Object, e As PaintEventArgs) Handles PanelForms.Paint
 
+    End Sub
+
+    Private Sub btncompras_Click(sender As Object, e As EventArgs) Handles btncompras.Click
+        abrirFormulario(frmCompras)
+    End Sub
 End Class

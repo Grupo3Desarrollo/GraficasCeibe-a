@@ -140,6 +140,12 @@
     <Compile Include="FORMULARIOS\Frm Busquedas\mostrarEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmCompras.Designer.vb">
+      <DependentUpon>frmCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMULARIOS\Login y menu\frmhora.Designer.vb">
       <DependentUpon>frmhora.vb</DependentUpon>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarEmpleados.resx">
       <DependentUpon>mostrarEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmCompras.resx">
+      <DependentUpon>frmCompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Login y menu\frmhora.resx">
       <DependentUpon>frmhora.vb</DependentUpon>
