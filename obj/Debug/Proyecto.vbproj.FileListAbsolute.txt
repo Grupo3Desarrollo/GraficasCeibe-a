@@ -153,3 +153,30 @@ C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\ULTIMOrepo\GraficasCeibena
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\ULTIMOrepo\GraficasCeibena\obj\Debug\Proyecto.xml
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\ULTIMOrepo\GraficasCeibena\obj\Debug\Proyecto.pdb
 C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmCompras.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\bin\Debug\Proyecto.exe.config
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\bin\Debug\Proyecto.exe
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\bin\Debug\Proyecto.pdb
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\bin\Debug\Proyecto.xml
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.vbprojAssemblyReference.cache
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmCategoria.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmDetalleVenta.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmEmpleados.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmProducto.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmProveedor.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmVenta.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.mostrarProveedor.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.MostrarClientes.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.mostrarCategoria.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmClientes.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.mostrarEmpleados.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmCompras.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.frmhora.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.Login.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.Menuu.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.mostrarProductos.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.Resources.resources
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.vbproj.GenerateResource.cache
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.vbproj.CoreCompileInputs.cache
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.exe
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.xml
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 11-03\GraficasCeibena\obj\Debug\Proyecto.pdb

@@ -4,7 +4,7 @@ Imports System.Text
 
 Public Class Conexion
     'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-6LV81RN;Initial Catalog=GraficasC; user id = sa; password = Aleman16848760")
-    Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source= HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
     Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
@@ -169,6 +169,30 @@ Public Class Conexion
         Try
             conexion.Open()
             cmb = New SqlCommand("Mostrar_Empleado", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function mostrarEmpleadoD() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("Mostrar_EmpleadoD", conexion)
             cmb.CommandType = CommandType.StoredProcedure
 
             cmb.Connection = conexion
@@ -624,7 +648,7 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function insertarVenta(fecha_venta As Date, num_documento As String, idEmpleado As String, idcliente As Integer)
+    Public Function insertarVenta(fecha_venta As Date, num_documento As String, idEmpleado As Integer, idcliente As Integer)
         Try
             conexion.Open()
             cmb = New SqlCommand("insertar_venta", conexion)
@@ -647,7 +671,7 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function editarVenta(idventa As Integer, idcliente As Integer, fecha_venta As Date, num_documento As String, idEmpleado As String)
+    Public Function editarVenta(idventa As Integer, idcliente As Integer, fecha_venta As Date, num_documento As String, idEmpleado As Integer)
         Try
             conexion.Open()
             cmb = New SqlCommand("editar_venta", conexion)

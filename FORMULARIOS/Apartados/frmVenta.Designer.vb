@@ -27,6 +27,7 @@ Partial Class frmVenta
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVenta))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtbuscar = New System.Windows.Forms.TextBox()
         Me.inexistente = New System.Windows.Forms.LinkLabel()
         Me.datalistado = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
@@ -52,7 +53,6 @@ Partial Class frmVenta
         Me.txtidventa = New System.Windows.Forms.TextBox()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.txtbuscar = New System.Windows.Forms.TextBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -75,6 +75,13 @@ Partial Class frmVenta
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "LISTA DE VENTAS"
+        '
+        'txtbuscar
+        '
+        Me.txtbuscar.Location = New System.Drawing.Point(234, 23)
+        Me.txtbuscar.Name = "txtbuscar"
+        Me.txtbuscar.Size = New System.Drawing.Size(162, 26)
+        Me.txtbuscar.TabIndex = 26
         '
         'inexistente
         '
@@ -384,13 +391,6 @@ Partial Class frmVenta
         'ErrorValidacion
         '
         Me.ErrorValidacion.ContainerControl = Me
-        '
-        'txtbuscar
-        '
-        Me.txtbuscar.Location = New System.Drawing.Point(234, 23)
-        Me.txtbuscar.Name = "txtbuscar"
-        Me.txtbuscar.Size = New System.Drawing.Size(162, 26)
-        Me.txtbuscar.TabIndex = 26
         '
         'frmVenta
         '

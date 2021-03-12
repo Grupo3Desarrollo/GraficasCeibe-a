@@ -14,7 +14,7 @@ Public Class mostrarEmpleados
     Public Sub mostrar()
         Try
             Dim func As New Conexion
-            dt = func.mostrarEmpleadosActivos
+            dt = func.mostrarEmpleadoD
             datalistado.Columns.Item("Eliminar").Visible = False
 
             If dt.Rows.Count <> 0 Then
@@ -45,7 +45,7 @@ Public Class mostrarEmpleados
     Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
         If txtflag.Text = "1" Then
             frmVenta.txtidempleado.Text = datalistado.SelectedCells.Item(1).Value
-            frmVenta.txtnomempleado.Text = datalistado.SelectedCells.Item(2).Value
+            frmVenta.txtnomempleado.Text = datalistado.SelectedCells.Item(3).Value
             Me.Close()
         End If
     End Sub

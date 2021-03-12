@@ -22,21 +22,21 @@ Partial Class mostrarProductos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mostrarProductos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(mostrarProductos))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.imagen = New System.Windows.Forms.PictureBox()
         Me.txtflag = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.inexistente = New System.Windows.Forms.LinkLabel()
         Me.datalistado = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.imagen = New System.Windows.Forms.PictureBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.imagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.imagen, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -52,6 +52,18 @@ Partial Class mostrarProductos
         Me.GroupBox1.TabIndex = 42
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "IMAGEN "
+        '
+        'imagen
+        '
+        Me.imagen.BackgroundImage = CType(resources.GetObject("imagen.BackgroundImage"), System.Drawing.Image)
+        Me.imagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.imagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.imagen.Location = New System.Drawing.Point(25, 30)
+        Me.imagen.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
+        Me.imagen.Name = "imagen"
+        Me.imagen.Size = New System.Drawing.Size(106, 101)
+        Me.imagen.TabIndex = 24
+        Me.imagen.TabStop = False
         '
         'txtflag
         '
@@ -135,18 +147,6 @@ Partial Class mostrarProductos
         Me.Eliminar.ReadOnly = True
         Me.Eliminar.Width = 77
         '
-        'imagen
-        '
-        Me.imagen.BackgroundImage = CType(resources.GetObject("imagen.BackgroundImage"), System.Drawing.Image)
-        Me.imagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.imagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.imagen.Location = New System.Drawing.Point(25, 30)
-        Me.imagen.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
-        Me.imagen.Name = "imagen"
-        Me.imagen.Size = New System.Drawing.Size(106, 101)
-        Me.imagen.TabIndex = 24
-        Me.imagen.TabStop = False
-        '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.SteelBlue
@@ -178,10 +178,10 @@ Partial Class mostrarProductos
         Me.Name = "mostrarProductos"
         Me.Text = "mostrarProductos"
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.imagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.imagen, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -42,7 +42,7 @@ Public Class MostrarClientes
     Private Sub buscar()
         Try
 
-            dt = conexion.busqueda(" cliente ", " dni like '%" + txtbuscar.Text + "%'")
+            dt = conexion.busqueda(" clientes ", " dni like '%" + txtbuscar.Text + "%'")
 
 
             If dt.Rows.Count <> 0 Then

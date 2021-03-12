@@ -54,7 +54,7 @@ CONSTRAINT FK_IDcategoria FOREIGN KEY (idcategoria) REFERENCES categorias(idcate
 CREATE TABLE ventas(
 	idventa INT IDENTITY(1,1) Primary key,
 	fecha_venta DATE NOT NULL,
-	num_documento VARCHAR(50) NOT NULL,
+	num_documento NVARCHAR(14) NOT NULL,
 	idEmpleado INT NOT NULL,
 	idcliente INT NULL,
 
@@ -163,6 +163,13 @@ as
 SELECT DNIEmpleado as 'Identidad', Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo', estado as 'Estado', rol as 'Rol', contrasenia as 'Contraseña'
 	   FROM Empleados 
 	   order BY  DNIEmpleado desc
+go
+-- Mostrar Empleado en busquedas
+CREATE PROCEDURE Mostrar_EmpleadoD
+as
+SELECT idEmpleado as 'Codigo', DNIEmpleado as 'Identidad', Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo', estado as 'Estado', rol as 'Rol'
+	   FROM Empleados 
+	   WHERE Estado = 'Activo'
 go
 -- Mostrar Empleados activos
 CREATE PROCEDURE Mostrar_EmpleadoActivo
@@ -352,8 +359,8 @@ WHERE P_descripProv LIKE '%' +@P_descripProv+ '%'
 
 CREATE PROCEDURE insertar_venta
 @fecha_venta as DATE,
-@num_documento as VARCHAR(50),
-@idEmpleado as NVARCHAR(13),
+@num_documento as NVARCHAR(14),
+@idEmpleado as INT,
 @idcliente as INT
 as
 INSERT INTO ventas VALUES(@fecha_venta,@num_documento,@idEmpleado,@idcliente)
@@ -363,8 +370,8 @@ CREATE PROCEDURE editar_venta
 @idventa as INT,
 @idcliente as INT,
 @fecha_venta as DATE,
-@num_documento as VARCHAR(50),
-@idEmpleado as NVARCHAR(13)
+@num_documento as NVARCHAR(14),
+@idEmpleado as INT
 as
 UPDATE ventas SET idcliente=@idcliente,fecha_venta=@fecha_venta,num_documento=@num_documento, idEmpleado=@idEmpleado
 WHERE idventa=@idventa

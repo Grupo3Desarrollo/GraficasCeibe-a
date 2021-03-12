@@ -17,7 +17,6 @@ Public Class frmVenta
         btneditar.Visible = False
         txtidcliente.Text = ""
         txtnombre_cliente.Text = ""
-        txtnum_documento.Text = ""
         txtidventa.Text = ""
         txtidempleado.Text = ""
         txtnomempleado.Text = ""
