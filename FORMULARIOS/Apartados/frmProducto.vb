@@ -250,5 +250,187 @@ Public Class frmProducto
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
     End Sub
+    Private Sub txtidproducto_TextChanged(sender As Object, e As EventArgs) Handles txtidproducto.TextChanged
+
+    End Sub
+
+    Private Sub txtidproducto_Validating(sender As Object, e As CancelEventArgs) Handles txtidproducto.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtnombre.TextChanged
+
+    End Sub
+
+    Private Sub txtnombre_Validating(sender As Object, e As CancelEventArgs) Handles txtnombre.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtnom_categoria_TextChanged(sender As Object, e As EventArgs) Handles txtnom_categoria.TextChanged
+
+    End Sub
+
+    Private Sub txtnom_categoria_Validating(sender As Object, e As CancelEventArgs) Handles txtnom_categoria.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+
+    Private Sub txtstock_Validating(sender As Object, e As CancelEventArgs) Handles txtstock.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtprecio_compra_TextChanged(sender As Object, e As EventArgs) Handles txtprecio_compra.TextChanged
+
+    End Sub
+
+    Private Sub txtprecio_compra_Validating(sender As Object, e As CancelEventArgs) Handles txtprecio_compra.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtprecio_venta_TextChanged(sender As Object, e As EventArgs) Handles txtprecio_venta.TextChanged
+
+    End Sub
+
+    Private Sub txtprecio_venta_Validating(sender As Object, e As CancelEventArgs) Handles txtprecio_venta.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtbuscar_Validating(sender As Object, e As CancelEventArgs) Handles txtbuscar.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtidproducto_MouseHover(sender As Object, e As EventArgs) Handles txtidproducto.MouseHover
+        ToolTip.SetToolTip(txtidproducto, "Ingrese el id del producto")
+        ToolTip.ToolTipTitle = "Producto"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtnombre_MouseHover(sender As Object, e As EventArgs) Handles txtnombre.MouseHover
+        ToolTip.SetToolTip(txtnombre, "Ingrese el nombre")
+        ToolTip.ToolTipTitle = "Nombre"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtnom_categoria_MouseHover(sender As Object, e As EventArgs) Handles txtnom_categoria.MouseHover
+        ToolTip.SetToolTip(txtnom_categoria, "Ingrese la categoria")
+        ToolTip.ToolTipTitle = "Categoria"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtdescripcion_TextChanged(sender As Object, e As EventArgs) Handles txtdescripcion.TextChanged
+
+    End Sub
+
+    Private Sub txtdescripcion_MouseHover(sender As Object, e As EventArgs) Handles txtdescripcion.MouseHover
+        ToolTip.SetToolTip(txtdescripcion, "Ingrese la descriripcion")
+        ToolTip.ToolTipTitle = "Descripcion"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtstock_TextChanged(sender As Object, e As EventArgs) Handles txtstock.TextChanged
+
+    End Sub
+
+    Private Sub txtstock_MouseHover(sender As Object, e As EventArgs) Handles txtstock.MouseHover
+        ToolTip.SetToolTip(txtstock, "Ingrese el stock")
+        ToolTip.ToolTipTitle = "Stock"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtprecio_compra_MouseHover(sender As Object, e As EventArgs) Handles txtprecio_compra.MouseHover
+        ToolTip.SetToolTip(txtprecio_compra, "Ingrese el precio de compra")
+        ToolTip.ToolTipTitle = "Precio compra"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtprecio_venta_MouseHover(sender As Object, e As EventArgs) Handles txtprecio_venta.MouseHover
+        ToolTip.SetToolTip(txtprecio_venta, "Ingrese el precio de venta")
+        ToolTip.ToolTipTitle = "Precio venta"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtbuscar_MouseHover(sender As Object, e As EventArgs) Handles txtbuscar.MouseHover
+        ToolTip.SetToolTip(txtbuscar, "Ingrese dato a buscar")
+        ToolTip.ToolTipTitle = "Buscar"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtdescripcion_Validating(sender As Object, e As CancelEventArgs) Handles txtdescripcion.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub imagen_Click(sender As Object, e As EventArgs) Handles imagen.Click
+
+    End Sub
+
+    Private Sub imagen_MouseHover(sender As Object, e As EventArgs) Handles imagen.MouseHover
+        ToolTip.SetToolTip(imagen, "Imagen del producto")
+        ToolTip.ToolTipTitle = "Imagen"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
 
 End Class
