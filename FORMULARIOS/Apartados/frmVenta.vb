@@ -99,7 +99,7 @@ Public Class frmVenta
     End Sub
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
-        If Me.ValidateChildren = True And txtidcliente.Text <> "" And txtnombre_cliente.Text <> "" And txtnum_documento.Text <> "" Then
+        If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtnomempleado.Text <> "" And txtnum_documento.Text <> "" Then
             Try
                 insertarventa()
                 mostrar_ventas()
@@ -120,7 +120,7 @@ Public Class frmVenta
 
         If result = DialogResult.OK Then
 
-            If Me.ValidateChildren = True And txtidventa.Text <> "" And txtidcliente.Text <> "" And txtnombre_cliente.Text <> "" And txtnum_documento.Text <> "" Then
+            If Me.ValidateChildren = True And txtidventa.Text <> "" And txtidempleado.Text <> "" And txtnomempleado.Text <> "" And txtnum_documento.Text <> "" Then
                 Try
                     editarVenta()
                     mostrar_ventas()
@@ -154,7 +154,6 @@ Public Class frmVenta
         frmDetalleVenta.txtidcliente.Text = datalistado.SelectedCells.Item(2).Value
         frmDetalleVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value
         frmDetalleVenta.txtfecha.Text = datalistado.SelectedCells.Item(6).Value
-        frmDetalleVenta.txtnum_documento.Text = datalistado.SelectedCells.Item(7).Value
 
         frmDetalleVenta.ShowDialog()
     End Sub

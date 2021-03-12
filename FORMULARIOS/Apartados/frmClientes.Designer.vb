@@ -112,7 +112,7 @@ Partial Class frmClientes
         Me.btnguardar.BackColor = System.Drawing.Color.SteelBlue
         Me.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
-        Me.btnguardar.Location = New System.Drawing.Point(805, 139)
+        Me.btnguardar.Location = New System.Drawing.Point(805, 138)
         Me.btnguardar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(110, 70)

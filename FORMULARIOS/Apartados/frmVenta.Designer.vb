@@ -294,7 +294,7 @@ Partial Class frmVenta
         Me.txtfecha.Name = "txtfecha"
         Me.txtfecha.Size = New System.Drawing.Size(151, 26)
         Me.txtfecha.TabIndex = 19
-        Me.txtfecha.Value = New Date(2021, 3, 6, 3, 46, 58, 0)
+        Me.txtfecha.Value = New Date(2021, 3, 12, 0, 0, 0, 0)
         '
         'btnBuscarCliente
         '
