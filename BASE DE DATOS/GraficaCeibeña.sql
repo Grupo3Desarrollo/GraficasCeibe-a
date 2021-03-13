@@ -1,3 +1,5 @@
+--BASE 12/03/21
+
 --Base de Datos Proyecto Desarrollo de Software 
 CREATE DATABASE GraficaLCB 
 USE GraficaLCB
@@ -54,9 +56,10 @@ CONSTRAINT FK_IDcategoria FOREIGN KEY (idcategoria) REFERENCES categorias(idcate
 CREATE TABLE ventas(
 	idventa INT IDENTITY(1,1) Primary key,
 	fecha_venta DATE NOT NULL,
-	num_documento NVARCHAR(14) NOT NULL,
+	num_documento VARCHAR(50) NOT NULL,
 	idEmpleado INT NOT NULL,
 	idcliente INT NULL,
+	nombresClientes NVARCHAR(70) NULL,
 
 CONSTRAINT FK_IDempleado FOREIGN KEY (idEmpleado) REFERENCES Empleados(idEmpleado),
  CONSTRAINT FK_IDcliente FOREIGN KEY (idcliente) REFERENCES clientes(idcliente)
@@ -191,9 +194,17 @@ WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@UserName+ '%') OR DNIEmpleado LI
 -- Mostrar Cliente
 CREATE PROCEDURE mostrar_cliente
 as
-SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' 
+SELECT idcliente as 'Codigo', dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' 
 FROM clientes 
-WHERE idcliente <> 1
+WHERE idcliente <> 1 and nombre <> 'GENERAL' and telefono <> '00000000'
+order BY idcliente desc
+go
+
+CREATE PROCEDURE mostrar_clienteBUS
+as
+SELECT  dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' 
+FROM clientes 
+WHERE idcliente <> 1 and nombre <> 'GENERAL' and telefono <> '00000000'
 order BY idcliente desc
 go
 
@@ -232,7 +243,14 @@ CREATE PROCEDURE buscarCliente
 as
 SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección'
 FROM clientes
-WHERE (CONCAT(nombre, '',apellidos) LIKE '%' +@dni+ '%') OR dni LIKE '%' +@dni+ '%'
+WHERE ((CONCAT(nombre, '',apellidos) LIKE '%' +@dni+ '%') OR (dni LIKE '%' +@dni+ '%')) AND idcliente <> 1
+
+CREATE PROCEDURE buscarClienteBUS
+@dni NVARCHAR(13)
+as
+SELECT idcliente as 'Codigo', dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección'
+FROM clientes
+WHERE ((CONCAT(nombre, '',apellidos) LIKE '%' +@dni+ '%') OR (dni LIKE '%' +@dni+ '%')) AND idcliente <> 1
 
 -- CATEGORIA
 -- insertar categoria
@@ -362,45 +380,44 @@ WHERE P_descripProv LIKE '%' +@P_descripProv+ '%'
 
 CREATE PROCEDURE insertar_venta
 @fecha_venta as DATE,
-@num_documento as NVARCHAR(14),
+@num_documento as VARCHAR(50),
 @idEmpleado as INT,
-@idcliente as INT
+@idcliente as INT,
+@nombresClientes as NVARCHAR(70) 
 as
-INSERT INTO ventas VALUES(@fecha_venta,@num_documento,@idEmpleado,@idcliente)
+INSERT INTO ventas VALUES(@fecha_venta,@num_documento,@idEmpleado,@idcliente, @nombresClientes)
 go
+
 --editar venta
 CREATE PROCEDURE editar_venta
 @idventa as INT,
-@idcliente as INT,
 @fecha_venta as DATE,
-@num_documento as NVARCHAR(14),
-@idEmpleado as INT
+@num_documento as VARCHAR(50),
+@idEmpleado as INT,
+@idcliente as INT,
+@nombresClientes as NVARCHAR(70)
 as
-UPDATE ventas SET idcliente=@idcliente,fecha_venta=@fecha_venta,num_documento=@num_documento, idEmpleado=@idEmpleado
+UPDATE ventas SET fecha_venta=@fecha_venta,num_documento=@num_documento, idEmpleado=@idEmpleado,idcliente=@idcliente, nombresClientes=@nombresClientes
 WHERE idventa=@idventa
 go
 
 -- mostrar venta
 CREATE PROCEDURE mostrar_venta
 as
-SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.clientes.nombre as 'Nombre Cliente', dbo.clientes.apellidos as 'Apellidos Cliente', dbo.clientes.dni as 'Identidad Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.ventas.num_documento as 'Numero de Documento', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
+SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.ventas.nombresClientes as 'Nombre Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
 FROM     dbo.ventas INNER JOIN
-             dbo.clientes ON dbo.ventas.idcliente = dbo.clientes.idcliente
-			 inner join 
 			 dbo.Empleados ON dbo.ventas.idEmpleado = dbo.Empleados.idEmpleado
 			 order BY dbo.ventas.idventa desc
 			 go
 
 -- Buscar Venta
 CREATE PROCEDURE buscarVenta
-@num_documento as VARCHAR(50)
+@num_documento as NVARCHAR(50)
 as
-SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.clientes.nombre as 'Nombre Cliente', dbo.clientes.apellidos as 'Apellidos Cliente', dbo.clientes.dni as 'Identidad Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.ventas.num_documento as 'Numero de Documento', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
+SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.ventas.nombresClientes as 'Nombre Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
 FROM     dbo.ventas INNER JOIN
-             dbo.clientes ON dbo.ventas.idcliente = dbo.clientes.idcliente
-			 inner join 
 			 dbo.Empleados ON dbo.ventas.idEmpleado = dbo.Empleados.idEmpleado
-WHERE num_documento LIKE '%' +@num_documento+ '%'
+WHERE idventa LIKE '%' +@num_documento+ '%'
 
 -- DETALLES DE VENTA
 -- insertar detalles venta
