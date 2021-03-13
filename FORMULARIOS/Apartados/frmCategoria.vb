@@ -40,12 +40,21 @@ Public Class frmCategoria
         txtidcategoria.Text = ""
         txtbuscar.Text = ""
     End Sub
+
     Private Sub buscar()
+        Dim nombre_categoria As String
         Try
-            Dim nombre_categoria As String
             nombre_categoria = txtbuscar.Text
             dt = conexion.buscarCategoria(nombre_categoria)
-            datalistado.DataSource = If(dt.Rows.Count <> 0, dt, Nothing)
+
+            If dt.Rows.Count <> 0 Then
+                datalistado.DataSource = dt
+                conexion.conexion.Close()
+                ocultar_columnas()
+            Else
+                datalistado.DataSource = Nothing
+                conexion.conexion.Close()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

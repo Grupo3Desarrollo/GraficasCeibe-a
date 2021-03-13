@@ -23,8 +23,8 @@ Partial Class frmVenta
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVenta))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtbuscar = New System.Windows.Forms.TextBox()
@@ -34,7 +34,6 @@ Partial Class frmVenta
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnLimCli = New System.Windows.Forms.Button()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.txtbuscarempleado = New System.Windows.Forms.Button()
         Me.txtnomempleado = New System.Windows.Forms.TextBox()
         Me.btnnuevo = New System.Windows.Forms.Button()
@@ -103,26 +102,26 @@ Partial Class frmVenta
         Me.datalistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.datalistado.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.datalistado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.HotTrack
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.datalistado.ColumnHeadersHeight = 38
         Me.datalistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.datalistado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Eliminar})
         Me.datalistado.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
         Me.datalistado.Location = New System.Drawing.Point(91, 56)
@@ -157,7 +156,6 @@ Partial Class frmVenta
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.btnLimCli)
-        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtbuscarempleado)
         Me.GroupBox1.Controls.Add(Me.txtnomempleado)
         Me.GroupBox1.Controls.Add(Me.btnnuevo)
@@ -190,28 +188,18 @@ Partial Class frmVenta
         '
         Me.btnLimCli.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLimCli.Image = CType(resources.GetObject("btnLimCli.Image"), System.Drawing.Image)
-        Me.btnLimCli.Location = New System.Drawing.Point(456, 83)
+        Me.btnLimCli.Location = New System.Drawing.Point(456, 89)
         Me.btnLimCli.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLimCli.Name = "btnLimCli"
         Me.btnLimCli.Size = New System.Drawing.Size(45, 38)
         Me.btnLimCli.TabIndex = 26
         Me.btnLimCli.UseVisualStyleBackColor = True
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(56, 141)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(130, 20)
-        Me.Label8.TabIndex = 25
-        Me.Label8.Text = "ID EMPLEADO"
-        '
         'txtbuscarempleado
         '
         Me.txtbuscarempleado.Cursor = System.Windows.Forms.Cursors.Hand
         Me.txtbuscarempleado.Image = CType(resources.GetObject("txtbuscarempleado.Image"), System.Drawing.Image)
-        Me.txtbuscarempleado.Location = New System.Drawing.Point(407, 176)
+        Me.txtbuscarempleado.Location = New System.Drawing.Point(407, 151)
         Me.txtbuscarempleado.Margin = New System.Windows.Forms.Padding(2)
         Me.txtbuscarempleado.Name = "txtbuscarempleado"
         Me.txtbuscarempleado.Size = New System.Drawing.Size(45, 38)
@@ -220,7 +208,7 @@ Partial Class frmVenta
         '
         'txtnomempleado
         '
-        Me.txtnomempleado.Location = New System.Drawing.Point(210, 182)
+        Me.txtnomempleado.Location = New System.Drawing.Point(210, 157)
         Me.txtnomempleado.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnomempleado.Multiline = True
         Me.txtnomempleado.Name = "txtnomempleado"
@@ -247,7 +235,7 @@ Partial Class frmVenta
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(56, 184)
+        Me.Label6.Location = New System.Drawing.Point(56, 159)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(106, 20)
@@ -272,13 +260,13 @@ Partial Class frmVenta
         '
         'txtidempleado
         '
-        Me.txtidempleado.Location = New System.Drawing.Point(211, 136)
+        Me.txtidempleado.Location = New System.Drawing.Point(211, 198)
         Me.txtidempleado.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidempleado.MaxLength = 13
         Me.txtidempleado.Multiline = True
         Me.txtidempleado.Name = "txtidempleado"
         Me.txtidempleado.ReadOnly = True
-        Me.txtidempleado.Size = New System.Drawing.Size(185, 26)
+        Me.txtidempleado.Size = New System.Drawing.Size(27, 26)
         Me.txtidempleado.TabIndex = 21
         '
         'btneditar
@@ -302,18 +290,18 @@ Partial Class frmVenta
         Me.txtfecha.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.txtfecha.Location = New System.Drawing.Point(653, 46)
         Me.txtfecha.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtfecha.MaxDate = New Date(2021, 3, 31, 0, 0, 0, 0)
-        Me.txtfecha.MinDate = New Date(2021, 3, 6, 0, 0, 0, 0)
+        Me.txtfecha.MaxDate = New Date(2022, 3, 24, 0, 0, 0, 0)
+        Me.txtfecha.MinDate = New Date(2021, 3, 12, 0, 0, 0, 0)
         Me.txtfecha.Name = "txtfecha"
         Me.txtfecha.Size = New System.Drawing.Size(151, 26)
         Me.txtfecha.TabIndex = 19
-        Me.txtfecha.Value = New Date(2021, 3, 12, 0, 0, 0, 0)
+        Me.txtfecha.Value = New Date(2021, 3, 13, 0, 0, 0, 0)
         '
         'btnBuscarCliente
         '
         Me.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnBuscarCliente.Image = CType(resources.GetObject("btnBuscarCliente.Image"), System.Drawing.Image)
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(407, 83)
+        Me.btnBuscarCliente.Location = New System.Drawing.Point(407, 89)
         Me.btnBuscarCliente.Margin = New System.Windows.Forms.Padding(2)
         Me.btnBuscarCliente.Name = "btnBuscarCliente"
         Me.btnBuscarCliente.Size = New System.Drawing.Size(45, 38)
@@ -322,7 +310,7 @@ Partial Class frmVenta
         '
         'txtnombre_cliente
         '
-        Me.txtnombre_cliente.Location = New System.Drawing.Point(241, 89)
+        Me.txtnombre_cliente.Location = New System.Drawing.Point(241, 95)
         Me.txtnombre_cliente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnombre_cliente.Multiline = True
         Me.txtnombre_cliente.Name = "txtnombre_cliente"
@@ -363,7 +351,7 @@ Partial Class frmVenta
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(56, 92)
+        Me.Label2.Location = New System.Drawing.Point(56, 98)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(83, 20)
@@ -372,7 +360,7 @@ Partial Class frmVenta
         '
         'txtidcliente
         '
-        Me.txtidcliente.Location = New System.Drawing.Point(210, 89)
+        Me.txtidcliente.Location = New System.Drawing.Point(210, 95)
         Me.txtidcliente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidcliente.Multiline = True
         Me.txtidcliente.Name = "txtidcliente"
@@ -431,7 +419,6 @@ Partial Class frmVenta
     Friend WithEvents Eliminar As DataGridViewCheckBoxColumn
     Friend WithEvents Label7 As Label
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label8 As Label
     Friend WithEvents txtbuscarempleado As Button
     Friend WithEvents txtnomempleado As TextBox
     Friend WithEvents btnnuevo As Button

@@ -383,6 +383,7 @@ Partial Class frmProducto
         Me.txtidproducto.Location = New System.Drawing.Point(218, 47)
         Me.txtidproducto.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtidproducto.Name = "txtidproducto"
+        Me.txtidproducto.ReadOnly = True
         Me.txtidproducto.Size = New System.Drawing.Size(178, 19)
         Me.txtidproducto.TabIndex = 0
         '
@@ -481,10 +482,10 @@ Partial Class frmProducto
         Me.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
-        Me.btnguardar.Location = New System.Drawing.Point(841, 28)
+        Me.btnguardar.Location = New System.Drawing.Point(842, 21)
         Me.btnguardar.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.btnguardar.Name = "btnguardar"
-        Me.btnguardar.Size = New System.Drawing.Size(109, 61)
+        Me.btnguardar.Size = New System.Drawing.Size(109, 63)
         Me.btnguardar.TabIndex = 22
         Me.btnguardar.Text = "GUARDAR"
         Me.btnguardar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -496,10 +497,10 @@ Partial Class frmProducto
         Me.btnnuevo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
-        Me.btnnuevo.Location = New System.Drawing.Point(844, 178)
+        Me.btnnuevo.Location = New System.Drawing.Point(842, 170)
         Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(109, 55)
+        Me.btnnuevo.Size = New System.Drawing.Size(109, 63)
         Me.btnnuevo.TabIndex = 19
         Me.btnnuevo.Text = "NUEVO"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -520,7 +521,7 @@ Partial Class frmProducto
         Me.btneditar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btneditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btneditar.Image = CType(resources.GetObject("btneditar.Image"), System.Drawing.Image)
-        Me.btneditar.Location = New System.Drawing.Point(842, 102)
+        Me.btneditar.Location = New System.Drawing.Point(842, 96)
         Me.btneditar.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.btneditar.Name = "btneditar"
         Me.btneditar.Size = New System.Drawing.Size(109, 63)

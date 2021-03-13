@@ -55,11 +55,19 @@ Public Class frmProducto
     End Sub
 
     Private Sub buscar()
+        Dim nombre As String
         Try
-            Dim nombre As String
             nombre = txtbuscar.Text
             dt = conexion.buscarProducto(nombre)
-            datalistado.DataSource = If(dt.Rows.Count <> 0, dt, Nothing)
+
+            If dt.Rows.Count <> 0 Then
+                datalistado.DataSource = dt
+                conexion.conexion.Close()
+                ocultar_columnas()
+            Else
+                datalistado.DataSource = Nothing
+                conexion.conexion.Close()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -69,6 +77,7 @@ Public Class frmProducto
     Private Sub ocultar_columnas()
         datalistado.Columns(1).Visible = False
         datalistado.Columns(2).Visible = False
+        datalistado.Columns(10).Visible = False
     End Sub
 
     Private Sub insertarProducto()
@@ -217,8 +226,6 @@ Public Class frmProducto
         buscar()
     End Sub
 
-
-
     Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
         Dim FilaActual As Integer
         FilaActual = datalistado.CurrentRow.Index
@@ -343,18 +350,6 @@ Public Class frmProducto
         End Try
     End Sub
 
-    Private Sub txtbuscar_Validating(sender As Object, e As CancelEventArgs) Handles txtbuscar.Validating
-        Try
-            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
-                Me.ErrorValidacion.SetError(sender, "")
-            Else
-                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
     Private Sub txtidproducto_MouseHover(sender As Object, e As EventArgs) Handles txtidproducto.MouseHover
         ToolTip.SetToolTip(txtidproducto, "Ingrese el id del producto")
         ToolTip.ToolTipTitle = "Producto"
@@ -411,6 +406,18 @@ Public Class frmProducto
         ToolTip.ToolTipIcon = ToolTipIcon.Info
     End Sub
 
+    Private Sub imagen_MouseHover(sender As Object, e As EventArgs) Handles imagen.MouseHover
+        ToolTip.SetToolTip(imagen, "Ingrese la imagen del Producto")
+        ToolTip.ToolTipTitle = "Cargar imagen"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub btnbuscarcategoria_MouseHover(sender As Object, e As EventArgs) Handles btnbuscarcategoria.MouseHover
+        ToolTip.SetToolTip(btnbuscarcategoria, "Buscar en tabla categorias")
+        ToolTip.ToolTipTitle = "Buscar Categorias"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
     Private Sub txtdescripcion_Validating(sender As Object, e As CancelEventArgs) Handles txtdescripcion.Validating
         Try
             If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
@@ -423,14 +430,30 @@ Public Class frmProducto
         End Try
     End Sub
 
-    Private Sub imagen_Click(sender As Object, e As EventArgs) Handles imagen.Click
-
+    Private Sub txtstock_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtstock.KeyPress
+        If (Asc(e.KeyChar) >= 48 And Asc(e.KeyChar) <= 57) Or Asc(e.KeyChar) = 8 Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
 
-    Private Sub imagen_MouseHover(sender As Object, e As EventArgs) Handles imagen.MouseHover
-        ToolTip.SetToolTip(imagen, "Imagen del producto")
-        ToolTip.ToolTipTitle = "Imagen"
-        ToolTip.ToolTipIcon = ToolTipIcon.Info
+
+    Private Sub txtprecio_compra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio_compra.KeyPress
+        If (Asc(e.KeyChar) >= 48 And Asc(e.KeyChar) <= 57) Or Asc(e.KeyChar) = 8 Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+
+    Private Sub txtprecio_venta_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio_venta.KeyPress
+        If (Asc(e.KeyChar) >= 48 And Asc(e.KeyChar) <= 57) Or Asc(e.KeyChar) = 8 Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
     End Sub
 
 End Class

@@ -34,7 +34,7 @@ Public Class frmClientes
                 txtbuscar.Enabled = True
                 datalistado.ColumnHeadersVisible = True
                 inexistente.Visible = False
-                'ocultar_columnas()
+                ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 txtbuscar.Enabled = False
@@ -46,8 +46,6 @@ Public Class frmClientes
         End Try
         btnnuevo.Visible = True
         btneditar.Visible = False
-
-        buscar()
     End Sub
     Public Sub limpiar()
         btnguardar.Visible = True
@@ -71,7 +69,7 @@ Public Class frmClientes
             If dt.Rows.Count <> 0 Then
                 datalistado.DataSource = dt
                 conexion.conexion.Close()
-                ' ocultar_columnas()
+                ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 conexion.conexion.Close()
@@ -160,13 +158,12 @@ Public Class frmClientes
         btnguardar.Visible = False
         btneditar.Visible = True
         txtidcliente.Text = datalistado.Rows(FilaActual).Cells(1).Value
-        txtnombre.Text = datalistado.Rows(FilaActual).Cells(2).Value
-        txtapellidos.Text = datalistado.Rows(FilaActual).Cells(3).Value
-        txtcorreo.Text = datalistado.Rows(FilaActual).Cells(4).Value
-        txtdireccion.Text = datalistado.Rows(FilaActual).Cells(5).Value
+        txtdni.Text = datalistado.Rows(FilaActual).Cells(2).Value
+        txtnombre.Text = datalistado.Rows(FilaActual).Cells(3).Value
+        txtapellidos.Text = datalistado.Rows(FilaActual).Cells(4).Value
+        txtcorreo.Text = datalistado.Rows(FilaActual).Cells(5).Value
         txttelefono.Text = datalistado.Rows(FilaActual).Cells(6).Value
-        txtdni.Text = datalistado.Rows(FilaActual).Cells(7).Value
-
+        txtdireccion.Text = datalistado.Rows(FilaActual).Cells(7).Value
 
     End Sub
 

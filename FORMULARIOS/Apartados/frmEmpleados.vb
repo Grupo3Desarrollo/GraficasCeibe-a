@@ -9,7 +9,7 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub ocultar_columnas()
-        datalistado.Columns(1).Visible = False
+        datalistado.Columns(9).Visible = False
     End Sub
 
     Public Sub limpiar()
@@ -22,6 +22,32 @@ Public Class frmEmpleados
         txtnombre.Text = ""
         txtcontra.Text = ""
         txtbuscar.Text = ""
+    End Sub
+
+    Public Sub mostrar()
+        Try
+            Dim func As New Conexion
+            dt = func.mostrarEmpleados
+            datalistado.Columns.Item("Eliminar").Visible = False
+
+            If dt.Rows.Count <> 0 Then
+                datalistado.DataSource = dt
+                txtbuscar.Enabled = True
+                datalistado.ColumnHeadersVisible = True
+                inexistente.Visible = False
+                ocultar_columnas()
+            Else
+                datalistado.DataSource = Nothing
+                txtbuscar.Enabled = False
+                datalistado.ColumnHeadersVisible = False
+                inexistente.Visible = True
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        btnnuevo.Visible = True
+        btneditar.Visible = False
+
     End Sub
 
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
@@ -106,32 +132,6 @@ Public Class frmEmpleados
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Public Sub mostrar()
-        Try
-            Dim func As New Conexion
-            dt = func.mostrarEmpleados
-            datalistado.Columns.Item("Eliminar").Visible = False
-
-            If dt.Rows.Count <> 0 Then
-                datalistado.DataSource = dt
-                txtbuscar.Enabled = True
-                datalistado.ColumnHeadersVisible = True
-                inexistente.Visible = False
-
-            Else
-                datalistado.DataSource = Nothing
-                txtbuscar.Enabled = False
-                datalistado.ColumnHeadersVisible = False
-                inexistente.Visible = True
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        btnnuevo.Visible = True
-        btneditar.Visible = False
-
     End Sub
 
     Private Sub buscar()

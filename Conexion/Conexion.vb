@@ -721,16 +721,16 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function editarVenta(idventa As Integer, idcliente As Integer, fecha_venta As Date, num_documento As String, idEmpleado As Integer, nombresCliente As String)
+    Public Function editarVenta(idventa As Integer, fecha_venta As Date, num_documento As String, idEmpleado As Integer, idcliente As Integer, nombresCliente As String)
         Try
             conexion.Open()
             cmb = New SqlCommand("editar_venta", conexion)
             cmb.CommandType = CommandType.StoredProcedure
             cmb.Parameters.AddWithValue("@idventa", idventa)
-            cmb.Parameters.AddWithValue("@idcliente", idcliente)
             cmb.Parameters.AddWithValue("@fecha_venta", fecha_venta)
             cmb.Parameters.AddWithValue("@num_documento", num_documento)
             cmb.Parameters.AddWithValue("@idEmpleado", idEmpleado)
+            cmb.Parameters.AddWithValue("@idcliente", idcliente)
             cmb.Parameters.AddWithValue("@nombresClientes", nombresCliente)
 
             If cmb.ExecuteNonQuery Then

@@ -35,7 +35,7 @@ Public Class mostrarEmpleados
     End Sub
 
     Private Sub ocultar_columnas()
-        datalistado.Columns(7).Visible = False
+        datalistado.Columns(1).Visible = False
     End Sub
 
     Private Sub datalistado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellContentClick
