@@ -3,6 +3,7 @@
 Public Class MostrarClientes
     Dim conexion As New Conexion()
     Dim dt As New DataTable()
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
     End Sub
@@ -13,7 +14,7 @@ Public Class MostrarClientes
     Public Sub mostrar()
         Try
             Dim func As New Conexion
-            dt = func.mostrar
+            dt = func.mostrarBUS
             datalistado.Columns.Item("Eliminar").Visible = False
 
             If dt.Rows.Count <> 0 Then
@@ -21,7 +22,7 @@ Public Class MostrarClientes
                 txtbuscar.Enabled = True
                 datalistado.ColumnHeadersVisible = True
                 inexistente.Visible = False
-                ocultar_columnas()
+                'ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 txtbuscar.Enabled = False
@@ -40,22 +41,19 @@ Public Class MostrarClientes
     End Sub
 
     Private Sub buscar()
+        Dim dni As String
         Try
-
-            dt = conexion.busqueda(" clientes ", " dni like '%" + txtbuscar.Text + "%'")
-
+            dni = txtbuscar.Text
+            dt = conexion.buscarClienteBUS(dni)
 
             If dt.Rows.Count <> 0 Then
-
                 datalistado.DataSource = dt
                 conexion.conexion.Close()
-                ocultar_columnas()
+                'ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 conexion.conexion.Close()
             End If
-
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -68,8 +66,9 @@ Public Class MostrarClientes
     Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
         If txtflag.Text = "1" Then
             frmVenta.txtidcliente.Text = datalistado.SelectedCells.Item(1).Value
-            frmVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(2).Value
+            frmVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value
             Me.Close()
         End If
     End Sub
+
 End Class

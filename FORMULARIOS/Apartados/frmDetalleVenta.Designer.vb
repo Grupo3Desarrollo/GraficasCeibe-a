@@ -205,11 +205,11 @@ Partial Class frmDetalleVenta
         '
         'txtnombre_cliente
         '
-        Me.txtnombre_cliente.Location = New System.Drawing.Point(149, 106)
+        Me.txtnombre_cliente.Location = New System.Drawing.Point(114, 106)
         Me.txtnombre_cliente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnombre_cliente.Name = "txtnombre_cliente"
         Me.txtnombre_cliente.ReadOnly = True
-        Me.txtnombre_cliente.Size = New System.Drawing.Size(147, 26)
+        Me.txtnombre_cliente.Size = New System.Drawing.Size(182, 26)
         Me.txtnombre_cliente.TabIndex = 17
         '
         'Label3
@@ -234,7 +234,7 @@ Partial Class frmDetalleVenta
         '
         'txtidcliente
         '
-        Me.txtidcliente.Location = New System.Drawing.Point(114, 106)
+        Me.txtidcliente.Location = New System.Drawing.Point(77, 106)
         Me.txtidcliente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidcliente.Name = "txtidcliente"
         Me.txtidcliente.ReadOnly = True

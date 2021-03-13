@@ -4,6 +4,7 @@
 
     Private Sub frmDetalles_venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar_Dventas()
+        txtidcliente.Visible = False
     End Sub
 
     Public Sub mostrar_Dventas()

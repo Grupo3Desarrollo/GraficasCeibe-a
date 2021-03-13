@@ -23,8 +23,8 @@ Partial Class frmVenta
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVenta))
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtbuscar = New System.Windows.Forms.TextBox()
@@ -33,6 +33,7 @@ Partial Class frmVenta
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnLimCli = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtbuscarempleado = New System.Windows.Forms.Button()
         Me.txtnomempleado = New System.Windows.Forms.TextBox()
@@ -78,7 +79,7 @@ Partial Class frmVenta
         '
         'txtbuscar
         '
-        Me.txtbuscar.Location = New System.Drawing.Point(234, 23)
+        Me.txtbuscar.Location = New System.Drawing.Point(182, 23)
         Me.txtbuscar.Name = "txtbuscar"
         Me.txtbuscar.Size = New System.Drawing.Size(162, 26)
         Me.txtbuscar.TabIndex = 26
@@ -102,26 +103,26 @@ Partial Class frmVenta
         Me.datalistado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.datalistado.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.datalistado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.HotTrack
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.datalistado.ColumnHeadersHeight = 38
         Me.datalistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.datalistado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Eliminar})
         Me.datalistado.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle10
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
         Me.datalistado.Location = New System.Drawing.Point(91, 56)
@@ -146,15 +147,16 @@ Partial Class frmVenta
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(56, 29)
+        Me.Label7.Location = New System.Drawing.Point(87, 26)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(173, 20)
+        Me.Label7.Size = New System.Drawing.Size(90, 20)
         Me.Label7.TabIndex = 18
-        Me.Label7.Text = "Busqueda por # Doc"
+        Me.Label7.Text = "Busqueda"
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnLimCli)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtbuscarempleado)
         Me.GroupBox1.Controls.Add(Me.txtnomempleado)
@@ -184,6 +186,17 @@ Partial Class frmVenta
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "DATOS DE VENTA"
         '
+        'btnLimCli
+        '
+        Me.btnLimCli.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnLimCli.Image = CType(resources.GetObject("btnLimCli.Image"), System.Drawing.Image)
+        Me.btnLimCli.Location = New System.Drawing.Point(456, 83)
+        Me.btnLimCli.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnLimCli.Name = "btnLimCli"
+        Me.btnLimCli.Size = New System.Drawing.Size(45, 38)
+        Me.btnLimCli.TabIndex = 26
+        Me.btnLimCli.UseVisualStyleBackColor = True
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -198,10 +211,10 @@ Partial Class frmVenta
         '
         Me.txtbuscarempleado.Cursor = System.Windows.Forms.Cursors.Hand
         Me.txtbuscarempleado.Image = CType(resources.GetObject("txtbuscarempleado.Image"), System.Drawing.Image)
-        Me.txtbuscarempleado.Location = New System.Drawing.Point(407, 179)
+        Me.txtbuscarempleado.Location = New System.Drawing.Point(407, 176)
         Me.txtbuscarempleado.Margin = New System.Windows.Forms.Padding(2)
         Me.txtbuscarempleado.Name = "txtbuscarempleado"
-        Me.txtbuscarempleado.Size = New System.Drawing.Size(45, 31)
+        Me.txtbuscarempleado.Size = New System.Drawing.Size(45, 38)
         Me.txtbuscarempleado.TabIndex = 24
         Me.txtbuscarempleado.UseVisualStyleBackColor = True
         '
@@ -300,10 +313,10 @@ Partial Class frmVenta
         '
         Me.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnBuscarCliente.Image = CType(resources.GetObject("btnBuscarCliente.Image"), System.Drawing.Image)
-        Me.btnBuscarCliente.Location = New System.Drawing.Point(407, 86)
+        Me.btnBuscarCliente.Location = New System.Drawing.Point(407, 83)
         Me.btnBuscarCliente.Margin = New System.Windows.Forms.Padding(2)
         Me.btnBuscarCliente.Name = "btnBuscarCliente"
-        Me.btnBuscarCliente.Size = New System.Drawing.Size(45, 32)
+        Me.btnBuscarCliente.Size = New System.Drawing.Size(45, 38)
         Me.btnBuscarCliente.TabIndex = 18
         Me.btnBuscarCliente.UseVisualStyleBackColor = True
         '
@@ -313,7 +326,6 @@ Partial Class frmVenta
         Me.txtnombre_cliente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnombre_cliente.Multiline = True
         Me.txtnombre_cliente.Name = "txtnombre_cliente"
-        Me.txtnombre_cliente.ReadOnly = True
         Me.txtnombre_cliente.Size = New System.Drawing.Size(155, 26)
         Me.txtnombre_cliente.TabIndex = 17
         '
@@ -364,9 +376,9 @@ Partial Class frmVenta
         Me.txtidcliente.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidcliente.Multiline = True
         Me.txtidcliente.Name = "txtidcliente"
-        Me.txtidcliente.ReadOnly = True
         Me.txtidcliente.Size = New System.Drawing.Size(28, 26)
         Me.txtidcliente.TabIndex = 2
+        Me.txtidcliente.Text = "1"
         '
         'Label1
         '
@@ -440,4 +452,5 @@ Partial Class frmVenta
     Friend WithEvents ToolTip As ToolTip
     Friend WithEvents ErrorValidacion As ErrorProvider
     Friend WithEvents txtbuscar As TextBox
+    Friend WithEvents btnLimCli As Button
 End Class

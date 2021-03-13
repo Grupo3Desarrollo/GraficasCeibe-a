@@ -553,6 +553,30 @@ Public Class Conexion
         End Try
     End Function
 
+    Public Function mostrarBUS() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_clienteBUS", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
     Public Function insertarCliente(nombre As String, apellidos As String, correo As String, direccion As String, telefono As String, dni As String)
         Try
             conexion.Open()
@@ -603,23 +627,48 @@ Public Class Conexion
             conexion.Close()
         End Try
     End Function
-    Function busqueda(ByVal tabla, ByVal condicion) As DataTable
+
+    Public Function buscarCliente(dni As String) As DataTable
         Try
             conexion.Open()
-            Dim buscar As String = "select * from " + tabla + " where " + condicion
-            Dim cmd As New SqlCommand(buscar, conexion)
-            If cmd.ExecuteNonQuery Then
-                Dim dv As New DataTable
-                Dim da As New SqlDataAdapter(cmd)
-                da.Fill(dv)
-                Return dv
+            Dim cmb As New SqlCommand("buscarCliente", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@dni", dni)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
             Else
                 Return Nothing
             End If
-            conexion.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function buscarClienteBUS(dni As String) As DataTable
+        Try
+            conexion.Open()
+            Dim cmb As New SqlCommand("buscarClienteBUS", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@dni", dni)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
         End Try
     End Function
 
@@ -648,7 +697,7 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function insertarVenta(fecha_venta As Date, num_documento As String, idEmpleado As Integer, idcliente As Integer)
+    Public Function insertarVenta(fecha_venta As Date, num_documento As String, idEmpleado As Integer, idcliente As Integer, nombresCliente As String)
         Try
             conexion.Open()
             cmb = New SqlCommand("insertar_venta", conexion)
@@ -657,6 +706,7 @@ Public Class Conexion
             cmb.Parameters.AddWithValue("@num_documento", num_documento)
             cmb.Parameters.AddWithValue("@idEmpleado", idEmpleado)
             cmb.Parameters.AddWithValue("@idcliente", idcliente)
+            cmb.Parameters.AddWithValue("@nombresClientes", nombresCliente)
 
             If cmb.ExecuteNonQuery Then
                 Return True
@@ -671,7 +721,7 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function editarVenta(idventa As Integer, idcliente As Integer, fecha_venta As Date, num_documento As String, idEmpleado As Integer)
+    Public Function editarVenta(idventa As Integer, idcliente As Integer, fecha_venta As Date, num_documento As String, idEmpleado As Integer, nombresCliente As String)
         Try
             conexion.Open()
             cmb = New SqlCommand("editar_venta", conexion)
@@ -681,6 +731,7 @@ Public Class Conexion
             cmb.Parameters.AddWithValue("@fecha_venta", fecha_venta)
             cmb.Parameters.AddWithValue("@num_documento", num_documento)
             cmb.Parameters.AddWithValue("@idEmpleado", idEmpleado)
+            cmb.Parameters.AddWithValue("@nombresClientes", nombresCliente)
 
             If cmb.ExecuteNonQuery Then
                 Return True

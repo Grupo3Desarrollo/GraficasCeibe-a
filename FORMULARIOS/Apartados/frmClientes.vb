@@ -34,7 +34,7 @@ Public Class frmClientes
                 txtbuscar.Enabled = True
                 datalistado.ColumnHeadersVisible = True
                 inexistente.Visible = False
-                ocultar_columnas()
+                'ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 txtbuscar.Enabled = False
@@ -62,25 +62,16 @@ Public Class frmClientes
         txtidcliente.Text = ""
     End Sub
 
-    'Private Sub buscar()
-    '    Try
-    '        Dim dni As String
-    '        dni = txtbuscar.Text
-    '        dt = conexion.buscarCliente(dni)
-    '        datalistado.DataSource = If(dt.Rows.Count <> 0, dt, Nothing)
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
-
     Private Sub buscar()
+        Dim dni As String
         Try
-            dt = conexion.busqueda(" clientes ", " dni like '%" + txtbuscar.Text + "%'")
+            dni = txtbuscar.Text
+            dt = conexion.buscarCliente(dni)
 
             If dt.Rows.Count <> 0 Then
                 datalistado.DataSource = dt
                 conexion.conexion.Close()
-                ocultar_columnas()
+                ' ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 conexion.conexion.Close()

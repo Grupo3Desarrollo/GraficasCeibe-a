@@ -191,7 +191,10 @@ WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@UserName+ '%') OR DNIEmpleado LI
 -- Mostrar Cliente
 CREATE PROCEDURE mostrar_cliente
 as
-SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' FROM clientes order BY idcliente desc
+SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' 
+FROM clientes 
+WHERE idcliente <> 1
+order BY idcliente desc
 go
 
 -- insertar cliente

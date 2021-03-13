@@ -8,6 +8,10 @@ Public Class frmProveedor
         mostrar()
     End Sub
 
+    Private Sub ocultar_columnas()
+        datalistado.Columns(0).Visible = False
+    End Sub
+
     Public Sub mostrar()
         Try
             Dim func As New Conexion
@@ -18,6 +22,7 @@ Public Class frmProveedor
                 txtbuscar.Enabled = True
                 datalistado.ColumnHeadersVisible = True
                 inexistente.Visible = False
+                ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 txtbuscar.Enabled = False
@@ -40,13 +45,21 @@ Public Class frmProveedor
         txtbuscar.Text = ""
         txtidproveedor.Text = ""
     End Sub
+
     Private Sub buscar()
+        Dim P_descripProv As String
         Try
-            Dim P_descripProv As String
             P_descripProv = txtbuscar.Text
             dt = conexion.buscarProveedor(P_descripProv)
-            datalistado.DataSource = If(dt.Rows.Count <> 0, dt, Nothing)
 
+            If dt.Rows.Count <> 0 Then
+                datalistado.DataSource = dt
+                conexion.conexion.Close()
+                ocultar_columnas()
+            Else
+                datalistado.DataSource = Nothing
+                conexion.conexion.Close()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

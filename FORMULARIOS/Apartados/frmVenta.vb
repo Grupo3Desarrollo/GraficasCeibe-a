@@ -5,17 +5,23 @@ Public Class frmVenta
 
     Private Sub frmVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar_ventas()
+        txtidcliente.Text = "1"
+        txtidcliente.Visible = False
     End Sub
 
     Private Sub ocultar_columnas()
-        datalistado.Columns(1).Visible = False
+        'datalistado.Columns(1).Visible = False
         datalistado.Columns(2).Visible = False
     End Sub
 
     Public Sub limpiar()
         btnguardar.Visible = True
         btneditar.Visible = False
-        txtidcliente.Text = ""
+        txtidcliente.ReadOnly = False
+        txtnombre_cliente.ReadOnly = False
+        txtidcliente.Visible = False
+        txtidcliente.Text = "1"
+        'txtidcliente.Text = ""
         txtnombre_cliente.Text = ""
         txtidventa.Text = ""
         txtidempleado.Text = ""
@@ -62,14 +68,15 @@ Public Class frmVenta
     Private Sub insertarventa()
         Dim idcliente As Integer
         Dim fecha_venta As Date
-        Dim num_documento, idEmpleado As String
+        Dim num_documento, idEmpleado, nombresClientes As String
         idcliente = txtidcliente.Text
         fecha_venta = txtfecha.Text
         num_documento = txtnum_documento.Text
         idEmpleado = txtidempleado.Text
+        nombresClientes = txtnombre_cliente.Text
 
         Try
-            If conexion.insertarVenta(fecha_venta, num_documento, idEmpleado, idcliente) Then
+            If conexion.insertarVenta(fecha_venta, num_documento, idEmpleado, idcliente, nombresClientes) Then
             Else
                 MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -81,14 +88,15 @@ Public Class frmVenta
     Private Sub editarVenta()
         Dim idventa, idcliente As Integer
         Dim fecha_venta As Date
-        Dim num_documento, idEmpleado As String
+        Dim num_documento, idEmpleado, nombresClientes As String
         idcliente = txtidcliente.Text
         fecha_venta = txtfecha.Text
         num_documento = txtnum_documento.Text
         idEmpleado = txtidempleado.Text
+        nombresClientes = txtnombre_cliente.Text
 
         Try
-            If conexion.editarVenta(idventa, idcliente, fecha_venta, num_documento, idEmpleado) Then
+            If conexion.editarVenta(idventa, idcliente, fecha_venta, num_documento, idEmpleado, nombresClientes) Then
                 MessageBox.Show("Venta modificada con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al modificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -100,6 +108,16 @@ Public Class frmVenta
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
         If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtnomempleado.Text <> "" And txtnum_documento.Text <> "" Then
+            Try
+                insertarventa()
+                mostrar_ventas()
+                limpiar()
+                cargar_detalle()
+                conexion.conexion.Close()
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        ElseIf Me.ValidateChildren = True And txtidcliente.Text <> "" Then
             Try
                 insertarventa()
                 mostrar_ventas()
@@ -153,7 +171,7 @@ Public Class frmVenta
         frmDetalleVenta.txtidventa.Text = datalistado.SelectedCells.Item(1).Value
         frmDetalleVenta.txtidcliente.Text = datalistado.SelectedCells.Item(2).Value
         frmDetalleVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value
-        frmDetalleVenta.txtfecha.Text = datalistado.SelectedCells.Item(6).Value
+        frmDetalleVenta.txtfecha.Text = datalistado.SelectedCells.Item(4).Value
 
         frmDetalleVenta.ShowDialog()
     End Sub
@@ -174,6 +192,9 @@ Public Class frmVenta
     Private Sub btnBuscarCliente_Click(sender As Object, e As EventArgs) Handles btnBuscarCliente.Click
         MostrarClientes.txtflag.Text = "1"
         MostrarClientes.ShowDialog()
+        txtidcliente.ReadOnly = True
+        txtnombre_cliente.ReadOnly = True
+        txtidcliente.Visible = True
     End Sub
 
     Private Sub txtbuscarempleado_Click(sender As Object, e As EventArgs) Handles txtbuscarempleado.Click
@@ -225,5 +246,21 @@ Public Class frmVenta
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
+    End Sub
+
+    Private Sub btnLimCli_Click(sender As Object, e As EventArgs) Handles btnLimCli.Click
+        Dim result As DialogResult
+        result = MessageBox.Show("Realmente desea limpiar los datos del cliente?", "Modifiar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+
+        If result = DialogResult.OK Then
+            txtidcliente.ReadOnly = False
+            txtnombre_cliente.ReadOnly = False
+            txtidcliente.Text = "1"
+            txtidcliente.Visible = False
+            'txtidcliente.Text = ""
+            txtnombre_cliente.Text = ""
+        Else
+
+        End If
     End Sub
 End Class
