@@ -88,11 +88,18 @@ Public Class Menuu
         abrirFormulario(frmVenta)
     End Sub
 
-    Private Sub PanelForms_Paint(sender As Object, e As PaintEventArgs) Handles PanelForms.Paint
-
-    End Sub
-
     Private Sub btncompras_Click(sender As Object, e As EventArgs) Handles btncompras.Click
         abrirFormulario(frmCompras)
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim opcion As DialogResult
+        opcion = MessageBox.Show("¿Esta Seguro que quiere salir del sistema?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If opcion = DialogResult.Yes Then
+            txtflag.Text = ""
+            Me.Close()
+            Login.Show()
+
+        End If
     End Sub
 End Class

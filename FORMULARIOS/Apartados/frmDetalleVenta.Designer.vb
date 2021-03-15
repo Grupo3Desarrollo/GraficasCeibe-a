@@ -27,6 +27,7 @@ Partial Class frmDetalleVenta
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtCant2 = New System.Windows.Forms.NumericUpDown()
         Me.txtstock = New System.Windows.Forms.NumericUpDown()
         Me.txtcantidad = New System.Windows.Forms.NumericUpDown()
         Me.txtprecio_unitario = New System.Windows.Forms.TextBox()
@@ -54,7 +55,9 @@ Partial Class frmDetalleVenta
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.btneditar = New System.Windows.Forms.Button()
+        Me.btneliminar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.txtCant2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtstock, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
@@ -64,6 +67,7 @@ Partial Class frmDetalleVenta
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtCant2)
         Me.GroupBox1.Controls.Add(Me.txtstock)
         Me.GroupBox1.Controls.Add(Me.txtcantidad)
         Me.GroupBox1.Controls.Add(Me.txtprecio_unitario)
@@ -92,18 +96,27 @@ Partial Class frmDetalleVenta
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Mantenimiento"
         '
+        'txtCant2
+        '
+        Me.txtCant2.Enabled = False
+        Me.txtCant2.Location = New System.Drawing.Point(114, 253)
+        Me.txtCant2.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtCant2.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.txtCant2.Name = "txtCant2"
+        Me.txtCant2.ReadOnly = True
+        Me.txtCant2.Size = New System.Drawing.Size(80, 26)
+        Me.txtCant2.TabIndex = 31
+        '
         'txtstock
         '
         Me.txtstock.Enabled = False
         Me.txtstock.Location = New System.Drawing.Point(270, 288)
         Me.txtstock.Margin = New System.Windows.Forms.Padding(2)
         Me.txtstock.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
-        Me.txtstock.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.txtstock.Name = "txtstock"
         Me.txtstock.ReadOnly = True
         Me.txtstock.Size = New System.Drawing.Size(80, 26)
         Me.txtstock.TabIndex = 30
-        Me.txtstock.Value = New Decimal(New Integer() {1, 0, 0, 0})
         '
         'txtcantidad
         '
@@ -387,7 +400,7 @@ Partial Class frmDetalleVenta
         Me.btnnuevo.Location = New System.Drawing.Point(420, 303)
         Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2)
         Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(86, 62)
+        Me.btnnuevo.Size = New System.Drawing.Size(92, 62)
         Me.btnnuevo.TabIndex = 31
         Me.btnnuevo.Text = "Nuevo"
         Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -409,12 +422,29 @@ Partial Class frmDetalleVenta
         Me.btneditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btneditar.UseVisualStyleBackColor = False
         '
+        'btneliminar
+        '
+        Me.btneliminar.BackColor = System.Drawing.Color.Crimson
+        Me.btneliminar.BackgroundImage = CType(resources.GetObject("btneliminar.BackgroundImage"), System.Drawing.Image)
+        Me.btneliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btneliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btneliminar.ForeColor = System.Drawing.SystemColors.Window
+        Me.btneliminar.Location = New System.Drawing.Point(420, 369)
+        Me.btneliminar.Margin = New System.Windows.Forms.Padding(2)
+        Me.btneliminar.Name = "btneliminar"
+        Me.btneliminar.Size = New System.Drawing.Size(92, 63)
+        Me.btneliminar.TabIndex = 36
+        Me.btneliminar.Text = "Eliminar"
+        Me.btneliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btneliminar.UseVisualStyleBackColor = False
+        '
         'frmDetalleVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(866, 450)
+        Me.Controls.Add(Me.btneliminar)
         Me.Controls.Add(Me.btnguardar)
         Me.Controls.Add(Me.btneditar)
         Me.Controls.Add(Me.Button1)
@@ -427,6 +457,7 @@ Partial Class frmDetalleVenta
         Me.Text = "frmDetalleVenta"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.txtCant2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtstock, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtcantidad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
@@ -465,4 +496,6 @@ Partial Class frmDetalleVenta
     Friend WithEvents ErrorValidacion As ErrorProvider
     Friend WithEvents btneditar As Button
     Friend WithEvents txtstock As NumericUpDown
+    Friend WithEvents txtCant2 As NumericUpDown
+    Friend WithEvents btneliminar As Button
 End Class

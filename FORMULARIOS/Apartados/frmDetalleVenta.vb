@@ -5,12 +5,16 @@
     Private Sub frmDetalles_venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar_Dventas()
         txtidcliente.Visible = False
+        txtCant2.Visible = False
+        btneliminar.Visible = False
     End Sub
 
     Public Sub mostrar_Dventas()
+        Dim IdVenta As Integer
         Try
             Dim func As New Conexion
-            dt = func.mostrarDetalleVenta
+            IdVenta = txtidventa.Text
+            dt = func.mostrarDetalleVenta(IdVenta)
 
             If dt.Rows.Count <> 0 Then
                 datalistado.DataSource = dt
@@ -32,11 +36,13 @@
     Public Sub limpiar()
         btnguardar.Visible = True
         btneditar.Visible = False
+        btneliminar.Visible = False
         txtidproducto.Text = ""
         txtnom_producto.Text = ""
         txtprecio_unitario.Text = ""
+        txtCant2.Value = 0
         txtcantidad.Value = 0
-        txtstock.Value = 1
+        txtstock.Value = 0
     End Sub
 
     Private Sub ocultar_columnas()
@@ -48,17 +54,34 @@
         Dim idventa, idproducto As Integer
         Dim cantidad, precio_V As Double
 
+        'DataGrid
+        Dim FilaActual As Integer
         idventa = txtidventa.Text
         idproducto = txtidproducto.Text
         precio_V = txtprecio_unitario.Text
         cantidad = txtcantidad.Text
 
-        If conexion.disminuir_stock(idproducto, cantidad) Then
-        End If
         Try
-            If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
+            If datalistado.Rows.Count > 0 Then
+
+                If txtidproducto.Text = datalistado.Rows(FilaActual).Cells(1).Value Then
+                    MessageBox.Show("Revise los productos", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    limpiar()
+                Else
+                    If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
+                        If conexion.disminuir_stock(idproducto, cantidad) Then
+                        End If
+                    Else
+                        MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                End If
             Else
-                MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
+                    If conexion.disminuir_stock(idproducto, cantidad) Then
+                    End If
+                Else
+                    MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -68,23 +91,82 @@
     Private Sub EditarDetallesVenta()
         Dim idventa, idproducto As Integer
         Dim cantidad, precio_V As Double
+        Dim Aumento As Double
 
         idventa = txtidventa.Text
         idproducto = txtidproducto.Text
         precio_V = txtprecio_unitario.Text
         cantidad = txtcantidad.Text
 
-        If conexion.disminuir_stock(idproducto, cantidad) Then
-        End If
         Try
-            If conexion.editarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
-                MessageBox.Show("Venta editada con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If txtstock.Value = 0 Then
+                MessageBox.Show("Seleccione el producto nuevamente por favor", "Producto", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                limpiar()
             Else
-                MessageBox.Show("Error al Editar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                If conexion.editarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
+                    MessageBox.Show("Venta editada con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    If txtcantidad.Value < txtCant2.Value Then
+                        If conexion.disminuir_stock(idproducto, cantidad) Then
+                            Aumento = txtCant2.Text
+                            conexion.aumentar_stock(idproducto, Aumento)
+                        End If
+                    End If
+                    If txtcantidad.Value > txtCant2.Value Then
+                        If conexion.disminuir_stock(idproducto, cantidad) Then
+                            Aumento = txtCant2.Text
+                            conexion.aumentar_stock(idproducto, Aumento)
+                        End If
+                    End If
+                Else
+                    MessageBox.Show("Error al Editar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub EliminarDetallesVenta()
+        Dim idventa, idproducto As Integer
+        Dim Aumento As Double
+
+        idventa = txtidventa.Text
+        idproducto = txtidproducto.Text
+
+        Try
+            If conexion.EliminarDetallesV(idventa, idproducto) Then
+                MessageBox.Show("Producto Descartado de la venta", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Aumento = txtCant2.Text
+                conexion.aumentar_stock(idproducto, Aumento)
+            Else
+                MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
+        Dim result As DialogResult
+        result = MessageBox.Show("Esta seguro de eliminar este producto en la venta?", "Eliminar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+
+        If result = DialogResult.OK Then
+
+            If Me.ValidateChildren = True And txtidproducto.Text <> "" And txtidventa.Text <> "" Then
+                Try
+                    EliminarDetallesVenta()
+                    mostrar_Dventas()
+                    limpiar()
+                    conexion.conexion.Close()
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                End Try
+            Else
+                MessageBox.Show("Revise los datos Ingresados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else
+            limpiar()
+        End If
     End Sub
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
@@ -106,9 +188,11 @@
         FilaActual = datalistado.CurrentRow.Index
         btnguardar.Visible = False
         btneditar.Visible = True
+        btneliminar.Visible = True
         txtidproducto.Text = datalistado.Rows(FilaActual).Cells(1).Value
         txtnom_producto.Text = datalistado.Rows(FilaActual).Cells(2).Value
         txtprecio_unitario.Text = datalistado.Rows(FilaActual).Cells(3).Value
+        txtCant2.Text = datalistado.Rows(FilaActual).Cells(4).Value
     End Sub
 
     Private Sub btneditar_Click(sender As Object, e As EventArgs) Handles btneditar.Click
@@ -149,16 +233,14 @@
         cant = txtcantidad.Text
         If txtcantidad.Value > txtstock.Value Then
             MessageBox.Show("La cantidad de productos supera el Stock", "Error al vender", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            btnguardar.Visible = 0
+            ' btnguardar.Visible = 0
             txtcantidad.Value = txtstock.Value
         Else
-            btnguardar.Visible = 1
+            'btnguardar.Visible = 1
         End If
 
         If txtcantidad.Text = 0 Then
-            btnguardar.Visible = 0
-        Else
-            btnguardar.Visible = 1
+            'btnguardar.Visible = 0
         End If
     End Sub
 

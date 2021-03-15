@@ -769,12 +769,12 @@ Public Class Conexion
     End Function
 
     'Detalles de venta
-    Public Function mostrarDetalleVenta() As DataTable
+    Public Function mostrarDetalleVenta(IdVenta As Integer) As DataTable
         Try
             conexion.Open()
             cmb = New SqlCommand("mostrar_detalle_venta", conexion)
             cmb.CommandType = CommandType.StoredProcedure
-
+            cmb.Parameters.AddWithValue("@IdVenta", IdVenta)
             cmb.Connection = conexion
 
             If cmb.ExecuteNonQuery Then
@@ -825,6 +825,28 @@ Public Class Conexion
             cmb.Parameters.AddWithValue("@idproducto", idproducto)
             cmb.Parameters.AddWithValue("@precio_V", precio_V)
             cmb.Parameters.AddWithValue("@cantidad", cantidad)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    'Eliminar de detalles venta
+    Public Function EliminarDetallesV(idventa As Integer, idproducto As Integer)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("EliminarDetalleV", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idventa", idventa)
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
 
             If cmb.ExecuteNonQuery Then
                 Return True
