@@ -904,4 +904,28 @@ Public Class Conexion
             conexion.Close()
         End Try
     End Function
+
+    Public Function mostrarTotalV(idventa As Integer) As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrarTotalV", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@IdVenta", idventa)
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
 End Class

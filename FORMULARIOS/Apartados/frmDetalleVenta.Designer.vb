@@ -26,6 +26,8 @@ Partial Class frmDetalleVenta
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmDetalleVenta))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtCant2 = New System.Windows.Forms.NumericUpDown()
         Me.txtstock = New System.Windows.Forms.NumericUpDown()
@@ -56,6 +58,12 @@ Partial Class frmDetalleVenta
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.btneditar = New System.Windows.Forms.Button()
         Me.btneliminar = New System.Windows.Forms.Button()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtarticulos = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txttotal = New System.Windows.Forms.TextBox()
+        Me.DataDos = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         CType(Me.txtCant2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtstock, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,6 +71,8 @@ Partial Class frmDetalleVenta
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
+        CType(Me.DataDos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -170,7 +180,7 @@ Partial Class frmDetalleVenta
         'btnBuscarProducto
         '
         Me.btnBuscarProducto.Image = CType(resources.GetObject("btnBuscarProducto.Image"), System.Drawing.Image)
-        Me.btnBuscarProducto.Location = New System.Drawing.Point(312, 220)
+        Me.btnBuscarProducto.Location = New System.Drawing.Point(307, 220)
         Me.btnBuscarProducto.Margin = New System.Windows.Forms.Padding(2)
         Me.btnBuscarProducto.Name = "btnBuscarProducto"
         Me.btnBuscarProducto.Size = New System.Drawing.Size(38, 33)
@@ -283,7 +293,7 @@ Partial Class frmDetalleVenta
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox2.Size = New System.Drawing.Size(429, 249)
+        Me.GroupBox2.Size = New System.Drawing.Size(429, 230)
         Me.GroupBox2.TabIndex = 30
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Historial de ventas"
@@ -349,7 +359,7 @@ Partial Class frmDetalleVenta
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.Window
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.Location = New System.Drawing.Point(728, 303)
+        Me.Button1.Location = New System.Drawing.Point(726, 306)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(89, 63)
@@ -365,7 +375,7 @@ Partial Class frmDetalleVenta
         Me.btnimprimir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnimprimir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnimprimir.ForeColor = System.Drawing.SystemColors.Window
-        Me.btnimprimir.Location = New System.Drawing.Point(627, 303)
+        Me.btnimprimir.Location = New System.Drawing.Point(625, 306)
         Me.btnimprimir.Margin = New System.Windows.Forms.Padding(2)
         Me.btnimprimir.Name = "btnimprimir"
         Me.btnimprimir.Size = New System.Drawing.Size(89, 63)
@@ -381,7 +391,7 @@ Partial Class frmDetalleVenta
         Me.btnguardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnguardar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnguardar.ForeColor = System.Drawing.SystemColors.Window
-        Me.btnguardar.Location = New System.Drawing.Point(521, 302)
+        Me.btnguardar.Location = New System.Drawing.Point(519, 305)
         Me.btnguardar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(92, 63)
@@ -397,7 +407,7 @@ Partial Class frmDetalleVenta
         Me.btnnuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btnnuevo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnnuevo.ForeColor = System.Drawing.SystemColors.Window
-        Me.btnnuevo.Location = New System.Drawing.Point(420, 303)
+        Me.btnnuevo.Location = New System.Drawing.Point(418, 306)
         Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(92, 62)
@@ -413,7 +423,7 @@ Partial Class frmDetalleVenta
         Me.btneditar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btneditar.ForeColor = System.Drawing.SystemColors.Control
         Me.btneditar.Image = CType(resources.GetObject("btneditar.Image"), System.Drawing.Image)
-        Me.btneditar.Location = New System.Drawing.Point(521, 302)
+        Me.btneditar.Location = New System.Drawing.Point(519, 305)
         Me.btneditar.Margin = New System.Windows.Forms.Padding(2)
         Me.btneditar.Name = "btneditar"
         Me.btneditar.Size = New System.Drawing.Size(92, 63)
@@ -429,7 +439,7 @@ Partial Class frmDetalleVenta
         Me.btneliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.btneliminar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btneliminar.ForeColor = System.Drawing.SystemColors.Window
-        Me.btneliminar.Location = New System.Drawing.Point(420, 369)
+        Me.btneliminar.Location = New System.Drawing.Point(418, 372)
         Me.btneliminar.Margin = New System.Windows.Forms.Padding(2)
         Me.btneliminar.Name = "btneliminar"
         Me.btneliminar.Size = New System.Drawing.Size(92, 63)
@@ -438,12 +448,110 @@ Partial Class frmDetalleVenta
         Me.btneliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btneliminar.UseVisualStyleBackColor = False
         '
+        'GroupBox3
+        '
+        Me.GroupBox3.Controls.Add(Me.Label5)
+        Me.GroupBox3.Controls.Add(Me.txttotal)
+        Me.GroupBox3.Controls.Add(Me.Label4)
+        Me.GroupBox3.Controls.Add(Me.txtarticulos)
+        Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.ForeColor = System.Drawing.SystemColors.Window
+        Me.GroupBox3.Location = New System.Drawing.Point(409, 245)
+        Me.GroupBox3.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Padding = New System.Windows.Forms.Padding(2)
+        Me.GroupBox3.Size = New System.Drawing.Size(429, 57)
+        Me.GroupBox3.TabIndex = 31
+        Me.GroupBox3.TabStop = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(5, 21)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(79, 20)
+        Me.Label4.TabIndex = 33
+        Me.Label4.Text = "Artículos"
+        '
+        'txtarticulos
+        '
+        Me.txtarticulos.BackColor = System.Drawing.Color.SteelBlue
+        Me.txtarticulos.ForeColor = System.Drawing.Color.White
+        Me.txtarticulos.Location = New System.Drawing.Point(88, 19)
+        Me.txtarticulos.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtarticulos.Name = "txtarticulos"
+        Me.txtarticulos.ReadOnly = True
+        Me.txtarticulos.Size = New System.Drawing.Size(103, 26)
+        Me.txtarticulos.TabIndex = 32
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(212, 21)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(49, 20)
+        Me.Label5.TabIndex = 35
+        Me.Label5.Text = "Total"
+        '
+        'txttotal
+        '
+        Me.txttotal.BackColor = System.Drawing.Color.SteelBlue
+        Me.txttotal.ForeColor = System.Drawing.Color.White
+        Me.txttotal.Location = New System.Drawing.Point(263, 19)
+        Me.txttotal.Margin = New System.Windows.Forms.Padding(2)
+        Me.txttotal.Name = "txttotal"
+        Me.txttotal.ReadOnly = True
+        Me.txttotal.Size = New System.Drawing.Size(145, 26)
+        Me.txttotal.TabIndex = 34
+        '
+        'DataDos
+        '
+        Me.DataDos.AllowUserToAddRows = False
+        Me.DataDos.AllowUserToDeleteRows = False
+        Me.DataDos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataDos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.DataDos.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        Me.DataDos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.HotTrack
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataDos.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataDos.ColumnHeadersHeight = 38
+        Me.DataDos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataDos.DefaultCellStyle = DataGridViewCellStyle4
+        Me.DataDos.EnableHeadersVisualStyles = False
+        Me.DataDos.GridColor = System.Drawing.SystemColors.Highlight
+        Me.DataDos.Location = New System.Drawing.Point(672, 393)
+        Me.DataDos.Margin = New System.Windows.Forms.Padding(2)
+        Me.DataDos.Name = "DataDos"
+        Me.DataDos.ReadOnly = True
+        Me.DataDos.RowHeadersVisible = False
+        Me.DataDos.RowTemplate.Height = 28
+        Me.DataDos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataDos.Size = New System.Drawing.Size(157, 186)
+        Me.DataDos.TabIndex = 37
+        '
         'frmDetalleVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(866, 450)
+        Me.Controls.Add(Me.DataDos)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.btneliminar)
         Me.Controls.Add(Me.btnguardar)
         Me.Controls.Add(Me.btneditar)
@@ -464,6 +572,9 @@ Partial Class frmDetalleVenta
         Me.GroupBox2.PerformLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
+        CType(Me.DataDos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -498,4 +609,10 @@ Partial Class frmDetalleVenta
     Friend WithEvents txtstock As NumericUpDown
     Friend WithEvents txtCant2 As NumericUpDown
     Friend WithEvents btneliminar As Button
+    Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txttotal As TextBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtarticulos As TextBox
+    Friend WithEvents DataDos As DataGridView
 End Class
