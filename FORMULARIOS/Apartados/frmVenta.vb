@@ -96,15 +96,16 @@ Public Class frmVenta
     Private Sub editarVenta()
         Dim idventa, idcliente, idEmpleado As Integer
         Dim fecha_venta As Date
-        Dim num_documento, nombresClientes As String
+        Dim num_documento, nombresCliente As String
+        idventa = txtidventa.Text
         idcliente = txtidcliente.Text
         fecha_venta = txtfecha.Text
         num_documento = txtnum_documento.Text
         idEmpleado = txtidempleado.Text
-        nombresClientes = txtnombre_cliente.Text
+        nombresCliente = txtnombre_cliente.Text
 
         Try
-            If conexion.editarVenta(idventa, fecha_venta, num_documento, idEmpleado, idcliente, nombresClientes) Then
+            If conexion.editarVenta(idventa, fecha_venta, num_documento, idEmpleado, idcliente, nombresCliente) Then
                 MessageBox.Show("Venta modificada con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al modificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -133,11 +134,11 @@ Public Class frmVenta
     Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
         Dim FilaActual As Integer
         FilaActual = datalistado.CurrentRow.Index
-        txtidventa.Text = datalistado.Rows(FilaActual).Cells(1).Value
-        txtidcliente.Text = datalistado.Rows(FilaActual).Cells(2).Value
-        txtnombre_cliente.Text = datalistado.Rows(FilaActual).Cells(3).Value
-        txtfecha.Text = datalistado.Rows(FilaActual).Cells(4).Value
-        txtnomempleado.Text = datalistado.Rows(FilaActual).Cells(5).Value
+        txtidventa.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(1).Value)
+        txtidcliente.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(2).Value)
+        txtnombre_cliente.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(3).Value)
+        txtfecha.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(4).Value)
+        txtnomempleado.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(5).Value)
         btnguardar.Visible = False
         btneditar.Visible = True
     End Sub
@@ -167,10 +168,10 @@ Public Class frmVenta
 
 
     Private Sub cargar_detalle()
-        frmDetalleVenta.txtidventa.Text = datalistado.SelectedCells.Item(1).Value
-        frmDetalleVenta.txtidcliente.Text = datalistado.SelectedCells.Item(2).Value
-        frmDetalleVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value
-        frmDetalleVenta.txtfecha.Text = datalistado.SelectedCells.Item(4).Value
+        frmDetalleVenta.txtidventa.Text = Convert.ToString(datalistado.SelectedCells.Item(1).Value)
+        frmDetalleVenta.txtidcliente.Text = Convert.ToString(datalistado.SelectedCells.Item(2).Value)
+        frmDetalleVenta.txtnombre_cliente.Text = Convert.ToString(datalistado.SelectedCells.Item(3).Value)
+        frmDetalleVenta.txtfecha.Text = Convert.ToString(datalistado.SelectedCells.Item(4).Value)
 
         frmDetalleVenta.ShowDialog()
     End Sub

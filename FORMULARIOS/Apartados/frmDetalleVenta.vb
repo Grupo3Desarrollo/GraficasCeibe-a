@@ -4,11 +4,9 @@
 
     Private Sub frmDetalles_venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar_Dventas()
-        mostrarTotalV()
         txtidcliente.Visible = False
         txtCant2.Visible = False
         btneliminar.Visible = False
-        DataDos.Visible = False
     End Sub
 
     Public Sub mostrar_Dventas()
@@ -33,30 +31,6 @@
             MsgBox(ex.Message)
         End Try
         'buscar()
-    End Sub
-
-    Public Sub mostrarTotalV()
-        Dim IdVenta As Integer
-        Try
-            Dim func As New Conexion
-            IdVenta = txtidventa.Text
-            dt = func.mostrarTotalV(IdVenta)
-            If dt.Rows.Count <> 0 Then
-                DataDos.DataSource = dt
-                DataDos.ColumnHeadersVisible = True
-
-                Dim FilaActual As Integer
-                FilaActual = DataDos.CurrentRow.Index
-                txtarticulos.Text = DataDos.Rows(FilaActual).Cells(0).Value
-                txttotal.Text = DataDos.Rows(FilaActual).Cells(1).Value
-            Else
-                DataDos.DataSource = Nothing
-                DataDos.ColumnHeadersVisible = False
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-
     End Sub
 
     Public Sub limpiar()
@@ -93,13 +67,6 @@
                 If txtidproducto.Text = datalistado.Rows(FilaActual).Cells(1).Value Then
                     MessageBox.Show("Revise los productos", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     limpiar()
-                Else
-                    If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
-                        If conexion.disminuir_stock(idproducto, cantidad) Then
-                        End If
-                    Else
-                        MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
                 End If
             Else
                 If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
@@ -108,6 +75,13 @@
                 Else
                     MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
+            End If
+
+            If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
+                If conexion.disminuir_stock(idproducto, cantidad) Then
+                End If
+            Else
+                MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -182,7 +156,7 @@
                 Try
                     EliminarDetallesVenta()
                     mostrar_Dventas()
-                    mostrarTotalV()
+                    'mostrarTotalV()
                     limpiar()
                     conexion.conexion.Close()
                 Catch ex As Exception
@@ -201,7 +175,7 @@
             Try
                 InsertarDetallesVenta()
                 mostrar_Dventas()
-                mostrarTotalV()
+                'mostrarTotalV()
                 limpiar()
                 conexion.conexion.Close()
             Catch ex As Exception
@@ -233,7 +207,7 @@
                 Try
                     EditarDetallesVenta()
                     mostrar_Dventas()
-                    mostrarTotalV()
+                    'mostrarTotalV()
                     limpiar()
                     conexion.conexion.Close()
                 Catch ex As Exception
@@ -250,7 +224,7 @@
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
         limpiar()
         mostrar_Dventas()
-        mostrarTotalV()
+        'mostrarTotalV()
     End Sub
 
     Private Sub btnBuscarProducto_Click(sender As Object, e As EventArgs) Handles btnBuscarProducto.Click
