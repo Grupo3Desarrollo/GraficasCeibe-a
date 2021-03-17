@@ -96,6 +96,22 @@ Public Class frmClientes
         telefono = txttelefono.Text
         dni = txtdni.Text
 
+        For Each mail As String In txtcorreo.Text.Split(";")
+            Try
+                If IsValidEmail(LCase(mail)) = True Then
+
+                Else
+                    MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " &
+                    " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation)
+                    txtcorreo.Focus()
+                    Exit Sub
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Next
+
         Try
             If conexion.insertarCliente(nombre, apellidos, correo, direccion, telefono, dni) Then
 
@@ -125,6 +141,22 @@ Public Class frmClientes
         telefono = txttelefono.Text
         dni = txtdni.Text
 
+        For Each mail As String In txtcorreo.Text.Split(";")
+            Try
+                If IsValidEmail(LCase(mail)) = True Then
+
+                Else
+                    MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " &
+                    " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation)
+                    txtcorreo.Focus()
+                    Exit Sub
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Next
+
         Try
             If conexion.editarCliente(idcliente, nombre, apellidos, correo, direccion, telefono, dni) Then
                 MessageBox.Show("Cliente modificado con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -137,6 +169,23 @@ Public Class frmClientes
     End Sub
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
+
+        For Each mail As String In txtcorreo.Text.Split(";")
+            Try
+                If IsValidEmail(LCase(mail)) = True Then
+
+                Else
+                    MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " &
+                    " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation)
+                    txtcorreo.Focus()
+                    Exit Sub
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Next
+
         If Me.ValidateChildren = True And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtdireccion.Text <> "" And txttelefono.Text <> "" And txtdni.Text <> "" Then
             Try
                 insertarCliente()
@@ -151,6 +200,9 @@ Public Class frmClientes
         End If
     End Sub
 
+    Public Function IsValidEmail(ByVal email As String) As Boolean
+        Return System.Text.RegularExpressions.Regex.IsMatch(email, "^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]{2,4}$")
+    End Function
 
     Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
         Dim FilaActual As Integer
@@ -170,6 +222,22 @@ Public Class frmClientes
     Private Sub btneditar_Click(sender As Object, e As EventArgs) Handles btneditar.Click
         Dim result As DialogResult
         result = MessageBox.Show("Esta seguro de editar los datos del cliente?", "Modifiar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+
+        For Each mail As String In txtcorreo.Text.Split(";")
+            Try
+                If IsValidEmail(LCase(mail)) = True Then
+
+                Else
+                    MessageBox.Show("Dirección de correo electronico no valida, el correo debe tener el formato: nombre@dominio.com, " &
+                    " por favor seleccione un correo valido", "Validación de correo electronico", MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation)
+                    txtcorreo.Focus()
+                    Exit Sub
+                End If
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        Next
 
         If result = DialogResult.OK Then
 
