@@ -929,4 +929,189 @@ Public Class Conexion
         End Try
     End Function
 
+    'Compras
+    Public Function mostrarCompra() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_Compra", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function insertarCompra(fecha_compra As Date, Descripcion_compra As String, idProveedor As Integer)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_compra", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@fecha_compra", fecha_compra)
+            cmb.Parameters.AddWithValue("@Descripcion_compra", Descripcion_compra)
+            cmb.Parameters.AddWithValue("@idProveedor", idProveedor)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function editarCompra(idCompra As Integer, fecha_compra As Date, Descripcion_compra As String, idProveedor As Integer)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("editar_compra", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idCompra", idCompra)
+            cmb.Parameters.AddWithValue("@fecha_compra", fecha_compra)
+            cmb.Parameters.AddWithValue("@Descripcion_compra", Descripcion_compra)
+            cmb.Parameters.AddWithValue("@idProveedor", idProveedor)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function buscarCompra(num_documento As String) As DataTable
+        Try
+            conexion.Open()
+            Dim cmb As New SqlCommand("buscarCompra", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@num_documento", num_documento)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    'Detalle de compras
+    Public Function mostrarDetalleCompra(IdCompra As Integer) As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_detalle_compra", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@IdCompra", IdCompra)
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function insertarDetallesCompra(idCompra As Integer, idproducto As Integer, precio_Compra As Double, cantidad_Compra As Double)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_detalles_compra", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idCompra", idCompra)
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
+            cmb.Parameters.AddWithValue("@precio_Compra", precio_Compra)
+            cmb.Parameters.AddWithValue("@cantidad_Compra", cantidad_Compra)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function editarDetallesCompra(idCompra As Integer, idproducto As Integer, precio_Compra As Double, cantidad_Compra As Double)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("editar_detalles_compra", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idCompra", idCompra)
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
+            cmb.Parameters.AddWithValue("@precio_Compra", precio_Compra)
+            cmb.Parameters.AddWithValue("@cantidad_Compra", cantidad_Compra)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    'Eliminar de detalles venta
+    Public Function EliminarDetallesC(idcompra As Integer, idproducto As Integer)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("EliminarDetalleC", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@idCompra", idcompra)
+            cmb.Parameters.AddWithValue("@idproducto", idproducto)
+
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
 End Class
