@@ -194,7 +194,7 @@ Public Class frmVenta
         MostrarClientes.ShowDialog()
         txtidcliente.ReadOnly = True
         txtnombre_cliente.ReadOnly = True
-        txtidcliente.Visible = True
+        txtidcliente.Visible = False
     End Sub
 
     Private Sub txtbuscarempleado_Click(sender As Object, e As EventArgs) Handles txtbuscarempleado.Click
@@ -246,7 +246,7 @@ Public Class frmVenta
 
     Private Sub btnLimCli_Click(sender As Object, e As EventArgs) Handles btnLimCli.Click
         Dim result As DialogResult
-        result = MessageBox.Show("Realmente desea limpiar los datos del cliente?", "Modifiar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        result = MessageBox.Show("Realmente desea limpiar los datos del cliente?", "Cliente", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
 
         If result = DialogResult.OK Then
             txtidcliente.ReadOnly = False

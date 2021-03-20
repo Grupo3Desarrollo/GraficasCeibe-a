@@ -34,4 +34,23 @@ Public Class mostrarProveedor
         End Try
     End Sub
 
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+    End Sub
+
+    Private Sub datalistado_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellContentClick
+
+    End Sub
+
+    Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
+
+    End Sub
+
+    Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
+        If txtflag.Text = "1" Then
+            frmCompras.txtidproveedor.Text = datalistado.SelectedCells.Item(0).Value
+            frmCompras.txtproveedor.Text = datalistado.SelectedCells.Item(1).Value
+            Me.Close()
+        End If
+    End Sub
 End Class
