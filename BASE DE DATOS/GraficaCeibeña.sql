@@ -9,7 +9,7 @@ CREATE TABLE Roles(
 	rol VARCHAR(30) primary key NOT NULL
 );
 
-create TABLE Empleados(
+CREATE TABLE Empleados(
 	idEmpleado INT IDENTITY(1,1) primary key NOT NULL,
 	Nombres VARCHAR(30) NOT NULL,
 	Apellidos VARCHAR(30) NOT NULL,
@@ -58,8 +58,8 @@ CREATE TABLE ventas(
 	fecha_venta DATE NOT NULL,
 	num_documento VARCHAR(50) NOT NULL,
 	idEmpleado INT NOT NULL,
-	idcliente INT NULL,
-	nombresClientes NVARCHAR(70) NULL,
+	idcliente INT NOT NULL,
+	nombresClientes NVARCHAR(70) NOT NULL,
 
 CONSTRAINT FK_IDempleado FOREIGN KEY (idEmpleado) REFERENCES Empleados(idEmpleado),
  CONSTRAINT FK_IDcliente FOREIGN KEY (idcliente) REFERENCES clientes(idcliente)
@@ -86,9 +86,7 @@ CREATE TABLE Compras(
     idCompra INT IDENTITY(1,1) primary key NOT NULL,
     fecha_compra DATE NOT NULL,
     Descripcion_compra NVARCHAR(70) NOT NULL,	
-	idproducto INT NOT NULL,
 	idProveedor INT NOT NULL
-	CONSTRAINT FK_IDproductoDos FOREIGN KEY (idproducto) REFERENCES productos(idproducto),
 	CONSTRAINT FK_IDProveedor FOREIGN KEY (idProveedor) REFERENCES Proveedores(idProveedor)
 );
 
@@ -377,7 +375,6 @@ WHERE P_descripProv LIKE '%' +@P_descripProv+ '%'
 
 
 -- VENTA
-
 CREATE PROCEDURE insertar_venta
 @fecha_venta as DATE,
 @num_documento as VARCHAR(50),
@@ -437,18 +434,29 @@ CREATE PROCEDURE editar_detalles_venta
 @precio_V as decimal (10,2),
 @cantidad as decimal (10,2)
 as
-UPDATE detalles_ventas SET idproducto=@idproducto, precio_V=@precio_V ,cantidad=@cantidad
-WHERE idventa= @idventa
+UPDATE detalles_ventas SET precio_V=@precio_V ,cantidad=@cantidad
+WHERE idventa= @idventa and idproducto=@idproducto
+go
+
+-- ELMINAR PRODUCTO detalles venta
+CREATE PROCEDURE EliminarDetalleV
+@idventa as INT,
+@idproducto as INT
+as
+DELETE FROM detalles_ventas
+WHERE idventa= @idventa and idproducto=@idproducto
 go
 
 -- mostrar detalles venta
 
 CREATE PROCEDURE mostrar_detalle_venta
+@IdVenta INT
 as
 SELECT        dbo.detalles_ventas.idventa as 'Codigo Venta', dbo.detalles_ventas.idproducto as 'Codigo Producto', dbo.productos.nombre as 'Producto', dbo.detalles_ventas.precio_V as 'Precio Unitario', dbo.detalles_ventas.cantidad as 'Cantidad'
 FROM            dbo.detalles_ventas INNER JOIN
                          dbo.productos ON dbo.detalles_ventas.idproducto = dbo.productos.idproducto 
-						 order BY  dbo.detalles_ventas.idventa desc
+						 
+						 where idventa=@IdVenta
 go
 
 -- STOCK
@@ -470,6 +478,101 @@ UPDATE productos SET stock = stock-@cantidad
 WHERE idproducto=@idproducto
 go
 
-/*execute insertar_Empleado 'Jonathan Alexis','Aleman Linares','1998-05-09','96693357','M','Activo','Y8msdnxDm9U=','0101199804248','Gerente'
-execute insertar_Empleado 'Hugo Geovany','Murillo Urbina','2000-02-17','96693300','M','Activo','Y8msdnxDm9U=','1807200000429','Dependiente'*/
+--Mostrar el total de una venta
+CREATE PROCEDURE mostrarTotalV
+@idventa as INT
+as
+SELECT SUM(cantidad) As 'Articulos',CONCAT('Lps.',' ',SUM(precio_V*cantidad)) As 'Total Venta'
+FROM detalles_ventas
+WHERE idventa = @idventa
+go
 
+--Mostrar Stock
+CREATE PROCEDURE mostrarStock
+@idproducto as INT
+as
+SELECT stock As 'Stock'
+FROM productos
+WHERE idproducto=@idproducto
+go
+
+--18/03/21
+------COMPRAS
+
+--Insertar Compra
+CREATE PROCEDURE insertar_compra
+@fecha_compra as DATE,
+@Descripcion_compra as NVARCHAR(70),
+@idProveedor as INT
+as
+INSERT INTO Compras VALUES(@fecha_compra,@Descripcion_compra,@idProveedor)
+go
+
+--editar compra
+CREATE PROCEDURE editar_compra
+@idCompra as INT,
+@fecha_compra as DATE,
+@Descripcion_compra as NVARCHAR(70),
+@idProveedor as INT
+as
+UPDATE Compras SET fecha_compra=@fecha_compra, Descripcion_compra=@Descripcion_compra, idProveedor=@idProveedor
+WHERE idCompra=@idCompra
+go
+
+-- mostrar Compra
+CREATE PROCEDURE mostrar_Compra
+as
+SELECT        dbo.Compras.idCompra as 'Codigo Compra', dbo.Proveedores.idProveedor as 'Codigo Proveedor', dbo.Proveedores.P_descripProv as 'Proveedor', dbo.Compras.fecha_compra as 'Fecha Compra', dbo.Compras.Descripcion_compra as 'Descripción Compra'
+FROM            dbo.Compras INNER JOIN
+                         dbo.Proveedores ON dbo.Compras.idProveedor = dbo.Proveedores.idProveedor
+go
+
+-- Buscar Compra
+CREATE PROCEDURE buscarCompra
+@num_documento as NVARCHAR(50)
+as
+SELECT        dbo.Compras.idCompra as 'Codigo Compra', dbo.Proveedores.idProveedor as 'Codigo Proveedor', dbo.Proveedores.P_descripProv as 'Proveedor', dbo.Compras.fecha_compra as 'Fecha Compra', dbo.Compras.Descripcion_compra as 'Descripción Compra'
+FROM            dbo.Compras INNER JOIN
+                         dbo.Proveedores ON dbo.Compras.idProveedor = dbo.Proveedores.idProveedor
+WHERE idCompra LIKE '%' +@num_documento+ '%'
+
+-- DETALLES DE COMPRA
+-- insertar detalles compra
+CREATE PROCEDURE insertar_detalles_compra
+@idCompra as INT,
+@idproducto as INT,
+@precio_Compra DECIMAL (10,2),
+@cantidad_Compra DECIMAL (10,2)
+as
+INSERT INTO detalles_compras VALUES(@idCompra,@idproducto,@precio_Compra,@cantidad_Compra)
+go
+
+-- editar detalles compra
+CREATE PROCEDURE editar_detalles_compra
+@idCompra as INT,
+@idproducto as INT,
+@precio_Compra DECIMAL (10,2),
+@cantidad_Compra DECIMAL (10,2)
+as
+UPDATE detalles_compras SET precio_Compra=@precio_Compra ,cantidad_Compra=@cantidad_Compra
+WHERE idCompra= @idCompra and idproducto=@idproducto
+go
+
+-- ELMINAR PRODUCTO detalles compra
+CREATE PROCEDURE EliminarDetalleC
+@idCompra as INT,
+@idproducto as INT
+as
+DELETE FROM detalles_compras
+WHERE idCompra= @idCompra and idproducto=@idproducto
+go
+
+-- mostrar detalles compra
+CREATE PROCEDURE mostrar_detalle_compra
+@IdCompra INT
+as
+SELECT        dbo.detalles_compras.idCompra as 'Codigo Compra', dbo.productos.idproducto as 'Codigo Producto', dbo.productos.nombre as 'Producto', dbo.detalles_compras.precio_Compra as 'Precio', dbo.detalles_compras.cantidad_Compra as 'Cantidad'
+FROM            dbo.detalles_compras INNER JOIN
+                         dbo.productos ON dbo.detalles_compras.idproducto = dbo.productos.idproducto 						 
+						 where idCompra=@IdCompra
+go
