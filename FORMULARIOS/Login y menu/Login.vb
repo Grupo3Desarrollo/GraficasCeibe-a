@@ -57,6 +57,7 @@
     End Sub
 
     Private Sub btnlogin_Click(sender As Object, e As EventArgs) Handles btnlogin.Click
+        Empleados.info_empleados = txtnombreusuario.Text
         If txtnombreusuario.Text = "" And txtnombreusuario.Text.Length < 13 Then
             MsgBox("Ingrese un usuario valido")
         ElseIf txtcontraseña.Text = " " Then

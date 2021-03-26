@@ -1,5 +1,9 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Data.SqlClient
+Imports System.Runtime.InteropServices
 Public Class Menuu
+    Dim conexion As New Conexion()
+    Public cmb As SqlCommand
+
     <DllImport("user32.DLL", EntryPoint:="ReleaseCapture")>
     Private Shared Sub ReleaseCapture()
     End Sub
@@ -8,7 +12,27 @@ Public Class Menuu
     Private Shared Sub SendMessage(ByVal hWnd As System.IntPtr, ByVal wMsg As Integer, ByVal wParam As Integer, ByVal lParam As Integer)
     End Sub
 
+    Public Sub info_empleados()
+        Dim dt As New DataTable
+        Dim da As New SqlDataAdapter
+        Try
+            conexion.conexion.Open()
+            cmb = New SqlCommand("SELECT Nombres, Apellidos FROM Empleados WHERE DNIEmpleado =  '" + Empleados.info_empleados + "'", conexion.conexion)
+            cmb.CommandType = CommandType.Text
+            dt = New DataTable
+            da = New SqlDataAdapter(cmb)
+            da.Fill(dt)
+            lblNombres.Text = dt.Rows(0)(0).ToString
+            lblApellidos.Text = dt.Rows(0)(1).ToString
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            cmb = Nothing
+            conexion.conexion.Close()
+        End Try
+    End Sub
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        info_empleados()
         Me.WindowState = FormWindowState.Normal
         Me.Size = New System.Drawing.Size(1275, 630)
 
@@ -21,7 +45,6 @@ Public Class Menuu
             lcompras.Visible = False
         End If
         abrirFormulario(frmhora)
-
     End Sub
 
     Private Sub abrirFormulario(ByVal formHijo As Object)
@@ -101,5 +124,9 @@ Public Class Menuu
             Login.Show()
 
         End If
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblCargo.Click
+
     End Sub
 End Class
