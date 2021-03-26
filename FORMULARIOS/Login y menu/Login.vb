@@ -37,8 +37,8 @@
     End Sub
     Public Sub llenarRol()
         conexion.llenarRol()
-        cmbrol.DataSource = conexion.datos.Tables("Rol")
-        cmbrol.DisplayMember = "Rol"
+        cmbrol.DataSource = conexion.datos.Tables("rol")
+        cmbrol.DisplayMember = "rol"
     End Sub
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         Dim opcion As DialogResult

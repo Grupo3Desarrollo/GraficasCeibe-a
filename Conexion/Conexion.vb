@@ -4,7 +4,7 @@ Imports System.Text
 
 Public Class Conexion
     'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-6LV81RN;Initial Catalog=GraficasC; user id = sa; password = Aleman16848760")
-    Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-0OA9V55;Initial Catalog=GraficaLCB; Integrated Security=True")
     Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
@@ -43,8 +43,8 @@ Public Class Conexion
         conexion.Open()
         da = New SqlDataAdapter("SELECT * FROM Roles", conexion)
         datos = New DataSet
-        datos.Tables.Add("Roles")
-        da.Fill(datos.Tables("Roles"))
+        datos.Tables.Add("rol")
+        da.Fill(datos.Tables("rol"))
         conexion.Close()
     End Sub
 
