@@ -4,7 +4,7 @@ Imports System.Text
 
 Public Class Conexion
     'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-6LV81RN;Initial Catalog=GraficasC; user id = sa; password = Aleman16848760")
-    Public conexion As SqlConnection = New SqlConnection("Data Source= HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
     Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
@@ -14,6 +14,8 @@ Public Class Conexion
     Public datos As DataSet
     Dim des As New TripleDESCryptoServiceProvider
     Dim MD5 As New MD5CryptoServiceProvider
+
+
 
     Function MD5Hash(ByVal value As String) As Byte()
         Return MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(value))
@@ -1113,5 +1115,6 @@ Public Class Conexion
             conexion.Close()
         End Try
     End Function
+
 
 End Class

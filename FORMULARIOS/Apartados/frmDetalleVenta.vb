@@ -1,6 +1,12 @@
-﻿Public Class frmDetalleVenta
+﻿Imports System.Data.SqlClient
+
+Public Class frmDetalleVenta
     Dim conexion As New Conexion()
     Dim dt As New DataTable()
+    Public comando As SqlCommand
+    Public tabla As DataSet
+    Public tablas As DataSet
+    Public adaptador, adaptador1 As SqlDataAdapter
 
     Private Sub frmDetalles_venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar_Dventas()
@@ -298,4 +304,49 @@
         End Try
     End Sub
 
+    'Buscar Registros para Factura
+    Function buscarRegistros(ByVal consulta As String)
+        Try
+            adaptador = New SqlDataAdapter(consulta, conexion.conexion)
+            adaptador.TableMappings.Add("ventas1", "detalle")
+            tablas = New DataSet("tablas1")
+            adaptador.Fill(tablas, "ventas")
+            conexion.conexion.Close()
+            Return True
+        Catch ex As Exception
+            MsgBox("Error en consulta. Los datos seleccionados son" + Chr(13) + "incorrectos")
+            Return False
+        End Try
+
+    End Function
+
+    Private Sub btnimprimir_Click(sender As Object, e As EventArgs) Handles btnimprimir.Click
+        Dim result As DialogResult
+        Dim sql As String
+
+        result = MessageBox.Show("Esta seguro que la venta esta completa?", "Venta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+
+        If result = DialogResult.OK Then
+
+            sql = "Select * from vistaventas where idventa =" & txtidventa.Text & ";" & "Select * from vistacalculo where idventa =" & txtidventa.Text & ";"
+
+            If buscarRegistros(sql) = True Then
+                If tablas.Tables("ventas").Rows.Count = 0 Then
+                    MsgBox("No se ha encontrado ningun registro que cumpla con los requisitos o la base de datos" + Chr(13) + " se encuentra vacia. El listado se mostrara vacio.", MsgBoxStyle.Information, "Error al listar")
+                Else
+                    MsgBox("Generado Correctamente", MsgBoxStyle.Information, "Correcto")
+                    My.Computer.FileSystem.CreateDirectory("C:\XML")
+                    Dim url As String = "C:\XML\ventas.xml"
+                    tablas.WriteXml(url, XmlWriteMode.WriteSchema)
+
+                    frmVerReporte.ShowDialog()
+                    My.Computer.FileSystem.DeleteFile("C:\XML\ventas.xml")
+
+                End If
+            End If
+        Else
+
+        End If
+
+    End Sub
 End Class

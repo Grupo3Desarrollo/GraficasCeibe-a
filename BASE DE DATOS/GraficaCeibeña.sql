@@ -484,7 +484,7 @@ CREATE PROCEDURE mostrarTotalV
 as
 SELECT SUM(cantidad) As 'Articulos',CONCAT('Lps.',' ',SUM(precio_V*cantidad)) As 'Total Venta'
 FROM detalles_ventas
-WHERE idventa = @idventa
+WHERE idventa = 11
 go
 
 --Mostrar Stock
@@ -576,3 +576,16 @@ FROM            dbo.detalles_compras INNER JOIN
                          dbo.productos ON dbo.detalles_compras.idproducto = dbo.productos.idproducto 						 
 						 where idCompra=@IdCompra
 go
+
+CREATE VIEW vistaVentas as
+SELECT        dbo.ventas.idventa, dbo.ventas.fecha_venta, dbo.ventas.num_documento, dbo.detalles_ventas.idproducto, dbo.productos.nombre, dbo.detalles_ventas.precio_V, dbo.detalles_ventas.cantidad, dbo.Empleados.Nombres, 
+                         dbo.Empleados.Apellidos, dbo.ventas.nombresClientes
+FROM            dbo.ventas INNER JOIN
+                         dbo.detalles_ventas ON dbo.ventas.idventa = dbo.detalles_ventas.idventa INNER JOIN
+                         dbo.productos ON dbo.detalles_ventas.idproducto = dbo.productos.idproducto INNER JOIN
+                         dbo.Empleados ON dbo.ventas.idEmpleado = dbo.Empleados.idEmpleado
+
+CREATE VIEW vistaCalculo as
+SELECT idventa, SUM(cantidad) As 'Articulos',CONCAT('Lps.',' ',SUM(precio_V*cantidad)) As 'Total Venta'
+FROM detalles_ventas
+GROUP BY idventa
