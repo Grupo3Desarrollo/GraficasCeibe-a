@@ -17,13 +17,14 @@ Public Class Menuu
         Dim da As New SqlDataAdapter
         Try
             conexion.conexion.Open()
-            cmb = New SqlCommand("SELECT Nombres, Apellidos FROM Empleados WHERE DNIEmpleado =  '" + Empleados.info_empleados + "'", conexion.conexion)
+            cmb = New SqlCommand("SELECT Rol, Nombres, Apellidos FROM Empleados WHERE DNIEmpleado =  '" + Empleados.info_empleados + "'", conexion.conexion)
             cmb.CommandType = CommandType.Text
             dt = New DataTable
             da = New SqlDataAdapter(cmb)
             da.Fill(dt)
-            lblNombres.Text = dt.Rows(0)(0).ToString
-            lblApellidos.Text = dt.Rows(0)(1).ToString
+            lblCargo.Text = dt.Rows(0)(0).ToString
+            lblNombres.Text = dt.Rows(0)(1).ToString
+            lblApellidos.Text = dt.Rows(0)(2).ToString
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
