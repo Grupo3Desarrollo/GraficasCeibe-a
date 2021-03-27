@@ -61,19 +61,16 @@ Public Class frmDetalleVenta
         Dim cantidad, precio_V As Double
 
         'DataGrid
-        Dim FilaActual As Integer
+        'Dim FilaActual As Integer
         idventa = txtidventa.Text
         idproducto = txtidproducto.Text
         precio_V = txtprecio_unitario.Text
         cantidad = txtcantidad.Text
 
         Try
-            If datalistado.Rows.Count > 0 Then
-
-                If txtidproducto.Text = datalistado.Rows(FilaActual).Cells(1).Value Then
-                    MessageBox.Show("Revise los productos", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    limpiar()
-                End If
+            'If datalistado.Rows.Count > 0 Then
+            If txtcantidad.Text = 0 Then
+                MessageBox.Show("Ingrese una cantidad", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
                     If conexion.disminuir_stock(idproducto, cantidad) Then
@@ -81,13 +78,6 @@ Public Class frmDetalleVenta
                 Else
                     MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
-            End If
-
-            If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
-                If conexion.disminuir_stock(idproducto, cantidad) Then
-                End If
-            Else
-                MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

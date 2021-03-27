@@ -130,4 +130,8 @@ Public Class Menuu
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles lblCargo.Click
 
     End Sub
+
+    Private Sub PanelForms_Paint(sender As Object, e As PaintEventArgs) Handles PanelForms.Paint
+
+    End Sub
 End Class
