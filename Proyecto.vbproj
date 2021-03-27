@@ -93,6 +93,12 @@
     <Compile Include="FORMULARIOS\Apartados\frmCategoria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmDetalleCompras.Designer.vb">
+      <DependentUpon>frmDetalleCompras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmDetalleCompras.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FORMULARIOS\Apartados\frmDetalleVenta.Designer.vb">
       <DependentUpon>frmDetalleVenta.vb</DependentUpon>
     </Compile>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmCategoria.resx">
       <DependentUpon>frmCategoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmDetalleCompras.resx">
+      <DependentUpon>frmDetalleCompras.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmDetalleVenta.resx">
       <DependentUpon>frmDetalleVenta.vb</DependentUpon>

@@ -11,24 +11,24 @@ Public Class Login
         txtcontraseña.Text = ""
     End Sub
 
-    'Public Sub info_empleados()
-    '    Dim dt As New DataTable
-    '    Dim da As New SqlDataAdapter
-    '    Try
-    '        conexion.conexion.Open()
-    '        cmb = New SqlCommand("SELECT Nombres FROM Empleados WHERE DNIEmpleado =  '" + Empleados.info_empleados + "'", conexion.conexion)
-    '        cmb.CommandType = CommandType.Text
-    '        dt = New DataTable
-    '        da = New SqlDataAdapter(cmb)
-    '        da.Fill(dt)
-    '        Empleados.nombres_empleados = dt.Rows(0)(0).ToString
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    Finally
-    '        cmb = Nothing
-    '        conexion.conexion.Close()
-    '    End Try
-    'End Sub
+    Public Sub info_empleados()
+        Dim dt As New DataTable
+        Dim da As New SqlDataAdapter
+        Try
+            conexion.conexion.Open()
+            cmb = New SqlCommand("SELECT Nombres FROM Empleados WHERE DNIEmpleado =  '" + Empleados.info_empleados + "'", conexion.conexion)
+            cmb.CommandType = CommandType.Text
+            dt = New DataTable
+            da = New SqlDataAdapter(cmb)
+            da.Fill(dt)
+            Empleados.nombres_empleados = dt.Rows(0)(0).ToString
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            cmb = Nothing
+            conexion.conexion.Close()
+        End Try
+    End Sub
 
     Private Sub ingresoMenu()
         Dim DNI, psw, rol As String
@@ -43,8 +43,8 @@ Public Class Login
                     limpiar()
                     Menuu.Show()
                     Me.Hide()
-                ElseIf (rol = "Dependiente" + Empleados.nombres_empleados) Then
-                    MsgBox("Bienvenido(a)")
+                ElseIf (rol = "Dependiente") Then
+                    MsgBox("Bienvenido(a)" + Empleados.nombres_empleados)
                     Menuu.txtflag.Text = "2"
                     limpiar()
                     Menuu.Show()
@@ -89,7 +89,7 @@ Public Class Login
         ElseIf txtcontraseña.Text = " " Then
             MsgBox("Ingrese su contraseña")
         Else
-            'info_empleados()
+            info_empleados()
             ingresoMenu()
         End If
     End Sub
