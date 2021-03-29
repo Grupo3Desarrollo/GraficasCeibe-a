@@ -337,4 +337,5 @@ Public Class frmEmpleados
         End If
 
     End Sub
+
 End Class
