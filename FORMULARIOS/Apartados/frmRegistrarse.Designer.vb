@@ -25,6 +25,7 @@ Partial Class frmRegistrarse
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRegistrarse))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnnuevo = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmbRol = New System.Windows.Forms.ComboBox()
         Me.Check = New System.Windows.Forms.CheckBox()
@@ -44,7 +45,6 @@ Partial Class frmRegistrarse
         Me.txtnombre = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtidempleado = New System.Windows.Forms.TextBox()
-        Me.btnnuevo = New System.Windows.Forms.Button()
         Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +83,20 @@ Partial Class frmRegistrarse
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "REGISTRO"
         '
+        'btnnuevo
+        '
+        Me.btnnuevo.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnnuevo.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
+        Me.btnnuevo.Location = New System.Drawing.Point(1039, 174)
+        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnnuevo.Name = "btnnuevo"
+        Me.btnnuevo.Size = New System.Drawing.Size(168, 79)
+        Me.btnnuevo.TabIndex = 27
+        Me.btnnuevo.Text = "NUEVO"
+        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnnuevo.UseVisualStyleBackColor = False
+        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -108,7 +122,7 @@ Partial Class frmRegistrarse
         Me.Check.AutoSize = True
         Me.Check.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Check.Location = New System.Drawing.Point(780, 263)
-        Me.Check.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Check.Margin = New System.Windows.Forms.Padding(4)
         Me.Check.Name = "Check"
         Me.Check.Size = New System.Drawing.Size(199, 24)
         Me.Check.TabIndex = 24
@@ -121,7 +135,7 @@ Partial Class frmRegistrarse
         Me.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtCodigo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.txtCodigo.Location = New System.Drawing.Point(224, 27)
-        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCodigo.Margin = New System.Windows.Forms.Padding(4)
         Me.txtCodigo.Name = "txtCodigo"
         Me.txtCodigo.Size = New System.Drawing.Size(93, 23)
         Me.txtCodigo.TabIndex = 23
@@ -226,9 +240,9 @@ Partial Class frmRegistrarse
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(71, 176)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(117, 25)
+        Me.Label3.Size = New System.Drawing.Size(132, 25)
         Me.Label3.TabIndex = 5
-        Me.Label3.Text = "APELLIDO"
+        Me.Label3.Text = "APELLIDOS"
         '
         'txtapellidos
         '
@@ -245,9 +259,9 @@ Partial Class frmRegistrarse
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(71, 118)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(104, 25)
+        Me.Label2.Size = New System.Drawing.Size(119, 25)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "NOMBRE"
+        Me.Label2.Text = "NOMBRES"
         '
         'txtnombre
         '
@@ -279,20 +293,6 @@ Partial Class frmRegistrarse
         Me.txtidempleado.Size = New System.Drawing.Size(205, 28)
         Me.txtidempleado.TabIndex = 0
         '
-        'btnnuevo
-        '
-        Me.btnnuevo.BackColor = System.Drawing.Color.SteelBlue
-        Me.btnnuevo.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
-        Me.btnnuevo.Location = New System.Drawing.Point(1039, 174)
-        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.btnnuevo.Name = "btnnuevo"
-        Me.btnnuevo.Size = New System.Drawing.Size(168, 79)
-        Me.btnnuevo.TabIndex = 27
-        Me.btnnuevo.Text = "NUEVO"
-        Me.btnnuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnnuevo.UseVisualStyleBackColor = False
-        '
         'ErrorValidacion
         '
         Me.ErrorValidacion.ContainerControl = Me
@@ -305,7 +305,7 @@ Partial Class frmRegistrarse
         Me.ClientSize = New System.Drawing.Size(1312, 518)
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmRegistrarse"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmRegistrarse"

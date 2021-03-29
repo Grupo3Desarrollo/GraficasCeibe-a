@@ -335,7 +335,6 @@ Public Class frmEmpleados
             txtcontra.UseSystemPasswordChar = True
             txtcontra.Text = Text
         End If
-
     End Sub
 
 End Class
