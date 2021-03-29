@@ -515,3 +515,5 @@ C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo Semana Santa\Graficas
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo Semana Santa\GraficasCeibena\obj\Debug\Proyecto.exe
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo Semana Santa\GraficasCeibena\obj\Debug\Proyecto.xml
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo Semana Santa\GraficasCeibena\obj\Debug\Proyecto.pdb
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmDetalleCompras.resources
+C:\A.UNICAH\SEPTIMO_PERIODO\Desarrollo de Software\Clone\GraficasCeibena\obj\Debug\Proyecto.frmRegistrarse.resources

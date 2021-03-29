@@ -39,6 +39,7 @@ Partial Class Login
         Me.btnlogin = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Check = New System.Windows.Forms.CheckBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -81,11 +82,12 @@ Partial Class Login
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
         Me.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSalir.Location = New System.Drawing.Point(55, 326)
+        Me.btnSalir.Location = New System.Drawing.Point(29, 326)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(250, 68)
+        Me.btnSalir.Size = New System.Drawing.Size(141, 68)
         Me.btnSalir.TabIndex = 31
         Me.btnSalir.Text = "SALIR"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSalir.UseVisualStyleBackColor = False
         '
         'PictureBox3
@@ -224,11 +226,12 @@ Partial Class Login
         Me.btnlogin.ForeColor = System.Drawing.SystemColors.ButtonFace
         Me.btnlogin.Image = CType(resources.GetObject("btnlogin.Image"), System.Drawing.Image)
         Me.btnlogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnlogin.Location = New System.Drawing.Point(323, 326)
+        Me.btnlogin.Location = New System.Drawing.Point(185, 326)
         Me.btnlogin.Name = "btnlogin"
-        Me.btnlogin.Size = New System.Drawing.Size(250, 68)
+        Me.btnlogin.Size = New System.Drawing.Size(188, 68)
         Me.btnlogin.TabIndex = 20
         Me.btnlogin.Text = "INGRESAR"
+        Me.btnlogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnlogin.UseVisualStyleBackColor = False
         '
         'Label6
@@ -253,13 +256,32 @@ Partial Class Login
         Me.Check.Text = "VER CONTRASEÑA"
         Me.Check.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(53, Byte), Integer))
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(379, 326)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(233, 68)
+        Me.Button1.TabIndex = 33
+        Me.Button1.Text = "REGISTRARSE"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(76, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(624, 406)
+        Me.ClientSize = New System.Drawing.Size(624, 428)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Check)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.PictureBox3)
@@ -305,4 +327,5 @@ Partial Class Login
     Friend WithEvents btnlogin As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents Check As CheckBox
+    Friend WithEvents Button1 As Button
 End Class
