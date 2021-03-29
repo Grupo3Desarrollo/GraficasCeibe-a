@@ -14,7 +14,7 @@ Public Class MostrarClientes
     Public Sub mostrar()
         Try
             Dim func As New Conexion
-            dt = func.mostrarBUS
+            dt = func.mostrar
             datalistado.Columns.Item("Eliminar").Visible = False
 
             If dt.Rows.Count <> 0 Then
@@ -22,7 +22,7 @@ Public Class MostrarClientes
                 txtbuscar.Enabled = True
                 datalistado.ColumnHeadersVisible = True
                 inexistente.Visible = False
-                'ocultar_columnas()
+                ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 txtbuscar.Enabled = False
@@ -44,12 +44,12 @@ Public Class MostrarClientes
         Dim dni As String
         Try
             dni = txtbuscar.Text
-            dt = conexion.buscarClienteBUS(dni)
+            dt = conexion.buscarCliente(dni)
 
             If dt.Rows.Count <> 0 Then
                 datalistado.DataSource = dt
                 conexion.conexion.Close()
-                'ocultar_columnas()
+                ocultar_columnas()
             Else
                 datalistado.DataSource = Nothing
                 conexion.conexion.Close()
@@ -66,9 +66,20 @@ Public Class MostrarClientes
     Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
         If txtflag.Text = "1" Then
             frmVenta.txtidcliente.Text = datalistado.SelectedCells.Item(1).Value
-            frmVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value
+            frmVenta.txtnombre_cliente.Text = datalistado.SelectedCells.Item(3).Value + " " + datalistado.SelectedCells.Item(4).Value
             Me.Close()
         End If
     End Sub
 
+    Private Sub txtbuscar_TextChanged(sender As Object, e As EventArgs) Handles txtbuscar.TextChanged
+        buscar()
+    End Sub
+
+    Private Sub txtbuscar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbuscar.KeyPress
+        If (Asc(e.KeyChar) >= 48 And Asc(e.KeyChar) <= 57) Or Asc(e.KeyChar) = 8 Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
 End Class

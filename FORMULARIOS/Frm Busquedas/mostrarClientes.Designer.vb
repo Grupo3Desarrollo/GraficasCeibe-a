@@ -87,8 +87,9 @@ Partial Class MostrarClientes
         '
         'txtbuscar
         '
-        Me.txtbuscar.Location = New System.Drawing.Point(279, 25)
+        Me.txtbuscar.Location = New System.Drawing.Point(279, 23)
         Me.txtbuscar.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtbuscar.MaxLength = 13
         Me.txtbuscar.Name = "txtbuscar"
         Me.txtbuscar.Size = New System.Drawing.Size(217, 26)
         Me.txtbuscar.TabIndex = 16

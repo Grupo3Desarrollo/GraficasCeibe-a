@@ -4,8 +4,10 @@ Public Class frmEmpleados
     Dim dt As New DataTable()
 
     Private Sub frmEmpleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtcontra.UseSystemPasswordChar = True
         mostrar()
-        btndespedir.Enabled = False
+        llenarRol()
+        btnDarBaja.Enabled = False
     End Sub
 
     Private Sub ocultar_columnas()
@@ -22,6 +24,13 @@ Public Class frmEmpleados
         txtnombre.Text = ""
         txtcontra.Text = ""
         txtbuscar.Text = ""
+        Check.Checked = False
+    End Sub
+
+    Public Sub llenarRol()
+        conexion.llenarRol()
+        cmbRol.DataSource = conexion.datos.Tables("rol")
+        cmbRol.DisplayMember = "rol"
     End Sub
 
     Public Sub mostrar()
@@ -53,7 +62,7 @@ Public Class frmEmpleados
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
         limpiar()
         mostrar()
-        btndespedir.Enabled = False
+        btnDarBaja.Enabled = False
     End Sub
 
     Private Sub insertarEmpleado()
@@ -73,7 +82,7 @@ Public Class frmEmpleados
         fechanacimiento = txtfechaN.Text
         Tel = txttelefono.Text
         sexo = cmbSexo.Text
-        rol = "Dependiente"
+        rol = cmbRol.Text
         estado = "Activo"
         contrasena = txtcontra.Text
 
@@ -119,7 +128,7 @@ Public Class frmEmpleados
         fechanacimiento = txtfechaN.Text
         Tel = txttelefono.Text
         sexo = cmbSexo.Text
-        rol = "Dependiente"
+        rol = cmbRol.Text
         estado = "Activo"
         contrasena = txtcontra.Text
 
@@ -177,7 +186,8 @@ Public Class frmEmpleados
         Dim DNIEmpleado As String
         Dim rol As String
         DNIEmpleado = txtidempleado.Text
-        rol = "Dependiente"
+        rol = cmbRol.Text
+
         Try
             If (conexion.eliminarEmpleado(DNIEmpleado, rol)) Then
                 MsgBox("Empleado dado de baja")
@@ -190,13 +200,16 @@ Public Class frmEmpleados
     End Sub
 
 
-    Private Sub btndespedir_Click(sender As Object, e As EventArgs) Handles btndespedir.Click
+    Private Sub btnDarBaja_Click(sender As Object, e As EventArgs) Handles btnDarBaja.Click
         Dim result As DialogResult
-        result = MessageBox.Show("Realmente desea despedir a este Empleado?", "Despedir Empleado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        result = MessageBox.Show("Realmente desea dar de baja a este Empleado?", "Dar de Baja a Empleado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
 
         If result = DialogResult.OK Then
-
-            eliminarEmpleado()
+            If cmbRol.Text = "Gerente" Then
+                MessageBox.Show("No se puede dar de baja al gerente", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                eliminarEmpleado()
+            End If
         Else
             limpiar()
         End If
@@ -210,10 +223,11 @@ Public Class frmEmpleados
         txtfechaN.Text = datalistado.Rows(FilaActual).Cells(4).Value
         txttelefono.Text = datalistado.Rows(FilaActual).Cells(5).Value
         cmbSexo.Text = datalistado.Rows(FilaActual).Cells(6).Value
+        cmbRol.Text = datalistado.Rows(FilaActual).Cells(8).Value
         txtidempleado.Text = datalistado.Rows(FilaActual).Cells(1).Value
         btneditar.Visible = True
         btnguardar.Visible = False
-        btndespedir.Enabled = True
+        btnDarBaja.Enabled = True
     End Sub
     Private Sub txtidempleado_Validating(sender As Object, e As CancelEventArgs) Handles txtidempleado.Validating
         Try
@@ -284,5 +298,43 @@ Public Class frmEmpleados
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtnombre.TextChanged
+
+    End Sub
+
+    Private Sub txtnombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnombre.KeyPress
+        If Not Char.IsLetter(e.KeyChar) _
+                     AndAlso Not Char.IsControl(e.KeyChar) _
+                     AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtapellidos_TextChanged(sender As Object, e As EventArgs) Handles txtapellidos.TextChanged
+
+    End Sub
+
+    Private Sub txtapellidos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtapellidos.KeyPress
+        If Not Char.IsLetter(e.KeyChar) _
+                     AndAlso Not Char.IsControl(e.KeyChar) _
+                     AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub Check_CheckedChanged(sender As Object, e As EventArgs) Handles Check.CheckedChanged
+        Dim Text As String
+        Text = txtcontra.Text
+        If Check.Checked = True Then
+
+            txtcontra.UseSystemPasswordChar = False
+            txtcontra.Text = Text
+        Else
+            txtcontra.UseSystemPasswordChar = True
+            txtcontra.Text = Text
+        End If
+
     End Sub
 End Class

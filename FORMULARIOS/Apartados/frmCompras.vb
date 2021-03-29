@@ -70,6 +70,19 @@ Public Class frmCompras
         End Try
     End Sub
 
+    Private Sub cargar_detalle()
+        frmDetalleCompras.txtidcompra.Text = Convert.ToString(datalistado.SelectedCells.Item(1).Value)
+        frmDetalleCompras.txtidProv.Text = Convert.ToString(datalistado.SelectedCells.Item(2).Value)
+        frmDetalleCompras.txtProv.Text = Convert.ToString(datalistado.SelectedCells.Item(3).Value)
+        frmDetalleCompras.txtfecha.Text = Convert.ToString(datalistado.SelectedCells.Item(4).Value)
+
+        frmDetalleCompras.ShowDialog()
+    End Sub
+
+    Private Sub datalistado_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
+        cargar_detalle()
+    End Sub
+
     Private Sub insertarcompras()
         Dim idproveedor As Integer
         Dim fecha_compra As Date
@@ -216,5 +229,21 @@ Public Class frmCompras
         Else
             limpiar()
         End If
+    End Sub
+
+    Private Sub btnBuscarProve_MouseHover(sender As Object, e As EventArgs) Handles btnBuscarProve.MouseHover
+        ToolTip.SetToolTip(btnBuscarProve, "Buscar en tabla Proveedores")
+        ToolTip.ToolTipTitle = "Buscar Proveedor"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub GroupBox2_Enter(sender As Object, e As EventArgs) Handles GroupBox2.Enter
+
+    End Sub
+
+    Private Sub GroupBox2_MouseHover(sender As Object, e As EventArgs) Handles GroupBox2.MouseHover
+        ToolTip.SetToolTip(GroupBox2, "Un click para editar, doble click para detalle")
+        ToolTip.ToolTipTitle = "Seleccione una Compra"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
     End Sub
 End Class

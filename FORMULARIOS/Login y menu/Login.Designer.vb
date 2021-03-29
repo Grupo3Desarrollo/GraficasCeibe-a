@@ -38,6 +38,7 @@ Partial Class Login
         Me.cmbrol = New System.Windows.Forms.ComboBox()
         Me.btnlogin = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Check = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,7 +110,7 @@ Partial Class Login
         Me.txtcontraseña.Location = New System.Drawing.Point(102, 270)
         Me.txtcontraseña.Multiline = True
         Me.txtcontraseña.Name = "txtcontraseña"
-        Me.txtcontraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.txtcontraseña.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtcontraseña.Size = New System.Drawing.Size(344, 25)
         Me.txtcontraseña.TabIndex = 27
         '
@@ -240,6 +241,18 @@ Partial Class Login
         Me.Label6.TabIndex = 25
         Me.Label6.Text = "_________________________________________________________________________"
         '
+        'Check
+        '
+        Me.Check.AutoSize = True
+        Me.Check.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Check.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Check.Location = New System.Drawing.Point(447, 279)
+        Me.Check.Name = "Check"
+        Me.Check.Size = New System.Drawing.Size(176, 24)
+        Me.Check.TabIndex = 32
+        Me.Check.Text = "VER CONTRASEÑA"
+        Me.Check.UseVisualStyleBackColor = True
+        '
         'Login
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -247,6 +260,7 @@ Partial Class Login
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(76, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(624, 406)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Check)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.txtcontraseña)
@@ -290,4 +304,5 @@ Partial Class Login
     Friend WithEvents cmbrol As ComboBox
     Friend WithEvents btnlogin As Button
     Friend WithEvents Label6 As Label
+    Friend WithEvents Check As CheckBox
 End Class

@@ -454,6 +454,7 @@ Partial Class frmDetalleVenta
         Me.Controls.Add(Me.btnnuevo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmDetalleVenta"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmDetalleVenta"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

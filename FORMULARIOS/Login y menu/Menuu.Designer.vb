@@ -28,6 +28,8 @@ Partial Class Menuu
         Me.btnMinimizar = New System.Windows.Forms.PictureBox()
         Me.btnCerrar = New System.Windows.Forms.PictureBox()
         Me.MenuVertical = New System.Windows.Forms.Panel()
+        Me.btnclientes = New System.Windows.Forms.Button()
+        Me.lemCliente = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.lblApellidos = New System.Windows.Forms.Label()
         Me.lblNombres = New System.Windows.Forms.Label()
@@ -38,7 +40,6 @@ Partial Class Menuu
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.btncompras = New System.Windows.Forms.Button()
         Me.btnproveedor = New System.Windows.Forms.Button()
-        Me.btnclientes = New System.Windows.Forms.Button()
         Me.btnempleados = New System.Windows.Forms.Button()
         Me.btncategoria = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -46,7 +47,6 @@ Partial Class Menuu
         Me.Panel9 = New System.Windows.Forms.Panel()
         Me.btnproductos = New System.Windows.Forms.Button()
         Me.lproveedor = New System.Windows.Forms.Panel()
-        Me.lemCliente = New System.Windows.Forms.Panel()
         Me.lcompras = New System.Windows.Forms.Panel()
         Me.panel2 = New System.Windows.Forms.Panel()
         Me.btnventas = New System.Windows.Forms.Button()
@@ -78,7 +78,7 @@ Partial Class Menuu
         'txtflag
         '
         Me.txtflag.Location = New System.Drawing.Point(1197, 21)
-        Me.txtflag.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtflag.Margin = New System.Windows.Forms.Padding(2)
         Me.txtflag.Name = "txtflag"
         Me.txtflag.Size = New System.Drawing.Size(16, 20)
         Me.txtflag.TabIndex = 31
@@ -135,6 +135,32 @@ Partial Class Menuu
         Me.MenuVertical.Name = "MenuVertical"
         Me.MenuVertical.Size = New System.Drawing.Size(214, 576)
         Me.MenuVertical.TabIndex = 8
+        '
+        'btnclientes
+        '
+        Me.btnclientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.btnclientes.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnclientes.FlatAppearance.BorderSize = 0
+        Me.btnclientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.btnclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnclientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnclientes.ForeColor = System.Drawing.Color.White
+        Me.btnclientes.Image = CType(resources.GetObject("btnclientes.Image"), System.Drawing.Image)
+        Me.btnclientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnclientes.Location = New System.Drawing.Point(7, 330)
+        Me.btnclientes.Name = "btnclientes"
+        Me.btnclientes.Size = New System.Drawing.Size(214, 54)
+        Me.btnclientes.TabIndex = 5
+        Me.btnclientes.Text = "Clientes"
+        Me.btnclientes.UseVisualStyleBackColor = False
+        '
+        'lemCliente
+        '
+        Me.lemCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.lemCliente.Location = New System.Drawing.Point(-3, 331)
+        Me.lemCliente.Name = "lemCliente"
+        Me.lemCliente.Size = New System.Drawing.Size(11, 54)
+        Me.lemCliente.TabIndex = 12
         '
         'Panel3
         '
@@ -260,24 +286,6 @@ Partial Class Menuu
         Me.btnproveedor.Text = "Proveedor"
         Me.btnproveedor.UseVisualStyleBackColor = False
         '
-        'btnclientes
-        '
-        Me.btnclientes.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.btnclientes.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnclientes.FlatAppearance.BorderSize = 0
-        Me.btnclientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.btnclientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnclientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnclientes.ForeColor = System.Drawing.Color.White
-        Me.btnclientes.Image = CType(resources.GetObject("btnclientes.Image"), System.Drawing.Image)
-        Me.btnclientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnclientes.Location = New System.Drawing.Point(7, 330)
-        Me.btnclientes.Name = "btnclientes"
-        Me.btnclientes.Size = New System.Drawing.Size(214, 54)
-        Me.btnclientes.TabIndex = 5
-        Me.btnclientes.Text = "Clientes"
-        Me.btnclientes.UseVisualStyleBackColor = False
-        '
         'btnempleados
         '
         Me.btnempleados.BackColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(32, Byte), Integer), CType(CType(40, Byte), Integer))
@@ -337,7 +345,7 @@ Partial Class Menuu
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(47, 8)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(125, 73)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -377,14 +385,6 @@ Partial Class Menuu
         Me.lproveedor.Name = "lproveedor"
         Me.lproveedor.Size = New System.Drawing.Size(15, 54)
         Me.lproveedor.TabIndex = 11
-        '
-        'lemCliente
-        '
-        Me.lemCliente.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.lemCliente.Location = New System.Drawing.Point(-3, 331)
-        Me.lemCliente.Name = "lemCliente"
-        Me.lemCliente.Size = New System.Drawing.Size(11, 54)
-        Me.lemCliente.TabIndex = 12
         '
         'lcompras
         '
@@ -464,7 +464,7 @@ Partial Class Menuu
         Me.Controls.Add(Me.BarraTitulo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Menuu"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Menu"
         Me.BarraTitulo.ResumeLayout(False)
         Me.BarraTitulo.PerformLayout()

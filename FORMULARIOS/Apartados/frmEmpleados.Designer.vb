@@ -24,11 +24,14 @@ Partial Class frmEmpleados
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmEmpleados))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.cmbRol = New System.Windows.Forms.ComboBox()
+        Me.Check = New System.Windows.Forms.CheckBox()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
-        Me.btndespedir = New System.Windows.Forms.Button()
+        Me.btnDarBaja = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnguardar = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -61,8 +64,11 @@ Partial Class frmEmpleados
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.cmbRol)
+        Me.GroupBox1.Controls.Add(Me.Check)
         Me.GroupBox1.Controls.Add(Me.txtCodigo)
-        Me.GroupBox1.Controls.Add(Me.btndespedir)
+        Me.GroupBox1.Controls.Add(Me.btnDarBaja)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.btnguardar)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -91,6 +97,39 @@ Partial Class frmEmpleados
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "EMPLEADOS"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(448, 143)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(80, 20)
+        Me.Label9.TabIndex = 26
+        Me.Label9.Text = "PUESTO"
+        '
+        'cmbRol
+        '
+        Me.cmbRol.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbRol.FormattingEnabled = True
+        Me.cmbRol.Items.AddRange(New Object() {"M", "F"})
+        Me.cmbRol.Location = New System.Drawing.Point(585, 134)
+        Me.cmbRol.Margin = New System.Windows.Forms.Padding(2)
+        Me.cmbRol.Name = "cmbRol"
+        Me.cmbRol.Size = New System.Drawing.Size(140, 28)
+        Me.cmbRol.TabIndex = 25
+        '
+        'Check
+        '
+        Me.Check.AutoSize = True
+        Me.Check.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Check.Location = New System.Drawing.Point(585, 214)
+        Me.Check.Name = "Check"
+        Me.Check.Size = New System.Drawing.Size(166, 20)
+        Me.Check.TabIndex = 24
+        Me.Check.Text = "VER CONTRASEÑA"
+        Me.Check.UseVisualStyleBackColor = True
+        '
         'txtCodigo
         '
         Me.txtCodigo.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
@@ -101,24 +140,24 @@ Partial Class frmEmpleados
         Me.txtCodigo.Size = New System.Drawing.Size(70, 19)
         Me.txtCodigo.TabIndex = 23
         '
-        'btndespedir
+        'btnDarBaja
         '
-        Me.btndespedir.BackColor = System.Drawing.Color.SteelBlue
-        Me.btndespedir.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btndespedir.Image = CType(resources.GetObject("btndespedir.Image"), System.Drawing.Image)
-        Me.btndespedir.Location = New System.Drawing.Point(796, 174)
-        Me.btndespedir.Margin = New System.Windows.Forms.Padding(2)
-        Me.btndespedir.Name = "btndespedir"
-        Me.btndespedir.Size = New System.Drawing.Size(111, 64)
-        Me.btndespedir.TabIndex = 15
-        Me.btndespedir.Text = "DESPEDIR"
-        Me.btndespedir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btndespedir.UseVisualStyleBackColor = False
+        Me.btnDarBaja.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnDarBaja.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnDarBaja.Image = CType(resources.GetObject("btnDarBaja.Image"), System.Drawing.Image)
+        Me.btnDarBaja.Location = New System.Drawing.Point(796, 174)
+        Me.btnDarBaja.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnDarBaja.Name = "btnDarBaja"
+        Me.btnDarBaja.Size = New System.Drawing.Size(111, 64)
+        Me.btnDarBaja.TabIndex = 15
+        Me.btnDarBaja.Text = "DE BAJA"
+        Me.btnDarBaja.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnDarBaja.UseVisualStyleBackColor = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(442, 91)
+        Me.Label4.Location = New System.Drawing.Point(448, 92)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(58, 20)
@@ -142,7 +181,7 @@ Partial Class frmEmpleados
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(56, 180)
+        Me.Label8.Location = New System.Drawing.Point(53, 188)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(86, 20)
@@ -152,14 +191,14 @@ Partial Class frmEmpleados
         'txtfechaN
         '
         Me.txtfechaN.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.txtfechaN.Location = New System.Drawing.Point(168, 174)
+        Me.txtfechaN.Location = New System.Drawing.Point(168, 182)
         Me.txtfechaN.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtfechaN.MaxDate = New Date(2000, 12, 31, 0, 0, 0, 0)
+        Me.txtfechaN.MaxDate = New Date(2002, 12, 31, 0, 0, 0, 0)
         Me.txtfechaN.MinDate = New Date(1950, 1, 1, 0, 0, 0, 0)
         Me.txtfechaN.Name = "txtfechaN"
         Me.txtfechaN.Size = New System.Drawing.Size(154, 26)
         Me.txtfechaN.TabIndex = 20
-        Me.txtfechaN.Value = New Date(2000, 12, 31, 0, 0, 0, 0)
+        Me.txtfechaN.Value = New Date(2002, 12, 31, 0, 0, 0, 0)
         '
         'btneditar
         '
@@ -190,7 +229,7 @@ Partial Class frmEmpleados
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(442, 138)
+        Me.Label6.Location = New System.Drawing.Point(448, 190)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(129, 20)
@@ -214,17 +253,17 @@ Partial Class frmEmpleados
         'txtcontra
         '
         Me.txtcontra.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtcontra.Location = New System.Drawing.Point(585, 138)
+        Me.txtcontra.Location = New System.Drawing.Point(585, 187)
         Me.txtcontra.Margin = New System.Windows.Forms.Padding(2)
         Me.txtcontra.MaxLength = 8
         Me.txtcontra.Name = "txtcontra"
-        Me.txtcontra.Size = New System.Drawing.Size(140, 19)
+        Me.txtcontra.Size = New System.Drawing.Size(154, 19)
         Me.txtcontra.TabIndex = 10
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(443, 48)
+        Me.Label5.Location = New System.Drawing.Point(449, 50)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(102, 20)
@@ -234,17 +273,18 @@ Partial Class frmEmpleados
         'txttelefono
         '
         Me.txttelefono.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txttelefono.Location = New System.Drawing.Point(585, 48)
+        Me.txttelefono.Location = New System.Drawing.Point(585, 46)
         Me.txttelefono.Margin = New System.Windows.Forms.Padding(2)
         Me.txttelefono.MaxLength = 8
+        Me.txttelefono.Multiline = True
         Me.txttelefono.Name = "txttelefono"
-        Me.txttelefono.Size = New System.Drawing.Size(154, 19)
+        Me.txttelefono.Size = New System.Drawing.Size(154, 23)
         Me.txttelefono.TabIndex = 8
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(53, 137)
+        Me.Label3.Location = New System.Drawing.Point(53, 143)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(108, 20)
@@ -254,16 +294,17 @@ Partial Class frmEmpleados
         'txtapellidos
         '
         Me.txtapellidos.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtapellidos.Location = New System.Drawing.Point(168, 137)
+        Me.txtapellidos.Location = New System.Drawing.Point(168, 139)
         Me.txtapellidos.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtapellidos.Multiline = True
         Me.txtapellidos.Name = "txtapellidos"
-        Me.txtapellidos.Size = New System.Drawing.Size(154, 19)
+        Me.txtapellidos.Size = New System.Drawing.Size(154, 23)
         Me.txtapellidos.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(53, 90)
+        Me.Label2.Location = New System.Drawing.Point(53, 96)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(85, 20)
@@ -273,16 +314,17 @@ Partial Class frmEmpleados
         'txtnombre
         '
         Me.txtnombre.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtnombre.Location = New System.Drawing.Point(168, 90)
+        Me.txtnombre.Location = New System.Drawing.Point(168, 93)
         Me.txtnombre.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtnombre.Multiline = True
         Me.txtnombre.Name = "txtnombre"
-        Me.txtnombre.Size = New System.Drawing.Size(154, 19)
+        Me.txtnombre.Size = New System.Drawing.Size(154, 23)
         Me.txtnombre.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(53, 48)
+        Me.Label1.Location = New System.Drawing.Point(53, 49)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(106, 20)
@@ -292,11 +334,12 @@ Partial Class frmEmpleados
         'txtidempleado
         '
         Me.txtidempleado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtidempleado.Location = New System.Drawing.Point(168, 49)
+        Me.txtidempleado.Location = New System.Drawing.Point(168, 46)
         Me.txtidempleado.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidempleado.MaxLength = 13
+        Me.txtidempleado.Multiline = True
         Me.txtidempleado.Name = "txtidempleado"
-        Me.txtidempleado.Size = New System.Drawing.Size(154, 19)
+        Me.txtidempleado.Size = New System.Drawing.Size(154, 23)
         Me.txtidempleado.TabIndex = 0
         '
         'GroupBox2
@@ -334,26 +377,26 @@ Partial Class frmEmpleados
         Me.datalistado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.datalistado.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.datalistado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.HotTrack
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.datalistado.ColumnHeadersHeight = 38
         Me.datalistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.datalistado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Eliminar})
         Me.datalistado.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle4
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
         Me.datalistado.Location = New System.Drawing.Point(30, 68)
@@ -419,7 +462,7 @@ Partial Class frmEmpleados
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents btndespedir As Button
+    Friend WithEvents btnDarBaja As Button
     Friend WithEvents Label4 As Label
     Friend WithEvents btnguardar As Button
     Friend WithEvents Label8 As Label
@@ -445,4 +488,7 @@ Partial Class frmEmpleados
     Friend WithEvents txtbuscar As TextBox
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents ErrorValidacion As ErrorProvider
+    Friend WithEvents Check As CheckBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents cmbRol As ComboBox
 End Class

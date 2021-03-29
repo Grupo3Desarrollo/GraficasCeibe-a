@@ -8,6 +8,7 @@ Public Class frmProducto
         txtstock.Text = "0"
         txtprecio_compra.Text = "0"
         txtprecio_venta.Text = "0"
+        txtidcategoria.Visible = False
     End Sub
 
     Public Sub mostrarProducto()
@@ -174,7 +175,6 @@ Public Class frmProducto
         limpiar()
         mostrarProducto()
         eliminarImg.Visible = True
-        btnguardar.Enabled = False
     End Sub
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
@@ -455,5 +455,4 @@ Public Class frmProducto
             e.Handled = True
         End If
     End Sub
-
 End Class

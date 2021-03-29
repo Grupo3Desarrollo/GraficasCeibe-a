@@ -1,4 +1,4 @@
---BASE 12/03/21
+--BASE 28/03/21
 
 --Base de Datos Proyecto Desarrollo de Software 
 CREATE DATABASE GraficaLCB 
@@ -154,7 +154,7 @@ AS BEGIN
       IF EXISTS (SELECT rol FROM Empleados WHERE @rol = 'GERENTE')
 	    RAISERROR('El usuario Gerente no puede ser despedido',16,1)
 	   ELSE
-	   UPDATE Empleados SET Estado = 'Despedido'
+	   UPDATE Empleados SET Estado = 'Inactivo'
 	   WHERE DNIEmpleado = @DNI AND rol <> 'GERENTE'
 END
 
@@ -172,13 +172,6 @@ SELECT idEmpleado as 'Codigo', DNIEmpleado as 'Identidad', Nombres as 'Nombres',
 	   FROM Empleados 
 	   WHERE Estado = 'Activo'
 go
--- Mostrar Empleados activos
-CREATE PROCEDURE Mostrar_EmpleadoActivo
-as
-SELECT DNIEmpleado as 'Identidad', Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo', estado as 'Estado', rol as 'Rol'
-	   FROM Empleados 
-	   WHERE Estado = 'Activo'
-go
 
 -- BUSQUEDA
 CREATE PROCEDURE buscarEmpleado
@@ -193,14 +186,6 @@ WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@UserName+ '%') OR DNIEmpleado LI
 CREATE PROCEDURE mostrar_cliente
 as
 SELECT idcliente as 'Codigo', dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' 
-FROM clientes 
-WHERE idcliente <> 1 and nombre <> 'GENERAL' and telefono <> '00000000'
-order BY idcliente desc
-go
-
-CREATE PROCEDURE mostrar_clienteBUS
-as
-SELECT  dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección' 
 FROM clientes 
 WHERE idcliente <> 1 and nombre <> 'GENERAL' and telefono <> '00000000'
 order BY idcliente desc
@@ -237,13 +222,6 @@ go
 
 -- Buscar cliente
 CREATE PROCEDURE buscarCliente
-@dni NVARCHAR(13)
-as
-SELECT dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección'
-FROM clientes
-WHERE ((CONCAT(nombre, '',apellidos) LIKE '%' +@dni+ '%') OR (dni LIKE '%' +@dni+ '%')) AND idcliente <> 1
-
-CREATE PROCEDURE buscarClienteBUS
 @dni NVARCHAR(13)
 as
 SELECT idcliente as 'Codigo', dni as 'Identidad', nombre as 'Nombre Cliente', apellidos as 'Apellidos Cliente',correo as 'Correo',telefono as 'Telefono', direccion as 'Dirección'
@@ -329,6 +307,7 @@ as
 SELECT pro.idproducto as 'Codigo producto', pro.idcategoria as 'Codigo categoria', cat.nombre_categoria as 'Categoria', pro.nombre as 'Producto',pro.descripcion as 'Descripcion',pro.stock as 'Stock',pro.precio_compra as 'Precio de compra',pro.precio_venta as 'Precio de venta',pro.fecha_vencimiento as 'Fecha de vencimiento',pro.imagen as 'Imagen'
 FROM productos as pro inner join categorias as cat on pro.idcategoria = cat.idcategoria
 WHERE pro.nombre LIKE '%' +@nombre+ '%'
+order BY pro.idproducto desc
 
 -- PROVEEDORES
 --Mostrar Proveedor
@@ -401,7 +380,7 @@ go
 -- mostrar venta
 CREATE PROCEDURE mostrar_venta
 as
-SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.ventas.nombresClientes as 'Nombre Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
+SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.ventas.nombresClientes as 'Nombre Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado', dbo.Empleados.idEmpleado as 'Codigo Empleado'
 FROM     dbo.ventas INNER JOIN
 			 dbo.Empleados ON dbo.ventas.idEmpleado = dbo.Empleados.idEmpleado
 			 order BY dbo.ventas.idventa desc
@@ -411,7 +390,7 @@ FROM     dbo.ventas INNER JOIN
 CREATE PROCEDURE buscarVenta
 @num_documento as NVARCHAR(50)
 as
-SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.ventas.nombresClientes as 'Nombre Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado'
+SELECT   dbo.ventas.idventa as 'Codigo Venta', dbo.ventas.idcliente 'Codigo Cliente', dbo.ventas.nombresClientes as 'Nombre Cliente', dbo.ventas.fecha_venta as 'Fecha de la venta', dbo.Empleados.Nombres as 'Nombre Empleado', dbo.Empleados.Apellidos as 'Apellidos Empleado', dbo.Empleados.idEmpleado as 'Codigo Empleado'
 FROM     dbo.ventas INNER JOIN
 			 dbo.Empleados ON dbo.ventas.idEmpleado = dbo.Empleados.idEmpleado
 WHERE idventa LIKE '%' +@num_documento+ '%'
@@ -577,6 +556,7 @@ FROM            dbo.detalles_compras INNER JOIN
 						 where idCompra=@IdCompra
 go
 
+--Factura
 CREATE VIEW vistaVentas as
 SELECT        dbo.ventas.idventa, dbo.ventas.fecha_venta, dbo.ventas.num_documento, dbo.detalles_ventas.idproducto, dbo.productos.nombre, dbo.detalles_ventas.precio_V, dbo.detalles_ventas.cantidad, dbo.Empleados.Nombres, 
                          dbo.Empleados.Apellidos, dbo.ventas.nombresClientes

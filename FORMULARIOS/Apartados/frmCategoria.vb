@@ -167,4 +167,16 @@ Public Class frmCategoria
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub txtnombre_TextChanged(sender As Object, e As EventArgs) Handles txtnombre.TextChanged
+
+    End Sub
+
+    Private Sub txtnombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnombre.KeyPress
+        If Not Char.IsLetter(e.KeyChar) _
+                     AndAlso Not Char.IsControl(e.KeyChar) _
+                     AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

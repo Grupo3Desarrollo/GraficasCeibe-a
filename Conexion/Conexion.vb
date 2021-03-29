@@ -4,8 +4,8 @@ Imports System.Text
 
 Public Class Conexion
     'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-6LV81RN;Initial Catalog=GraficasC; user id = sa; password = Aleman16848760")
-    Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
-    'Public conexion As SqlConnection = New SqlConnection("Data Source= HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
+    'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source= HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
 
     Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
@@ -557,30 +557,6 @@ Public Class Conexion
         End Try
     End Function
 
-    Public Function mostrarBUS() As DataTable
-        Try
-            conexion.Open()
-            cmb = New SqlCommand("mostrar_clienteBUS", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-
-            cmb.Connection = conexion
-
-            If cmb.ExecuteNonQuery Then
-                Dim dt As New DataTable
-                Dim da As New SqlDataAdapter(cmb)
-                da.Fill(dt)
-                Return dt
-            Else
-                Return Nothing
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
     Public Function insertarCliente(nombre As String, apellidos As String, correo As String, direccion As String, telefono As String, dni As String)
         Try
             conexion.Open()
@@ -636,28 +612,6 @@ Public Class Conexion
         Try
             conexion.Open()
             Dim cmb As New SqlCommand("buscarCliente", conexion)
-            cmb.CommandType = CommandType.StoredProcedure
-            cmb.Parameters.AddWithValue("@dni", dni)
-            If cmb.ExecuteNonQuery <> 0 Then
-                Dim dt As New DataTable
-                Dim da As New SqlDataAdapter(cmb)
-                da.Fill(dt)
-                Return dt
-            Else
-                Return Nothing
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        Finally
-            conexion.Close()
-        End Try
-    End Function
-
-    Public Function buscarClienteBUS(dni As String) As DataTable
-        Try
-            conexion.Open()
-            Dim cmb As New SqlCommand("buscarClienteBUS", conexion)
             cmb.CommandType = CommandType.StoredProcedure
             cmb.Parameters.AddWithValue("@dni", dni)
             If cmb.ExecuteNonQuery <> 0 Then
@@ -1096,7 +1050,7 @@ Public Class Conexion
         End Try
     End Function
 
-    'Eliminar de detalles venta
+    'Eliminar de detalles Compra
     Public Function EliminarDetallesC(idcompra As Integer, idproducto As Integer)
         Try
             conexion.Open()

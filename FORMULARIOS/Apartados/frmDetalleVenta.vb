@@ -95,26 +95,30 @@ Public Class frmDetalleVenta
         cantidad = txtcantidad.Text
 
         Try
-            If txtstock.Value = 0 Then
-                MessageBox.Show("Seleccione el producto nuevamente por favor", "Producto", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                limpiar()
+            If txtcantidad.Text = 0 Then
+                MessageBox.Show("Ingrese una cantidad a su Venta", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-                If conexion.editarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
-                    MessageBox.Show("Venta editada con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    If txtcantidad.Value < txtCant2.Value Then
-                        If conexion.disminuir_stock(idproducto, cantidad) Then
-                            Aumento = txtCant2.Text
-                            conexion.aumentar_stock(idproducto, Aumento)
-                        End If
-                    End If
-                    If txtcantidad.Value > txtCant2.Value Then
-                        If conexion.disminuir_stock(idproducto, cantidad) Then
-                            Aumento = txtCant2.Text
-                            conexion.aumentar_stock(idproducto, Aumento)
-                        End If
-                    End If
+                If txtstock.Value = 0 Then
+                    MessageBox.Show("Seleccione el producto nuevamente por favor", "Producto", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    limpiar()
                 Else
-                    MessageBox.Show("Error al Editar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If conexion.editarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
+                        MessageBox.Show("Venta editada con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        If txtcantidad.Value < txtCant2.Value Then
+                            If conexion.disminuir_stock(idproducto, cantidad) Then
+                                Aumento = txtCant2.Text
+                                conexion.aumentar_stock(idproducto, Aumento)
+                            End If
+                        End If
+                        If txtcantidad.Value > txtCant2.Value Then
+                            If conexion.disminuir_stock(idproducto, cantidad) Then
+                                Aumento = txtCant2.Text
+                                conexion.aumentar_stock(idproducto, Aumento)
+                            End If
+                        End If
+                    Else
+                        MessageBox.Show("Error al Editar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 End If
             End If
         Catch ex As Exception

@@ -47,9 +47,8 @@ Public Class mostrarProductos
             Me.Close()
         End If
         If txtflag.Text = "2" Then
-            'frmCompras.txtidproducto.Text = datalistado.SelectedCells.Item(1).Value
-            'frmCompras.txtnom_producto.Text = datalistado.SelectedCells.Item(4).Value
-            'frmCompras.txtprecio_compra.Text = datalistado.SelectedCells.Item(7).Value
+            frmDetalleCompras.txtidproducto.Text = datalistado.SelectedCells.Item(1).Value
+            frmDetalleCompras.txtnom_producto.Text = datalistado.SelectedCells.Item(4).Value
             Me.Close()
         End If
     End Sub

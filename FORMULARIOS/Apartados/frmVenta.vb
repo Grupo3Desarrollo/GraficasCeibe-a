@@ -12,6 +12,7 @@ Public Class frmVenta
 
     Private Sub ocultar_columnas()
         datalistado.Columns(2).Visible = False
+        datalistado.Columns(7).Visible = False
     End Sub
 
     Public Sub limpiar()
@@ -139,6 +140,7 @@ Public Class frmVenta
         txtnombre_cliente.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(3).Value)
         txtfecha.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(4).Value)
         txtnomempleado.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(5).Value)
+        txtidempleado.Text = Convert.ToString(datalistado.Rows(FilaActual).Cells(7).Value)
         btnguardar.Visible = False
         btneditar.Visible = True
     End Sub
@@ -193,8 +195,13 @@ Public Class frmVenta
         MostrarClientes.txtflag.Text = "1"
         MostrarClientes.ShowDialog()
         txtidcliente.ReadOnly = True
-        txtnombre_cliente.ReadOnly = True
         txtidcliente.Visible = False
+        If txtnombre_cliente.Text <> "" Then
+            txtnombre_cliente.ReadOnly = True
+        End If
+        If txtnombre_cliente.Text = "" Then
+            txtnombre_cliente.ReadOnly = False
+        End If
     End Sub
 
     Private Sub txtbuscarempleado_Click(sender As Object, e As EventArgs) Handles txtbuscarempleado.Click
@@ -216,7 +223,7 @@ Public Class frmVenta
         ToolTip.ToolTipIcon = ToolTipIcon.Info
     End Sub
 
-    Private Sub txtnum_documento_Validating(sender As Object, e As CancelEventArgs) Handles txtnum_documento.Validating
+    Private Sub txtnum_documento_Validating(sender As Object, e As CancelEventArgs)
         Try
             If DirectCast(sender, TextBox).Text.Length > 0 Then    'Si se deja vacio
                 Me.ErrorValidacion.SetError(sender, "")
@@ -226,14 +233,6 @@ Public Class frmVenta
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Private Sub txtnum_documento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnum_documento.KeyPress
-        If (Asc(e.KeyChar) >= 48 And Asc(e.KeyChar) <= 57) Or Asc(e.KeyChar) = 8 Then
-            e.Handled = False
-        Else
-            e.Handled = True
-        End If
     End Sub
 
     Private Sub txtidempleado_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtidempleado.KeyPress
@@ -264,4 +263,25 @@ Public Class frmVenta
         buscar()
     End Sub
 
+    Private Sub GroupBox2_MouseHover(sender As Object, e As EventArgs) Handles GroupBox2.MouseHover
+        ToolTip.SetToolTip(datalistado, "Un click para editar, doble click para detalle")
+        ToolTip.ToolTipTitle = "Seleccione una venta"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub txtnum_documento_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnum_documento.KeyPress
+        If (Asc(e.KeyChar) >= 48 And Asc(e.KeyChar) <= 57) Or Asc(e.KeyChar) = 8 Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtnombre_cliente_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnombre_cliente.KeyPress
+        If Not Char.IsLetter(e.KeyChar) _
+                    AndAlso Not Char.IsControl(e.KeyChar) _
+                    AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

@@ -219,4 +219,12 @@ Public Class frmProveedor
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
 
     End Sub
+
+    Private Sub txtciudad_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtciudad.KeyPress
+        If Not Char.IsLetter(e.KeyChar) _
+                     AndAlso Not Char.IsControl(e.KeyChar) _
+                     AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

@@ -24,8 +24,8 @@ Partial Class frmProducto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProducto))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
@@ -154,7 +154,7 @@ Partial Class frmProducto
         '
         Me.btnbuscarcategoria.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnbuscarcategoria.Image = CType(resources.GetObject("btnbuscarcategoria.Image"), System.Drawing.Image)
-        Me.btnbuscarcategoria.Location = New System.Drawing.Point(409, 124)
+        Me.btnbuscarcategoria.Location = New System.Drawing.Point(413, 124)
         Me.btnbuscarcategoria.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.btnbuscarcategoria.Name = "btnbuscarcategoria"
         Me.btnbuscarcategoria.Size = New System.Drawing.Size(43, 40)
@@ -199,25 +199,25 @@ Partial Class frmProducto
         'txtfecha_vencimiento
         '
         Me.txtfecha_vencimiento.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.txtfecha_vencimiento.Location = New System.Drawing.Point(217, 183)
+        Me.txtfecha_vencimiento.Location = New System.Drawing.Point(229, 183)
         Me.txtfecha_vencimiento.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
-        Me.txtfecha_vencimiento.MaxDate = New Date(2030, 12, 24, 0, 0, 0, 0)
-        Me.txtfecha_vencimiento.MinDate = New Date(2020, 7, 31, 0, 0, 0, 0)
+        Me.txtfecha_vencimiento.MaxDate = New Date(2050, 12, 31, 0, 0, 0, 0)
+        Me.txtfecha_vencimiento.MinDate = New Date(2021, 3, 29, 0, 0, 0, 0)
         Me.txtfecha_vencimiento.Name = "txtfecha_vencimiento"
         Me.txtfecha_vencimiento.Size = New System.Drawing.Size(179, 26)
         Me.txtfecha_vencimiento.TabIndex = 21
-        Me.txtfecha_vencimiento.Value = New Date(2020, 8, 4, 0, 0, 0, 0)
+        Me.txtfecha_vencimiento.Value = New Date(2021, 3, 29, 0, 0, 0, 0)
         '
         'Label9
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(44, 188)
+        Me.Label9.Location = New System.Drawing.Point(32, 188)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(149, 20)
+        Me.Label9.Size = New System.Drawing.Size(195, 20)
         Me.Label9.TabIndex = 20
-        Me.Label9.Text = "FECHA COMPRA"
+        Me.Label9.Text = "FECHA VENCIMIENTO"
         '
         'imagen
         '
@@ -237,7 +237,7 @@ Partial Class frmProducto
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(467, 190)
+        Me.Label8.Location = New System.Drawing.Point(467, 191)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(139, 20)
@@ -247,27 +247,28 @@ Partial Class frmProducto
         'txtprecio_venta
         '
         Me.txtprecio_venta.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtprecio_venta.Location = New System.Drawing.Point(627, 190)
+        Me.txtprecio_venta.Location = New System.Drawing.Point(627, 184)
         Me.txtprecio_venta.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtprecio_venta.MaxLength = 5
+        Me.txtprecio_venta.Multiline = True
         Me.txtprecio_venta.Name = "txtprecio_venta"
-        Me.txtprecio_venta.Size = New System.Drawing.Size(93, 19)
+        Me.txtprecio_venta.Size = New System.Drawing.Size(93, 27)
         Me.txtprecio_venta.TabIndex = 18
         '
         'txtnom_categoria
         '
-        Me.txtnom_categoria.Location = New System.Drawing.Point(253, 133)
+        Me.txtnom_categoria.Location = New System.Drawing.Point(231, 133)
         Me.txtnom_categoria.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtnom_categoria.Name = "txtnom_categoria"
         Me.txtnom_categoria.ReadOnly = True
-        Me.txtnom_categoria.Size = New System.Drawing.Size(143, 26)
+        Me.txtnom_categoria.Size = New System.Drawing.Size(177, 26)
         Me.txtnom_categoria.TabIndex = 17
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(467, 149)
+        Me.Label6.Location = New System.Drawing.Point(467, 153)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(156, 20)
@@ -277,18 +278,19 @@ Partial Class frmProducto
         'txtprecio_compra
         '
         Me.txtprecio_compra.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtprecio_compra.Location = New System.Drawing.Point(627, 149)
+        Me.txtprecio_compra.Location = New System.Drawing.Point(627, 148)
         Me.txtprecio_compra.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtprecio_compra.MaxLength = 5
+        Me.txtprecio_compra.Multiline = True
         Me.txtprecio_compra.Name = "txtprecio_compra"
-        Me.txtprecio_compra.Size = New System.Drawing.Size(93, 19)
+        Me.txtprecio_compra.Size = New System.Drawing.Size(93, 27)
         Me.txtprecio_compra.TabIndex = 10
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(467, 111)
+        Me.Label5.Location = New System.Drawing.Point(467, 116)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(67, 20)
@@ -298,11 +300,12 @@ Partial Class frmProducto
         'txtstock
         '
         Me.txtstock.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtstock.Location = New System.Drawing.Point(627, 111)
+        Me.txtstock.Location = New System.Drawing.Point(627, 110)
         Me.txtstock.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtstock.MaxLength = 9
+        Me.txtstock.Multiline = True
         Me.txtstock.Name = "txtstock"
-        Me.txtstock.Size = New System.Drawing.Size(93, 19)
+        Me.txtstock.Size = New System.Drawing.Size(93, 27)
         Me.txtstock.TabIndex = 8
         '
         'Label4
@@ -330,7 +333,7 @@ Partial Class frmProducto
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(44, 135)
+        Me.Label3.Location = New System.Drawing.Point(32, 139)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(113, 20)
@@ -339,7 +342,7 @@ Partial Class frmProducto
         '
         'txtidcategoria
         '
-        Me.txtidcategoria.Location = New System.Drawing.Point(216, 133)
+        Me.txtidcategoria.Location = New System.Drawing.Point(195, 133)
         Me.txtidcategoria.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
         Me.txtidcategoria.Name = "txtidcategoria"
         Me.txtidcategoria.ReadOnly = True
@@ -350,7 +353,7 @@ Partial Class frmProducto
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(44, 90)
+        Me.Label2.Location = New System.Drawing.Point(32, 91)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(85, 20)
@@ -360,17 +363,18 @@ Partial Class frmProducto
         'txtnombre
         '
         Me.txtnombre.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtnombre.Location = New System.Drawing.Point(216, 90)
+        Me.txtnombre.Location = New System.Drawing.Point(231, 84)
         Me.txtnombre.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
+        Me.txtnombre.Multiline = True
         Me.txtnombre.Name = "txtnombre"
-        Me.txtnombre.Size = New System.Drawing.Size(177, 19)
+        Me.txtnombre.Size = New System.Drawing.Size(177, 26)
         Me.txtnombre.TabIndex = 2
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(44, 47)
+        Me.Label1.Location = New System.Drawing.Point(32, 47)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(131, 20)
@@ -380,11 +384,12 @@ Partial Class frmProducto
         'txtidproducto
         '
         Me.txtidproducto.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtidproducto.Location = New System.Drawing.Point(218, 47)
+        Me.txtidproducto.Location = New System.Drawing.Point(231, 41)
         Me.txtidproducto.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
+        Me.txtidproducto.Multiline = True
         Me.txtidproducto.Name = "txtidproducto"
         Me.txtidproducto.ReadOnly = True
-        Me.txtidproducto.Size = New System.Drawing.Size(178, 19)
+        Me.txtidproducto.Size = New System.Drawing.Size(178, 26)
         Me.txtidproducto.TabIndex = 0
         '
         'GroupBox2
@@ -425,26 +430,26 @@ Partial Class frmProducto
         Me.datalistado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.datalistado.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
         Me.datalistado.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.HotTrack
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.HotTrack
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.datalistado.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.datalistado.ColumnHeadersHeight = 38
         Me.datalistado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.datalistado.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Eliminar})
         Me.datalistado.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(66, Byte), Integer), CType(CType(82, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.datalistado.DefaultCellStyle = DataGridViewCellStyle8
         Me.datalistado.EnableHeadersVisualStyles = False
         Me.datalistado.GridColor = System.Drawing.SystemColors.Highlight
         Me.datalistado.Location = New System.Drawing.Point(60, 74)

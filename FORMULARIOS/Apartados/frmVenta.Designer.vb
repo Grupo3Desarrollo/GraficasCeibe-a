@@ -33,6 +33,7 @@ Partial Class frmVenta
         Me.Eliminar = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtnum_documento = New System.Windows.Forms.TextBox()
         Me.btnLimCli = New System.Windows.Forms.Button()
         Me.txtbuscarempleado = New System.Windows.Forms.Button()
         Me.txtnomempleado = New System.Windows.Forms.TextBox()
@@ -45,7 +46,6 @@ Partial Class frmVenta
         Me.btnBuscarCliente = New System.Windows.Forms.Button()
         Me.txtnombre_cliente = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtnum_documento = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtidcliente = New System.Windows.Forms.TextBox()
@@ -78,7 +78,7 @@ Partial Class frmVenta
         '
         'txtbuscar
         '
-        Me.txtbuscar.Location = New System.Drawing.Point(182, 23)
+        Me.txtbuscar.Location = New System.Drawing.Point(296, 24)
         Me.txtbuscar.Name = "txtbuscar"
         Me.txtbuscar.Size = New System.Drawing.Size(162, 26)
         Me.txtbuscar.TabIndex = 26
@@ -149,12 +149,13 @@ Partial Class frmVenta
         Me.Label7.Location = New System.Drawing.Point(87, 26)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(90, 20)
+        Me.Label7.Size = New System.Drawing.Size(209, 20)
         Me.Label7.TabIndex = 18
-        Me.Label7.Text = "Busqueda"
+        Me.Label7.Text = "Busqueda (codigo venta)"
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.txtnum_documento)
         Me.GroupBox1.Controls.Add(Me.btnLimCli)
         Me.GroupBox1.Controls.Add(Me.txtbuscarempleado)
         Me.GroupBox1.Controls.Add(Me.txtnomempleado)
@@ -167,7 +168,6 @@ Partial Class frmVenta
         Me.GroupBox1.Controls.Add(Me.btnBuscarCliente)
         Me.GroupBox1.Controls.Add(Me.txtnombre_cliente)
         Me.GroupBox1.Controls.Add(Me.Label5)
-        Me.GroupBox1.Controls.Add(Me.txtnum_documento)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtidcliente)
@@ -175,7 +175,7 @@ Partial Class frmVenta
         Me.GroupBox1.Controls.Add(Me.txtidventa)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Window
-        Me.GroupBox1.Location = New System.Drawing.Point(-31, 30)
+        Me.GroupBox1.Location = New System.Drawing.Point(43, 30)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
@@ -183,6 +183,17 @@ Partial Class frmVenta
         Me.GroupBox1.TabIndex = 6
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "DATOS DE VENTA"
+        '
+        'txtnum_documento
+        '
+        Me.txtnum_documento.Location = New System.Drawing.Point(653, 95)
+        Me.txtnum_documento.MaxLength = 13
+        Me.txtnum_documento.Multiline = True
+        Me.txtnum_documento.Name = "txtnum_documento"
+        Me.txtnum_documento.ReadOnly = True
+        Me.txtnum_documento.Size = New System.Drawing.Size(151, 26)
+        Me.txtnum_documento.TabIndex = 27
+        Me.txtnum_documento.Text = "01011958001101"
         '
         'btnLimCli
         '
@@ -327,17 +338,6 @@ Partial Class frmVenta
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "R.T.N."
         '
-        'txtnum_documento
-        '
-        Me.txtnum_documento.Location = New System.Drawing.Point(653, 95)
-        Me.txtnum_documento.Margin = New System.Windows.Forms.Padding(2)
-        Me.txtnum_documento.MaxLength = 10
-        Me.txtnum_documento.Multiline = True
-        Me.txtnum_documento.Name = "txtnum_documento"
-        Me.txtnum_documento.Size = New System.Drawing.Size(151, 23)
-        Me.txtnum_documento.TabIndex = 8
-        Me.txtnum_documento.Text = "01011958001101"
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -402,6 +402,7 @@ Partial Class frmVenta
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmVenta"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmVenta"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -430,7 +431,6 @@ Partial Class frmVenta
     Friend WithEvents btnBuscarCliente As Button
     Friend WithEvents txtnombre_cliente As TextBox
     Friend WithEvents Label5 As Label
-    Friend WithEvents txtnum_documento As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtidcliente As TextBox
@@ -440,4 +440,5 @@ Partial Class frmVenta
     Friend WithEvents ErrorValidacion As ErrorProvider
     Friend WithEvents txtbuscar As TextBox
     Friend WithEvents btnLimCli As Button
+    Friend WithEvents txtnum_documento As TextBox
 End Class

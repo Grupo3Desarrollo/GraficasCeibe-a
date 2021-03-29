@@ -22,6 +22,7 @@ Partial Class frmCompras
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompras))
@@ -46,6 +47,7 @@ Partial Class frmCompras
         Me.txtidproveedor = New System.Windows.Forms.TextBox()
         Me.label = New System.Windows.Forms.Label()
         Me.txtidcompra = New System.Windows.Forms.TextBox()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox2.SuspendLayout()
         CType(Me.datalistado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -341,6 +343,7 @@ Partial Class frmCompras
         Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "frmCompras"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmCompras"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -372,4 +375,5 @@ Partial Class frmCompras
     Friend WithEvents txtidcompra As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtdescrpcompra As TextBox
+    Friend WithEvents ToolTip As ToolTip
 End Class

@@ -5,6 +5,8 @@ Public Class Login
     Public cmb As SqlCommand
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         llenarRol()
+        'txtcontraseña.UseSystemPasswordChar = True
+        Check.Visible = False
     End Sub
     Private Sub limpiar()
         txtnombreusuario.Text = ""
@@ -93,4 +95,19 @@ Public Class Login
             ingresoMenu()
         End If
     End Sub
+
+    Private Sub Check_CheckedChanged(sender As Object, e As EventArgs) Handles Check.CheckedChanged
+        Dim Text As String
+        Text = txtcontraseña.Text
+        If Check.Checked = True Then
+
+            txtcontraseña.UseSystemPasswordChar = False
+            txtcontraseña.Text = Text
+        Else
+            'txtcontraseña.UseSystemPasswordChar = True
+            'txtcontraseña.Text = Text
+        End If
+
+    End Sub
+
 End Class
