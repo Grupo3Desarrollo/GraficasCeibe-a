@@ -431,7 +431,7 @@ go
 CREATE PROCEDURE mostrar_detalle_venta
 @IdVenta INT
 as
-SELECT        dbo.detalles_ventas.idventa as 'Codigo Venta', dbo.detalles_ventas.idproducto as 'Codigo Producto', dbo.productos.nombre as 'Producto', dbo.detalles_ventas.precio_V as 'Precio Unitario', dbo.detalles_ventas.cantidad as 'Cantidad'
+SELECT        dbo.detalles_ventas.idventa as 'Codigo Venta', dbo.detalles_ventas.idproducto as 'Codigo Producto', dbo.productos.nombre as 'Producto', dbo.detalles_ventas.precio_V as 'Precio Unitario', dbo.detalles_ventas.cantidad as 'Cantidad', dbo.productos.stock as 'Stock'
 FROM            dbo.detalles_ventas INNER JOIN
                          dbo.productos ON dbo.detalles_ventas.idproducto = dbo.productos.idproducto 
 						 
@@ -463,7 +463,7 @@ CREATE PROCEDURE mostrarTotalV
 as
 SELECT SUM(cantidad) As 'Articulos',CONCAT('Lps.',' ',SUM(precio_V*cantidad)) As 'Total Venta'
 FROM detalles_ventas
-WHERE idventa = 11
+WHERE idventa = @idventa
 go
 
 --Mostrar Stock

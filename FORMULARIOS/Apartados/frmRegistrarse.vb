@@ -176,4 +176,13 @@ Public Class frmRegistrarse
             e.Handled = True
         End If
     End Sub
+
+    Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
+        Dim opcion As DialogResult
+        opcion = MessageBox.Show("¿Esta Seguro que quiere salir de registro?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If opcion = DialogResult.Yes Then
+            Me.Close()
+            Login.Show()
+        End If
+    End Sub
 End Class

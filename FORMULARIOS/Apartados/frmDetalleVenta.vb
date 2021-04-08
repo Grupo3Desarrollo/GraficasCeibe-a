@@ -7,12 +7,18 @@ Public Class frmDetalleVenta
     Public tabla As DataSet
     Public tablas As DataSet
     Public adaptador, adaptador1 As SqlDataAdapter
+    Dim IdVentaT As Integer
 
     Private Sub frmDetalles_venta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         mostrar_Dventas()
         txtidcliente.Visible = False
         txtCant2.Visible = False
         btneliminar.Visible = False
+        'DataDos.Visible = False
+
+        If IdVentaT <> txtidventa.Text Then
+            IdVentaT = txtidventa.Text
+        End If
     End Sub
 
     Public Sub mostrar_Dventas()
@@ -39,6 +45,28 @@ Public Class frmDetalleVenta
         'buscar()
     End Sub
 
+    Public Sub mostrarTotalV()
+
+        Try
+            Dim func As New Conexion
+            dt = func.mostrarTotalV(IdVentaT)
+            If dt.Rows.Count <> 0 Then
+                DataDos.DataSource = dt
+                DataDos.ColumnHeadersVisible = True
+
+                Dim FilaActual As Integer
+                FilaActual = DataDos.CurrentRow.Index
+                txtarticulos.Text = DataDos.Rows(FilaActual).Cells(0).Value
+                txttotal.Text = DataDos.Rows(FilaActual).Cells(1).Value
+            Else
+                DataDos.DataSource = Nothing
+                DataDos.ColumnHeadersVisible = False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Public Sub limpiar()
         btnguardar.Visible = True
         btneditar.Visible = False
@@ -54,6 +82,7 @@ Public Class frmDetalleVenta
     Private Sub ocultar_columnas()
         datalistado.Columns(0).Visible = False
         datalistado.Columns(1).Visible = False
+        datalistado.Columns(5).Visible = False
     End Sub
 
     Private Sub InsertarDetallesVenta()
@@ -69,15 +98,12 @@ Public Class frmDetalleVenta
 
         Try
             'If datalistado.Rows.Count > 0 Then
-            If txtcantidad.Text = 0 Then
-                MessageBox.Show("Ingrese una cantidad", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
-                    If conexion.disminuir_stock(idproducto, cantidad) Then
-                    End If
-                Else
-                    MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            If conexion.insertarDetallesVenta(idventa, idproducto, precio_V, cantidad) Then
+                If conexion.disminuir_stock(idproducto, cantidad) Then
                 End If
+            Else
+                MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -156,7 +182,7 @@ Public Class frmDetalleVenta
                 Try
                     EliminarDetallesVenta()
                     mostrar_Dventas()
-                    'mostrarTotalV()
+                    mostrarTotalV()
                     limpiar()
                     conexion.conexion.Close()
                 Catch ex As Exception
@@ -173,11 +199,15 @@ Public Class frmDetalleVenta
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
         If Me.ValidateChildren = True And txtidproducto.Text <> "" And txtcantidad.Text <> "" And txtprecio_unitario.Text <> "" Then
             Try
-                InsertarDetallesVenta()
-                mostrar_Dventas()
-                'mostrarTotalV()
-                limpiar()
-                conexion.conexion.Close()
+                If txtcantidad.Text = 0 Then
+                    MessageBox.Show("Ingrese una cantidad", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Else
+                    InsertarDetallesVenta()
+                    mostrar_Dventas()
+                    mostrarTotalV()
+                    limpiar()
+                    conexion.conexion.Close()
+                End If
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -195,6 +225,7 @@ Public Class frmDetalleVenta
         txtnom_producto.Text = datalistado.Rows(FilaActual).Cells(2).Value
         txtprecio_unitario.Text = datalistado.Rows(FilaActual).Cells(3).Value
         txtCant2.Text = datalistado.Rows(FilaActual).Cells(4).Value
+        txtstock.Value = datalistado.Rows(FilaActual).Cells(5).Value
     End Sub
 
     Private Sub btneditar_Click(sender As Object, e As EventArgs) Handles btneditar.Click
@@ -207,7 +238,7 @@ Public Class frmDetalleVenta
                 Try
                     EditarDetallesVenta()
                     mostrar_Dventas()
-                    'mostrarTotalV()
+                    mostrarTotalV()
                     limpiar()
                     conexion.conexion.Close()
                 Catch ex As Exception
@@ -224,7 +255,6 @@ Public Class frmDetalleVenta
     Private Sub btnnuevo_Click(sender As Object, e As EventArgs) Handles btnnuevo.Click
         limpiar()
         mostrar_Dventas()
-        'mostrarTotalV()
     End Sub
 
     Private Sub btnBuscarProducto_Click(sender As Object, e As EventArgs) Handles btnBuscarProducto.Click
@@ -249,6 +279,8 @@ Public Class frmDetalleVenta
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        txtarticulos.Text = ""
+        txttotal.Text = ""
         Me.Close()
     End Sub
 
@@ -314,6 +346,14 @@ Public Class frmDetalleVenta
 
     End Function
 
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        If datalistado.Rows.Count <> 0 Then
+            mostrarTotalV()
+        Else
+            MessageBox.Show("No cuenta con productos en la venta", "Venta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        End If
+    End Sub
+
     Private Sub btnimprimir_Click(sender As Object, e As EventArgs) Handles btnimprimir.Click
         Dim result As DialogResult
         Dim sql As String
@@ -342,5 +382,11 @@ Public Class frmDetalleVenta
 
         End If
 
+    End Sub
+
+    Private Sub btnRefresh_MouseHover(sender As Object, e As EventArgs) Handles btnRefresh.MouseHover
+        ToolTip.SetToolTip(btnRefresh, "Actualizar la cantidad y el total")
+        ToolTip.ToolTipTitle = "Actualizar"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
     End Sub
 End Class

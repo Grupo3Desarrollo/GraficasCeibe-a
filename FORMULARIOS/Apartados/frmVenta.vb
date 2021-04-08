@@ -8,6 +8,8 @@ Public Class frmVenta
         txtidcliente.Text = "1"
         txtidcliente.Visible = False
         txtidempleado.Visible = False
+        rtn.Visible = False
+        txtnum_documento.Visible = False
     End Sub
 
     Private Sub ocultar_columnas()
