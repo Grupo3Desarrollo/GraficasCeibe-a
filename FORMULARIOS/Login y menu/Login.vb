@@ -46,7 +46,7 @@ Public Class Login
                     Menuu.Show()
                     Me.Hide()
                 ElseIf (rol <> "Gerente") Then
-                    MsgBox("Bienvenido(a)" + Empleados.nombres_empleados)
+                    MsgBox("Bienvenido(a) " + Empleados.nombres_empleados)
                     Menuu.txtflag.Text = "2"
                     limpiar()
                     Menuu.Show()

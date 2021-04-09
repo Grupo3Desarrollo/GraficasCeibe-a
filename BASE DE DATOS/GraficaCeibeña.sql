@@ -1,4 +1,4 @@
---BASE 28/03/21
+--BASE 08/04/21
 
 --Base de Datos Proyecto Desarrollo de Software 
 CREATE DATABASE GraficaLCB 
