@@ -47,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>elIcono.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -121,6 +124,12 @@
       <DependentUpon>frmProveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="FORMULARIOS\Apartados\frmProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmPuestos.Designer.vb">
+      <DependentUpon>frmPuestos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FORMULARIOS\Apartados\frmPuestos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMULARIOS\Apartados\frmRegistrarse.Designer.vb">
@@ -242,6 +251,9 @@
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmProveedor.resx">
       <DependentUpon>frmProveedor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FORMULARIOS\Apartados\frmPuestos.resx">
+      <DependentUpon>frmPuestos.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmRegistrarse.resx">
       <DependentUpon>frmRegistrarse.vb</DependentUpon>
     </EmbeddedResource>
@@ -315,6 +327,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="elIcono.ico" />
+    <Content Include="icono.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -25,6 +25,8 @@ Partial Class frmRegistrarse
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRegistrarse))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnPuesto = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnnuevo = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cmbRol = New System.Windows.Forms.ComboBox()
@@ -46,13 +48,14 @@ Partial Class frmRegistrarse
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtidempleado = New System.Windows.Forms.TextBox()
         Me.ErrorValidacion = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.ErrorValidacion, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnPuesto)
         Me.GroupBox1.Controls.Add(Me.btnSalir)
         Me.GroupBox1.Controls.Add(Me.btnnuevo)
         Me.GroupBox1.Controls.Add(Me.Label9)
@@ -77,13 +80,41 @@ Partial Class frmRegistrarse
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.Window
         Me.GroupBox1.Location = New System.Drawing.Point(32, 78)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(924, 251)
         Me.GroupBox1.TabIndex = 29
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "REGISTRO"
+        '
+        'btnPuesto
+        '
+        Me.btnPuesto.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPuesto.Image = CType(resources.GetObject("btnPuesto.Image"), System.Drawing.Image)
+        Me.btnPuesto.Location = New System.Drawing.Point(718, 129)
+        Me.btnPuesto.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
+        Me.btnPuesto.Name = "btnPuesto"
+        Me.btnPuesto.Size = New System.Drawing.Size(43, 40)
+        Me.btnPuesto.TabIndex = 36
+        Me.btnPuesto.UseVisualStyleBackColor = True
+        '
+        'btnSalir
+        '
+        Me.btnSalir.BackColor = System.Drawing.Color.SteelBlue
+        Me.btnSalir.BackgroundImage = CType(resources.GetObject("btnSalir.BackgroundImage"), System.Drawing.Image)
+        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.ForeColor = System.Drawing.SystemColors.Window
+        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
+        Me.btnSalir.Location = New System.Drawing.Point(779, 171)
+        Me.btnSalir.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(126, 63)
+        Me.btnSalir.TabIndex = 35
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'btnnuevo
         '
@@ -91,7 +122,7 @@ Partial Class frmRegistrarse
         Me.btnnuevo.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnnuevo.Image = CType(resources.GetObject("btnnuevo.Image"), System.Drawing.Image)
         Me.btnnuevo.Location = New System.Drawing.Point(779, 103)
-        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnnuevo.Margin = New System.Windows.Forms.Padding(2)
         Me.btnnuevo.Name = "btnnuevo"
         Me.btnnuevo.Size = New System.Drawing.Size(126, 64)
         Me.btnnuevo.TabIndex = 27
@@ -115,9 +146,9 @@ Partial Class frmRegistrarse
         Me.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbRol.FormattingEnabled = True
         Me.cmbRol.Location = New System.Drawing.Point(585, 134)
-        Me.cmbRol.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbRol.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbRol.Name = "cmbRol"
-        Me.cmbRol.Size = New System.Drawing.Size(140, 28)
+        Me.cmbRol.Size = New System.Drawing.Size(129, 28)
         Me.cmbRol.TabIndex = 25
         '
         'Check
@@ -157,7 +188,7 @@ Partial Class frmRegistrarse
         Me.btnguardar.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnguardar.Image = CType(resources.GetObject("btnguardar.Image"), System.Drawing.Image)
         Me.btnguardar.Location = New System.Drawing.Point(779, 34)
-        Me.btnguardar.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnguardar.Margin = New System.Windows.Forms.Padding(2)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.Size = New System.Drawing.Size(126, 65)
         Me.btnguardar.TabIndex = 16
@@ -179,7 +210,7 @@ Partial Class frmRegistrarse
         '
         Me.txtfechaN.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.txtfechaN.Location = New System.Drawing.Point(168, 182)
-        Me.txtfechaN.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtfechaN.Margin = New System.Windows.Forms.Padding(2)
         Me.txtfechaN.MaxDate = New Date(2002, 12, 31, 0, 0, 0, 0)
         Me.txtfechaN.MinDate = New Date(1950, 1, 1, 0, 0, 0, 0)
         Me.txtfechaN.Name = "txtfechaN"
@@ -194,7 +225,7 @@ Partial Class frmRegistrarse
         Me.cmbSexo.FormattingEnabled = True
         Me.cmbSexo.Items.AddRange(New Object() {"M", "F"})
         Me.cmbSexo.Location = New System.Drawing.Point(585, 88)
-        Me.cmbSexo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbSexo.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbSexo.Name = "cmbSexo"
         Me.cmbSexo.Size = New System.Drawing.Size(64, 28)
         Me.cmbSexo.TabIndex = 21
@@ -213,7 +244,7 @@ Partial Class frmRegistrarse
         '
         Me.txtcontra.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtcontra.Location = New System.Drawing.Point(585, 187)
-        Me.txtcontra.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtcontra.Margin = New System.Windows.Forms.Padding(2)
         Me.txtcontra.MaxLength = 8
         Me.txtcontra.Name = "txtcontra"
         Me.txtcontra.Size = New System.Drawing.Size(154, 19)
@@ -233,7 +264,7 @@ Partial Class frmRegistrarse
         '
         Me.txttelefono.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txttelefono.Location = New System.Drawing.Point(585, 46)
-        Me.txttelefono.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txttelefono.Margin = New System.Windows.Forms.Padding(2)
         Me.txttelefono.MaxLength = 8
         Me.txttelefono.Multiline = True
         Me.txttelefono.Name = "txttelefono"
@@ -254,7 +285,7 @@ Partial Class frmRegistrarse
         '
         Me.txtapellidos.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtapellidos.Location = New System.Drawing.Point(168, 139)
-        Me.txtapellidos.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtapellidos.Margin = New System.Windows.Forms.Padding(2)
         Me.txtapellidos.Multiline = True
         Me.txtapellidos.Name = "txtapellidos"
         Me.txtapellidos.Size = New System.Drawing.Size(154, 23)
@@ -274,7 +305,7 @@ Partial Class frmRegistrarse
         '
         Me.txtnombre.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtnombre.Location = New System.Drawing.Point(168, 93)
-        Me.txtnombre.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtnombre.Margin = New System.Windows.Forms.Padding(2)
         Me.txtnombre.Multiline = True
         Me.txtnombre.Name = "txtnombre"
         Me.txtnombre.Size = New System.Drawing.Size(154, 23)
@@ -294,7 +325,7 @@ Partial Class frmRegistrarse
         '
         Me.txtidempleado.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtidempleado.Location = New System.Drawing.Point(168, 46)
-        Me.txtidempleado.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtidempleado.Margin = New System.Windows.Forms.Padding(2)
         Me.txtidempleado.MaxLength = 13
         Me.txtidempleado.Multiline = True
         Me.txtidempleado.Name = "txtidempleado"
@@ -304,23 +335,6 @@ Partial Class frmRegistrarse
         'ErrorValidacion
         '
         Me.ErrorValidacion.ContainerControl = Me
-        '
-        'btnSalir
-        '
-        Me.btnSalir.BackColor = System.Drawing.Color.SteelBlue
-        Me.btnSalir.BackgroundImage = CType(resources.GetObject("btnSalir.BackgroundImage"), System.Drawing.Image)
-        Me.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.ForeColor = System.Drawing.SystemColors.Window
-        Me.btnSalir.Image = CType(resources.GetObject("btnSalir.Image"), System.Drawing.Image)
-        Me.btnSalir.Location = New System.Drawing.Point(779, 171)
-        Me.btnSalir.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(126, 63)
-        Me.btnSalir.TabIndex = 35
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'frmRegistrarse
         '
@@ -363,4 +377,6 @@ Partial Class frmRegistrarse
     Friend WithEvents btnnuevo As Button
     Friend WithEvents ErrorValidacion As ErrorProvider
     Friend WithEvents btnSalir As Button
+    Friend WithEvents btnPuesto As Button
+    Friend WithEvents ToolTip As ToolTip
 End Class

@@ -26,8 +26,8 @@ Partial Class frmhora
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmhora))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.labelhora1 = New System.Windows.Forms.Label()
         Me.fechita = New System.Windows.Forms.Label()
+        Me.labelhora1 = New System.Windows.Forms.Label()
         Me.timerhora = New System.Windows.Forms.Timer(Me.components)
         Me.timerfecha = New System.Windows.Forms.Timer(Me.components)
         Me.DateTimePicker12 = New System.Windows.Forms.DateTimePicker()
@@ -54,17 +54,6 @@ Partial Class frmhora
         Me.Panel1.Size = New System.Drawing.Size(364, 192)
         Me.Panel1.TabIndex = 4
         '
-        'labelhora1
-        '
-        Me.labelhora1.AutoSize = True
-        Me.labelhora1.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.labelhora1.ForeColor = System.Drawing.Color.White
-        Me.labelhora1.Location = New System.Drawing.Point(59, 4)
-        Me.labelhora1.Name = "labelhora1"
-        Me.labelhora1.Size = New System.Drawing.Size(226, 73)
-        Me.labelhora1.TabIndex = 2
-        Me.labelhora1.Text = "Label1"
-        '
         'fechita
         '
         Me.fechita.AutoSize = True
@@ -75,6 +64,17 @@ Partial Class frmhora
         Me.fechita.Size = New System.Drawing.Size(77, 25)
         Me.fechita.TabIndex = 3
         Me.fechita.Text = "Label1"
+        '
+        'labelhora1
+        '
+        Me.labelhora1.AutoSize = True
+        Me.labelhora1.Font = New System.Drawing.Font("Microsoft Sans Serif", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelhora1.ForeColor = System.Drawing.Color.White
+        Me.labelhora1.Location = New System.Drawing.Point(59, 4)
+        Me.labelhora1.Name = "labelhora1"
+        Me.labelhora1.Size = New System.Drawing.Size(226, 73)
+        Me.labelhora1.TabIndex = 2
+        Me.labelhora1.Text = "Label1"
         '
         'timerhora
         '

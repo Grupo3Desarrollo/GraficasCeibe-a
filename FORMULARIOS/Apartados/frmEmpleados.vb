@@ -7,7 +7,9 @@ Public Class frmEmpleados
         txtcontra.UseSystemPasswordChar = True
         mostrar()
         llenarRol()
+        txtestado.Visible = False
         btnDarBaja.Enabled = False
+        btnActivar.Enabled = False
     End Sub
 
     Private Sub ocultar_columnas()
@@ -24,6 +26,7 @@ Public Class frmEmpleados
         txtnombre.Text = ""
         txtcontra.Text = ""
         txtbuscar.Text = ""
+        txtestado.Text = ""
         Check.Checked = False
     End Sub
 
@@ -160,7 +163,7 @@ Public Class frmEmpleados
 
     Private Sub btneditar_Click(sender As Object, e As EventArgs) Handles btneditar.Click
         Dim result As DialogResult
-        result = MessageBox.Show("Realmente desea editar los datos del Empleado?", "Modifiar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        result = MessageBox.Show("Realmente desea editar los datos del Empleado(a)?", "Modifiar Registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
 
         If result = DialogResult.OK Then
 
@@ -192,26 +195,66 @@ Public Class frmEmpleados
             If (conexion.eliminarEmpleado(DNIEmpleado, rol)) Then
                 MsgBox("Empleado dado de baja")
             Else
-                MsgBox("Error al dar de baja al Empleado")
+                MsgBox("Error al dar de baja al Empleado(a)")
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
 
+    Private Sub activarEmpleado()
+        Dim DNIEmpleado As String
+        Dim rol As String
+        DNIEmpleado = txtidempleado.Text
+        rol = cmbRol.Text
+        Try
+            If (conexion.activarEmpleado(DNIEmpleado, rol)) Then
+                MsgBox("Empleado(a) restaurado en el sistema")
+            Else
+                MsgBox("Error al restaurar al Empleado(a)")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnActivar_Click(sender As Object, e As EventArgs) Handles btnActivar.Click
+        Dim result As DialogResult
+        result = MessageBox.Show("Realmente desea activar este empleado(a)?", "Activar Empleados", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+
+        If result = DialogResult.OK Then
+            If txtestado.Text = "Activo" Then
+                MessageBox.Show("Empleado(a) ya esta activo", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                If cmbRol.Text = "Gerente" Then
+                    MessageBox.Show("No se puede activar un Gerente", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Else
+                    activarEmpleado()
+                    mostrar()
+                End If
+            End If
+        Else
+                limpiar()
+        End If
+    End Sub
 
     Private Sub btnDarBaja_Click(sender As Object, e As EventArgs) Handles btnDarBaja.Click
         Dim result As DialogResult
-        result = MessageBox.Show("Realmente desea dar de baja a este Empleado?", "Dar de Baja a Empleado", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+        result = MessageBox.Show("Realmente desea dar de baja a este Empleado(a)?", "Dar de Baja a Empleados", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
 
         If result = DialogResult.OK Then
-            If cmbRol.Text = "Gerente" Then
-                MessageBox.Show("No se puede dar de baja al gerente", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            If txtestado.Text = "Inactivo" Then
+                MessageBox.Show("El Empleado(a) ya esta dado de baja", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
-                eliminarEmpleado()
+                If cmbRol.Text = "Gerente" Then
+                    MessageBox.Show("No se puede dar de baja al gerente", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Else
+                    eliminarEmpleado()
+                    mostrar()
+                End If
             End If
         Else
-            limpiar()
+                limpiar()
         End If
     End Sub
 
@@ -223,11 +266,13 @@ Public Class frmEmpleados
         txtfechaN.Text = datalistado.Rows(FilaActual).Cells(4).Value
         txttelefono.Text = datalistado.Rows(FilaActual).Cells(5).Value
         cmbSexo.Text = datalistado.Rows(FilaActual).Cells(6).Value
+        txtestado.Text = datalistado.Rows(FilaActual).Cells(7).Value
         cmbRol.Text = datalistado.Rows(FilaActual).Cells(8).Value
         txtidempleado.Text = datalistado.Rows(FilaActual).Cells(1).Value
         btneditar.Visible = True
         btnguardar.Visible = False
         btnDarBaja.Enabled = True
+        btnActivar.Enabled = True
     End Sub
     Private Sub txtidempleado_Validating(sender As Object, e As CancelEventArgs) Handles txtidempleado.Validating
         Try
@@ -335,6 +380,20 @@ Public Class frmEmpleados
             txtcontra.UseSystemPasswordChar = True
             txtcontra.Text = Text
         End If
+    End Sub
+
+    Private Sub btnPuesto_Click(sender As Object, e As EventArgs) Handles btnPuesto.Click
+        frmPuestos.ShowDialog()
+    End Sub
+
+    Private Sub btnPuesto_MouseHover(sender As Object, e As EventArgs) Handles btnPuesto.MouseHover
+        ToolTip.SetToolTip(btnPuesto, "Ingresar puestos")
+        ToolTip.ToolTipTitle = "Formulario de Puestos"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 
 End Class

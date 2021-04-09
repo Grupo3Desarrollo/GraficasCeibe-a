@@ -612,3 +612,4 @@ C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 07-04\GraficasCeibena
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 07-04\GraficasCeibena\obj\Debug\Proyecto.exe
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 07-04\GraficasCeibena\obj\Debug\Proyecto.xml
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 07-04\GraficasCeibena\obj\Debug\Proyecto.pdb
+C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\repo 07-04\GraficasCeibena\obj\Debug\Proyecto.frmPuestos.resources

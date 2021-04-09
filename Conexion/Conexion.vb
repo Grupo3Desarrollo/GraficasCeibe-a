@@ -16,8 +16,6 @@ Public Class Conexion
     Dim des As New TripleDESCryptoServiceProvider
     Dim MD5 As New MD5CryptoServiceProvider
 
-
-
     Function MD5Hash(ByVal value As String) As Byte()
         Return MD5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(value))
     End Function
@@ -130,6 +128,26 @@ Public Class Conexion
         Try
             conexion.Open()
             cmb = New SqlCommand("eliminar_Empleado", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@DNI", DNIEmpleado)
+            cmb.Parameters.AddWithValue("@Rol", rol)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function activarEmpleado(DNIEmpleado As String, rol As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("activar_Empleado", conexion)
             cmb.CommandType = CommandType.StoredProcedure
             cmb.Parameters.AddWithValue("@DNI", DNIEmpleado)
             cmb.Parameters.AddWithValue("@Rol", rol)
@@ -329,7 +347,6 @@ Public Class Conexion
             conexion.Close()
         End Try
     End Function
-
 
     ' *************************************** PRODUCTOS *********************************************
     ' FUNCION MOSTRAR PRODUCTO
@@ -1071,5 +1088,70 @@ Public Class Conexion
         End Try
     End Function
 
+    Public Function mostrar_rol() As DataTable
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("mostrar_Rol", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
 
+            cmb.Connection = conexion
+
+            If cmb.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
+
+    Public Function insertarRol(rol As String)
+        Try
+            conexion.Open()
+            cmb = New SqlCommand("insertar_rol", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@rol", rol)
+            If cmb.ExecuteNonQuery Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            conexion.Close()
+        End Try
+
+    End Function
+
+    'BUSCAR ROL
+    Public Function buscarRol(rol As String) As DataTable
+        Try
+            conexion.Open()
+            Dim cmb As New SqlCommand("buscarRol", conexion)
+            cmb.CommandType = CommandType.StoredProcedure
+            cmb.Parameters.AddWithValue("@rol", rol)
+            If cmb.ExecuteNonQuery <> 0 Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmb)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        Finally
+            conexion.Close()
+        End Try
+    End Function
 End Class

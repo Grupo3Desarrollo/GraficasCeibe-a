@@ -67,7 +67,7 @@ Public Class frmRegistrarse
 
         Try
             If conexion.insertar_Empleado(nombres, apellidos, fechanacimiento, Tel, sexo, estado, contrasena, identidad, rol) Then
-                MessageBox.Show("Empleado ingresado con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Empleado(a) ingresado con exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
@@ -184,5 +184,15 @@ Public Class frmRegistrarse
             Me.Close()
             Login.Show()
         End If
+    End Sub
+
+    Private Sub btnPuesto_MouseHover(sender As Object, e As EventArgs) Handles btnPuesto.MouseHover
+        ToolTip.SetToolTip(btnPuesto, "Ingresar puestos")
+        ToolTip.ToolTipTitle = "Formulario de Puestos"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
+
+    Private Sub btnPuesto_Click(sender As Object, e As EventArgs) Handles btnPuesto.Click
+        frmPuestos.ShowDialog()
     End Sub
 End Class

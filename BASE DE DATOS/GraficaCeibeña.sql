@@ -113,6 +113,30 @@ IF EXISTS(SELECT Estado FROM Empleados WHERE DNIEmpleado = @DNI AND contrasenia 
         RAISERROR('El usuario no existe',16,1)
 END
 
+-- ROL o PUESTO
+-- insertar puesto
+CREATE PROCEDURE insertar_rol
+	@rol VARCHAR(30)
+	AS BEGIN
+		IF EXISTS (SELECT rol FROM Roles WHERE rol=@rol )
+		RAISERROR ('Ya existe ese rol, porfavor ingrese uno nuevo',16,1)
+		ELSE
+		INSERT INTO Roles VALUES(@rol) 
+END
+
+-- Buscar Rol
+CREATE PROCEDURE buscarRol
+@rol VARCHAR(30)
+as
+SELECT rol as 'Puesto de trabajo' FROM Roles
+WHERE rol LIKE '%' +@rol+ '%'
+
+-- Mostrar Cargar Rol
+CREATE PROCEDURE mostrar_Rol
+as
+SELECT rol as 'Puesto de trabajo' FROM Roles order by rol desc
+go
+
 -- Insertar Empleado
 CREATE PROCEDURE insertar_Empleado
 	@Nombres as VARCHAR(30),
@@ -151,11 +175,23 @@ CREATE PROCEDURE eliminar_Empleado
 @DNI as NVARCHAR(13),
 @rol as VARCHAR(30)
 AS BEGIN
-      IF EXISTS (SELECT rol FROM Empleados WHERE @rol = 'GERENTE')
-	    RAISERROR('El usuario Gerente no puede ser despedido',16,1)
+      IF EXISTS (SELECT rol FROM Empleados WHERE @rol = 'Gerente')
+	    RAISERROR('El usuario Gerente no puede dar de baja',16,1)
 	   ELSE
 	   UPDATE Empleados SET Estado = 'Inactivo'
-	   WHERE DNIEmpleado = @DNI AND rol <> 'GERENTE'
+	   WHERE DNIEmpleado = @DNI AND rol <> 'Gerente'
+END
+
+--Activar empleado
+CREATE PROCEDURE activar_Empleado
+@DNI as NVARCHAR(13),
+@rol as VARCHAR(30)
+AS BEGIN
+      IF EXISTS (SELECT rol FROM Empleados WHERE @rol = 'Gerente')
+	    RAISERROR('El usuario Gerente no deberia estar dado de baja',16,1)
+	   ELSE
+	   UPDATE Empleados SET Estado = 'Activo'
+	   WHERE DNIEmpleado = @DNI AND rol <> 'Gerente'
 END
 
 -- Mostrar Empleado
