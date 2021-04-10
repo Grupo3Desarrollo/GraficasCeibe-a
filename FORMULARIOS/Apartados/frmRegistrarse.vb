@@ -195,4 +195,14 @@ Public Class frmRegistrarse
     Private Sub btnPuesto_Click(sender As Object, e As EventArgs) Handles btnPuesto.Click
         frmPuestos.ShowDialog()
     End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        llenarRol()
+    End Sub
+
+    Private Sub btnRefresh_MouseHover(sender As Object, e As EventArgs) Handles btnRefresh.MouseHover
+        ToolTip.SetToolTip(btnRefresh, "Actualizar puestos")
+        ToolTip.ToolTipTitle = "Puestos Agregados"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
 End Class

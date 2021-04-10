@@ -33,6 +33,7 @@ Public Class frmCategoria
         btneditar.Visible = False
         buscar()
     End Sub
+
     Public Sub limpiar()
         btnguardar.Visible = True
         btneditar.Visible = False
@@ -173,6 +174,14 @@ Public Class frmCategoria
     End Sub
 
     Private Sub txtnombre_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtnombre.KeyPress
+        If Not Char.IsLetter(e.KeyChar) _
+                     AndAlso Not Char.IsControl(e.KeyChar) _
+                     AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtbuscar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbuscar.KeyPress
         If Not Char.IsLetter(e.KeyChar) _
                      AndAlso Not Char.IsControl(e.KeyChar) _
                      AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then

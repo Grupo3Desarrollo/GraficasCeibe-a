@@ -396,4 +396,21 @@ Public Class frmEmpleados
 
     End Sub
 
+    Private Sub txtbuscar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbuscar.KeyPress
+        If Not Char.IsLetter(e.KeyChar) _
+                     AndAlso Not Char.IsControl(e.KeyChar) _
+                     AndAlso Not Char.IsWhiteSpace(e.KeyChar) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        llenarRol()
+    End Sub
+
+    Private Sub btnRefresh_MouseHover(sender As Object, e As EventArgs) Handles btnRefresh.MouseHover
+        ToolTip.SetToolTip(btnRefresh, "Actualizar puestos")
+        ToolTip.ToolTipTitle = "Puestos Agregados"
+        ToolTip.ToolTipIcon = ToolTipIcon.Info
+    End Sub
 End Class

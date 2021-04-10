@@ -246,4 +246,44 @@ Public Class frmCompras
         ToolTip.ToolTipTitle = "Seleccione una Compra"
         ToolTip.ToolTipIcon = ToolTipIcon.Info
     End Sub
+
+    Private Sub txtbuscar_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtbuscar.KeyPress
+        If (Asc(e.KeyChar) >= 48 And Asc(e.KeyChar) <= 57) Or Asc(e.KeyChar) = 8 Then
+            e.Handled = False
+        Else
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub txtproveedor_TextChanged(sender As Object, e As EventArgs) Handles txtproveedor.TextChanged
+
+    End Sub
+
+    Private Sub txtproveedor_Validating(sender As Object, e As CancelEventArgs) Handles txtproveedor.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtdescrpcompra_TextChanged(sender As Object, e As EventArgs) Handles txtdescrpcompra.TextChanged
+
+    End Sub
+
+    Private Sub txtdescrpcompra_Validating(sender As Object, e As CancelEventArgs) Handles txtdescrpcompra.Validating
+        Try
+            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+                Me.ErrorValidacion.SetError(sender, "")
+            Else
+                Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
 End Class
