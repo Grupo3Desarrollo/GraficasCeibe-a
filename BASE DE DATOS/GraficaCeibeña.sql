@@ -602,6 +602,8 @@ FROM            dbo.ventas INNER JOIN
                          dbo.Empleados ON dbo.ventas.idEmpleado = dbo.Empleados.idEmpleado
 
 CREATE VIEW vistaCalculo as
-SELECT idventa, SUM(cantidad) As 'Articulos',CONCAT('Lps.',' ',SUM(precio_V*cantidad)) As 'Total Venta'
+SELECT idventa, SUM(cantidad) As 'Articulos',CONCAT('Lps.',' ',SUM(precio_V*cantidad)) As 'SubTotal Venta', SUM(precio_V*cantidad)*0.15 As 'ISV', (SUM(precio_V*cantidad)*0.15)+(SUM(precio_V*cantidad)) As 'Total Venta'
 FROM detalles_ventas
 GROUP BY idventa
+
+select * FROM vistaCalculo

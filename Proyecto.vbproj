@@ -144,8 +144,14 @@
     <Compile Include="FORMULARIOS\Apartados\frmVenta.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Conexion\ReporteVenta2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteVenta2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FORMULARIOS\Login y menu\Empleados.vb" />
-    <Compile Include="ReporteVenta.vb">
+    <Compile Include="Conexion\ReporteVenta.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteVenta.rpt</DependentUpon>
@@ -260,9 +266,13 @@
     <EmbeddedResource Include="FORMULARIOS\Apartados\frmVenta.resx">
       <DependentUpon>frmVenta.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteVenta.rpt">
+    <EmbeddedResource Include="Conexion\ReporteVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteVenta.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Conexion\ReporteVenta2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteVenta2.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMULARIOS\Frm Busquedas\mostrarProveedor.resx">
       <DependentUpon>mostrarProveedor.vb</DependentUpon>
