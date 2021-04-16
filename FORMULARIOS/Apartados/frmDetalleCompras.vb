@@ -18,6 +18,7 @@ Public Class frmDetalleCompras
         btnguardar.Visible = True
         btneditar.Visible = False
         btneliminar.Visible = False
+        txtcantidad.Enabled = True
         txtidproducto.Text = ""
         txtnom_producto.Text = ""
         txtprecio_unitario.Text = ""
@@ -66,6 +67,8 @@ Public Class frmDetalleCompras
                 MessageBox.Show("Ingrese una cantidad a su compra", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
                 If conexion.insertarDetallesCompra(idCompra, idproducto, precio_V, cantidad) Then
+                    If conexion.aumentar_stock(idproducto, cantidad) Then
+                    End If
                 Else
                     MessageBox.Show("Error al guardar compra", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
@@ -109,7 +112,6 @@ Public Class frmDetalleCompras
                 Try
                     EliminarDetallesCompra()
                     mostrar_Dcompras()
-                    'mostrarTotalC()
                     limpiar()
                     conexion.conexion.Close()
                 Catch ex As Exception
@@ -128,7 +130,6 @@ Public Class frmDetalleCompras
             Try
                 InsertarDetallesCompra()
                 mostrar_Dcompras()
-                'mostrarTotalV()
                 limpiar()
                 conexion.conexion.Close()
             Catch ex As Exception
@@ -145,12 +146,13 @@ Public Class frmDetalleCompras
 
     Private Sub EliminarDetallesCompra()
         Dim idCompra, idproducto As Integer
-
+        Dim cantidad As Double
         idCompra = txtidcompra.Text
         idproducto = txtidproducto.Text
-
+        cantidad = txtcantidad.Text
         Try
             If conexion.EliminarDetallesC(idCompra, idproducto) Then
+                conexion.disminuir_stock(idproducto, cantidad)
                 MessageBox.Show("Producto Descartado de la Compra", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al guardar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -213,6 +215,7 @@ Public Class frmDetalleCompras
         txtnom_producto.Text = datalistado.Rows(FilaActual).Cells(2).Value
         txtprecio_unitario.Text = datalistado.Rows(FilaActual).Cells(3).Value
         txtcantidad.Text = datalistado.Rows(FilaActual).Cells(4).Value
+        txtcantidad.Enabled = False
     End Sub
 
     Private Sub txtprecio_unitario_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtprecio_unitario.KeyPress

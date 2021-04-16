@@ -3,8 +3,8 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 Public Class Conexion
-    Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
-    'Public conexion As SqlConnection = New SqlConnection("Data Source= HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
+    'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
+    Public conexion As SqlConnection = New SqlConnection("Data Source= HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
 
     Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
@@ -404,7 +404,7 @@ Public Class Conexion
 
 
     ' EDITAR PRODUCTO
-    Public Function editarproducto(idproducto As Integer, idcategoria As Integer, nombre As String, descripcion As String, stock As Double, precio_compra As Double, precio_venta As Double, fecha_vencimiento As Date, imagen() As Byte)
+    Public Function editarproducto(idproducto As Integer, idcategoria As Integer, nombre As String, descripcion As String, precio_compra As Double, precio_venta As Double, fecha_vencimiento As Date, imagen() As Byte)
         Try
             conexion.Open()
             cmb = New SqlCommand("editar_producto", conexion)
@@ -413,7 +413,7 @@ Public Class Conexion
             cmb.Parameters.AddWithValue("@idcategoria", idcategoria)
             cmb.Parameters.AddWithValue("@nombre", nombre)
             cmb.Parameters.AddWithValue("@descripcion", descripcion)
-            cmb.Parameters.AddWithValue("@stock", stock)
+            'cmb.Parameters.AddWithValue("@stock", stock)
             cmb.Parameters.AddWithValue("@precio_compra", precio_compra)
             cmb.Parameters.AddWithValue("@precio_venta", precio_venta)
             cmb.Parameters.AddWithValue("@fecha_vencimiento", fecha_vencimiento)

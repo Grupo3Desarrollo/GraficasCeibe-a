@@ -350,7 +350,7 @@ Public Class frmDetalleVenta
         If datalistado.Rows.Count <> 0 Then
             mostrarTotalV()
         Else
-            MessageBox.Show("No cuenta con productos en la venta", "Venta", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)
+            MessageBox.Show("No cuenta con productos en la venta", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Question)
         End If
     End Sub
 

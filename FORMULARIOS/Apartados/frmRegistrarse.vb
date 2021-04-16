@@ -62,7 +62,7 @@ Public Class frmRegistrarse
         Tel = txttelefono.Text
         sexo = cmbSexo.Text
         rol = cmbRol.Text
-        estado = "Activo"
+        estado = "Inactivo"
         contrasena = txtcontra.Text
 
         Try

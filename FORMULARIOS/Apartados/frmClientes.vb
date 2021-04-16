@@ -21,7 +21,6 @@ Public Class frmClientes
         buscar()
     End Sub
 
-
     Public Sub mostrar()
         Try
             Dim func As New Conexion

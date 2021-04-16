@@ -213,8 +213,8 @@ go
 CREATE PROCEDURE buscarEmpleado
 @UserName VARCHAR(25)
 as
-SELECT Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo', estado as 'Estado',DNIEmpleado as 'Identidad', rol as 'Rol'
-	   FROM Empleados 
+SELECT DNIEmpleado as 'Identidad', Nombres as 'Nombres',Apellidos as 'Apellidos', FechaNacimiento AS 'Fecha de Nacimiento', tel As 'Telefono', Sexo as 'Sexo', estado as 'Estado', rol as 'Rol', contrasenia as 'Contraseña'
+	   FROM Empleados  
 WHERE (CONCAT(Nombres, '',Apellidos) LIKE '%' +@UserName+ '%') OR DNIEmpleado LIKE '%' +@UserName+ '%'
 
 -- CLIENTE
@@ -326,13 +326,12 @@ CREATE PROCEDURE editar_producto
 @idcategoria INT,
 @nombre VARCHAR (50),
 @descripcion VARCHAR (50),
-@stock decimal (10,2),
 @precio_compra decimal (10,2),
 @precio_venta decimal (10,2),
 @fecha_vencimiento DATE,
 @imagen image
 as
-UPDATE productos SET idcategoria=@idcategoria, nombre=@nombre, descripcion=@descripcion, stock=@stock, precio_compra=@precio_compra,	precio_venta=@precio_venta, fecha_vencimiento=@fecha_vencimiento, imagen=@imagen
+UPDATE productos SET idcategoria=@idcategoria, nombre=@nombre, descripcion=@descripcion, precio_compra=@precio_compra, precio_venta=@precio_venta, fecha_vencimiento=@fecha_vencimiento, imagen=@imagen
 WHERE idproducto=@idproducto
 go
 

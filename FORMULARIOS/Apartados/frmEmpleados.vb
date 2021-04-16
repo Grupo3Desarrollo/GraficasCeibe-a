@@ -147,11 +147,19 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub buscar()
+        Dim UserName As String
         Try
-            Dim UserName As String
             UserName = txtbuscar.Text
             dt = conexion.buscarEmpleado(UserName)
-            datalistado.DataSource = If(dt.Rows.Count <> 0, dt, Nothing)
+
+            If dt.Rows.Count <> 0 Then
+                datalistado.DataSource = dt
+                conexion.conexion.Close()
+                ocultar_columnas()
+            Else
+                datalistado.DataSource = Nothing
+                conexion.conexion.Close()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -261,6 +269,7 @@ Public Class frmEmpleados
     Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
         Dim FilaActual As Integer
         FilaActual = datalistado.CurrentRow.Index
+        txtidempleado.Text = datalistado.Rows(FilaActual).Cells(1).Value
         txtnombre.Text = datalistado.Rows(FilaActual).Cells(2).Value
         txtapellidos.Text = datalistado.Rows(FilaActual).Cells(3).Value
         txtfechaN.Text = datalistado.Rows(FilaActual).Cells(4).Value
@@ -268,7 +277,7 @@ Public Class frmEmpleados
         cmbSexo.Text = datalistado.Rows(FilaActual).Cells(6).Value
         txtestado.Text = datalistado.Rows(FilaActual).Cells(7).Value
         cmbRol.Text = datalistado.Rows(FilaActual).Cells(8).Value
-        txtidempleado.Text = datalistado.Rows(FilaActual).Cells(1).Value
+        'txtcontra.Text = datalistado.Rows(FilaActual).Cells(9).Value
         btneditar.Visible = True
         btnguardar.Visible = False
         btnDarBaja.Enabled = True

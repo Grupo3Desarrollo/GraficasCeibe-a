@@ -49,7 +49,7 @@ Public Class frmProducto
         txtprecio_compra.Text = "0"
         txtprecio_venta.Text = "0"
         txtidproducto.Text = ""
-
+        txtstock.Enabled = True
         imagen.Image = My.Resources.transparente
         imagen.BackgroundImage = My.Resources.transparente
         imagen.SizeMode = PictureBoxSizeMode.StretchImage
@@ -123,7 +123,7 @@ Public Class frmProducto
 
         Dim idcategoria, idproducto As Integer
         Dim descripcion, mayus As String
-        Dim stock, precio_compra, precio_venta As Double
+        Dim precio_compra, precio_venta As Double
         Dim fecha_vencimiento As Date
         Dim imagenD() As Byte
         idproducto = txtidproducto.Text
@@ -133,7 +133,7 @@ Public Class frmProducto
 
         txtnombre.Text = nombre
         descripcion = txtdescripcion.Text
-        stock = txtstock.Text
+        'stock = txtstock.Text
         precio_compra = txtprecio_compra.Text
         precio_venta = txtprecio_venta.Text
         fecha_vencimiento = txtfecha_vencimiento.Text
@@ -147,7 +147,7 @@ Public Class frmProducto
         imagenD = ms.GetBuffer
 
         Try
-            If conexion.editarproducto(idproducto, idcategoria, nombre, descripcion, stock, precio_compra, precio_venta, fecha_vencimiento, imagenD) Then
+            If conexion.editarproducto(idproducto, idcategoria, nombre, descripcion, precio_compra, precio_venta, fecha_vencimiento, imagenD) Then
                 MessageBox.Show("Producto modificado con Exito", "Correcto", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Else
                 MessageBox.Show("Error al modificar", "Incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -200,7 +200,7 @@ Public Class frmProducto
 
         If result = DialogResult.OK Then
 
-            If Me.ValidateChildren = True And txtnombre.Text <> "" And txtdescripcion.Text <> "" And txtstock.Text <> "" And txtprecio_compra.Text <> "" And txtprecio_venta.Text <> "" Then
+            If Me.ValidateChildren = True And txtnombre.Text <> "" And txtdescripcion.Text <> "" And txtprecio_compra.Text <> "" And txtprecio_venta.Text <> "" Then
                 Try
                     editarProducto()
                     mostrarProducto()
@@ -245,6 +245,7 @@ Public Class frmProducto
         imagen.Image = Image.FromStream(ms)
         imagen.SizeMode = PictureBoxSizeMode.StretchImage
 
+        txtstock.Enabled = False
         eliminarImg.Visible = False
         btnguardar.Visible = False
         btneditar.Visible = True
