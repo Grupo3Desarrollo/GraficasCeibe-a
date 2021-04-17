@@ -711,3 +711,11 @@ C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\AAAAAA\GraficasCeibena\obj
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\AAAAAA\GraficasCeibena\obj\Debug\Proyecto.exe
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\AAAAAA\GraficasCeibena\obj\Debug\Proyecto.xml
 C:\Users\hmuri\Downloads\1ER Periodo 2021\D. Software\AAAAAA\GraficasCeibena\obj\Debug\Proyecto.pdb
+C:\Users\KB\Desktop\GraficasCeibena\bin\Debug\AxShockwaveFlashObjects.dll
+C:\Users\KB\Desktop\GraficasCeibena\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\KB\Desktop\GraficasCeibena\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\KB\Desktop\GraficasCeibena\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\KB\Desktop\GraficasCeibena\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\KB\Desktop\GraficasCeibena\obj\Debug\Proyecto.frmDetalleCompras.resources
+C:\Users\KB\Desktop\GraficasCeibena\obj\Debug\Proyecto.frmPuestos.resources
+C:\Users\KB\Desktop\GraficasCeibena\obj\Debug\Proyecto.frmRegistrarse.resources
