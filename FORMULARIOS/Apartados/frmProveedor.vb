@@ -103,7 +103,7 @@ Public Class frmProveedor
     End Sub
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
-        If Me.ValidateChildren = True And txtdescripProv.Text <> "" And txtciudad.Text <> "" And txttelefono.Text <> "" Then
+        If Me.ValidateChildren = True And txtdescripProv.Text <> "" And txtciudad.Text <> "" And txttelefono.Text <> "" And txttelefono.TextLength = 8 Then
             Try
                 insertarProv()
                 mostrar()
@@ -123,7 +123,7 @@ Public Class frmProveedor
 
         If result = DialogResult.OK Then
 
-            If Me.ValidateChildren = True And txtdescripProv.Text <> "" And txtciudad.Text <> "" And txttelefono.Text <> "" Then
+            If Me.ValidateChildren = True And txtdescripProv.Text <> "" And txtciudad.Text <> "" And txttelefono.Text <> "" And txttelefono.TextLength = 8 Then
                 Try
                     editarProveedor()
                     mostrar()

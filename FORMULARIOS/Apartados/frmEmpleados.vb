@@ -101,7 +101,7 @@ Public Class frmEmpleados
     End Sub
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
-        If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtfechaN.Text <> "" And txttelefono.Text <> "" And cmbSexo.Text <> "" And txtcontra.Text <> "" Then
+        If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtidempleado.TextLength = 13 And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtfechaN.Text <> "" And txttelefono.Text <> "" And txttelefono.TextLength = 8 And cmbSexo.Text <> "" And txtcontra.Text <> "" Then
             Try
                 insertarEmpleado()
                 mostrar()
@@ -175,7 +175,7 @@ Public Class frmEmpleados
 
         If result = DialogResult.OK Then
 
-            If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtfechaN.Text <> "" And txttelefono.Text <> "" And cmbSexo.Text <> "" And txtcontra.Text <> "" Then
+            If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtidempleado.TextLength = 13 And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtfechaN.Text <> "" And txttelefono.Text <> "" And txttelefono.TextLength = 8 And cmbSexo.Text <> "" And txtcontra.Text <> "" Then
                 Try
                     editarEmpleado()
                     mostrar()

@@ -4,7 +4,7 @@ Public Class frmRegistrarse
     Dim conexion As New Conexion()
 
     Private Sub btnguardar_Click(sender As Object, e As EventArgs) Handles btnguardar.Click
-        If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtidempleado.TextLength = 13 And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtfechaN.Text <> "" And txttelefono.Text <> "" And cmbSexo.Text <> "" And txtcontra.Text <> "" Then
+        If Me.ValidateChildren = True And txtidempleado.Text <> "" And txtidempleado.TextLength = 13 And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtfechaN.Text <> "" And txttelefono.Text <> "" And txttelefono.TextLength = 8 And cmbSexo.Text <> "" And txtcontra.Text <> "" Then
             Try
                 insertarEmpleado()
                 limpiar()

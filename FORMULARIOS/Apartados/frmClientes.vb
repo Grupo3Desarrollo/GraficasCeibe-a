@@ -184,7 +184,7 @@ Public Class frmClientes
             End Try
         Next
 
-        If Me.ValidateChildren = True And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtdireccion.Text <> "" And txttelefono.Text <> "" And txtdni.Text <> "" Then
+        If Me.ValidateChildren = True And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtdireccion.Text <> "" And txttelefono.Text <> "" And txttelefono.TextLength = 8 And txtdni.Text <> "" And txtdni.TextLength = 13 Then
             Try
                 insertarCliente()
                 mostrar()
@@ -239,7 +239,7 @@ Public Class frmClientes
 
         If result = DialogResult.OK Then
 
-            If Me.ValidateChildren = True And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtdireccion.Text <> "" And txttelefono.Text <> "" And txtdni.Text <> "" Then
+            If Me.ValidateChildren = True And txtnombre.Text <> "" And txtapellidos.Text <> "" And txtdireccion.Text <> "" And txttelefono.Text <> "" And txttelefono.TextLength = 8 And txtdni.Text <> "" And txtdni.TextLength = 13 Then
                 Try
                     editarCliente()
                     mostrar()
@@ -310,7 +310,7 @@ Public Class frmClientes
 
     Private Sub txttelefono_Validating(sender As Object, e As CancelEventArgs) Handles txttelefono.Validating
         Try
-            If DirectCast(sender, TextBox).Text.Length > 0 Then   'Si se deja vacio
+            If DirectCast(sender, TextBox).Text.Length > 0 And DirectCast(sender, TextBox).Text.Length < 8 Then   'Si se deja vacio
                 Me.ErrorValidacion.SetError(sender, "")
             Else
                 Me.ErrorValidacion.SetError(sender, "Es un campo obligatorio")
