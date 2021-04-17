@@ -1,4 +1,4 @@
---BASE 08/04/21
+--BASE 16/04/21
 
 --Base de Datos Proyecto Desarrollo de Software 
 CREATE DATABASE GraficaLCB 
@@ -61,8 +61,8 @@ CREATE TABLE ventas(
 	idcliente INT NOT NULL,
 	nombresClientes NVARCHAR(70) NOT NULL,
 
-CONSTRAINT FK_IDempleado FOREIGN KEY (idEmpleado) REFERENCES Empleados(idEmpleado),
- CONSTRAINT FK_IDcliente FOREIGN KEY (idcliente) REFERENCES clientes(idcliente)
+	CONSTRAINT FK_IDempleado FOREIGN KEY (idEmpleado) REFERENCES Empleados(idEmpleado),
+	CONSTRAINT FK_IDcliente FOREIGN KEY (idcliente) REFERENCES clientes(idcliente)
 );
 
 CREATE TABLE detalles_ventas(
@@ -605,4 +605,4 @@ SELECT idventa, SUM(cantidad) As 'Articulos',CONCAT('Lps.',' ',SUM(precio_V*cant
 FROM detalles_ventas
 GROUP BY idventa
 
-select * FROM vistaCalculo
+--select * FROM vistaCalculo

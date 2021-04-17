@@ -3,9 +3,8 @@ Imports System.Security.Cryptography
 Imports System.Text
 
 Public Class Conexion
-    'Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-8VGV6BL;Initial Catalog=GraficaLCB; Integrated Security=True")
-    Public conexion As SqlConnection = New SqlConnection("Data Source= HUGO-PC;Initial Catalog=GraficaLCB; Integrated Security=True")
-
+    Public conexion As SqlConnection = New SqlConnection("Data Source= localhost;Initial Catalog=GraficaLCB; Integrated Security=True")
+    'Public conexion As SqlConnection = New SqlConnection("Data Source= localhost;Initial Catalog=GraficaLCB; user id = sa; password = ")
     Private cmba As SqlCommandBuilder
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
